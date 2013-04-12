@@ -1,0 +1,493 @@
+/* ============================================================
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ * ============================================================ */ 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img,
+ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i,
+center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+blockquote, q {
+	quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ============================================================
+ * General
+ * ============================================================ */ 
+body {
+	margin: 0;
+	padding: 0;
+	background: #fcfcfc;
+	background: #f5f5f5;
+}
+
+body, div, p, th, td, li {
+	color: #3a3a3a;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+a {
+	color: #0088cc;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+p {
+	margin-bottom: 6px;
+}
+
+i {
+	font-style: italic;
+}
+
+ul {
+	margin: 0;
+}
+
+h1, h2, h3 {
+	font-family: "Source Sans Pro", sans-serif;
+	line-height: 1em;
+}
+
+table {
+	margin: 12px 0;
+	width: 100%;
+}
+
+th {
+	padding: 4px 8px;
+	background: #F5F5F5;
+	border: 1px solid #E0E0E0;
+	font-family: "Source Sans Pro",sans-serif;
+	font-weight: bold;
+	text-align: left;
+}
+
+td {
+	border: 1px solid #E0E0E0;
+	padding: 2px 8px;
+	vertical-align: top;
+	text-align: left;
+}
+
+td.code {
+	font-family: "Source Code Pro";
+	font-size: 14px;
+	width: 150px;
+}
+
+code {
+	display: inline-block;
+	margin: 0 0 2px 0;
+	padding: 0 4px;
+	background: #F8F8F8;
+	border: 1px solid #E0E0E0;
+	border-radius: 3px 3px 3px 3px;
+	color: #DD1144;
+	font-family: "Source Code Pro";
+	font-size: 14px;
+	white-space: pre;
+}
+
+code > code {
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: none;
+	color: #ffffff;
+}
+
+code > code.important {
+	background: #595b66;
+}
+
+pre > code {
+	display: block;
+	margin: 12px 0;
+	padding: 12px 20px;
+	background: #292b36;
+	border: none;
+	border-radius: 8px;
+	color: #ffffff;
+}
+
+pre.example > code {
+	background: #f5f5f5;
+	border: #e0e0e0 1px solid;
+	color: #3a3a3a;
+}
+
+pre.example > code > code {
+	color: inherit;
+}
+
+strong {
+	font-weight: bold;
+}
+
+/* ============================================================
+ * Container
+ * ============================================================ */ 
+.container {
+	width: 940px;
+	margin: 0 auto;
+	background: #f5f5f5;
+	background: #fcfcfc;
+}
+
+.container:before,
+.container:after {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+.container:after {
+	clear: both;
+}
+
+/* ============================================================
+ * Alignment
+ * ============================================================ */ 
+.clearfix {
+	*zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	line-height: 0;
+	content: "";
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.pull-right {
+	float: right;
+}
+
+.pull-left {
+	float: left;
+}
+
+/* ============================================================
+ * Span
+ * ============================================================ */ 
+.span1 { width: 72px; }
+.span2 { width: 144px; }
+.span3 { width: 216px; }
+.span4 { width: 288px; }
+.span5 { width: 360px; }
+.span6 { width: 432px; }
+.span7 { width: 504px; }
+.span8 { width: 576px; }
+.span9 { width: 648px; }
+.span10 { width: 720px; }
+.span11 { width: 792px; }
+.span12 { width: 864px; }
+
+/* ============================================================
+ * Different Elements
+ * ============================================================ */
+#forkme img {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+@media all and (max-width:1200px) {
+	#forkme img {
+		top: 52px;
+	}
+}
+
+@media all and (max-width:930px) {
+	#forkme img {
+		display: none;
+	}
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.label {
+	display: inline-block;
+	padding: 2px 4px;
+	background-color: #999999;
+	border-radius: 3px 3px 3px 3px;
+	color: #FFFFFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 14px;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	vertical-align: baseline;
+	white-space: nowrap;
+}
+
+.label-optional {
+	float: right;
+}
+
+/* ============================================================
+ * Nav: Top
+ * ============================================================ */ 
+nav.nav-top {
+	position: relative;
+	position: fixed;
+	width: 100%;
+	z-Index: 1;
+	background: #0088cc;
+	min-height: 52px;
+}
+
+nav.nav-top ul {
+	width: 940px;
+	margin: 0 auto;
+	text-align: right;
+}
+
+nav.nav-top ul > li {
+	display: inline-block;
+}
+
+nav.nav-top ul > li:last-child {
+	padding-right: 22px;
+}
+
+nav.nav-top ul > li > a {
+	display: block;
+	padding: 16px 11px;
+	color: #ffffff;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 20px;
+	text-transform: uppercase;
+	text-decoration: none;
+	line-height: 1em;
+}
+
+nav.nav-top ul > li > a:hover {
+	background: #0074ae;
+	text-decoration: none;
+}
+
+/* ============================================================
+ * Header
+ * ============================================================ */
+header {
+	margin: 52px 38px 40px 38px;
+}
+
+header:before,
+header:after {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+header:after {
+	clear: both;
+}
+
+header h1 {
+	margin: 28px 0 0 2px;
+	color: #0088cc;
+	font-size: 96px;
+	font-weight: bold;
+	line-height: 1em;
+	text-shadow: 0 -1px 0 rgba(0, 115, 173, .8), -1px -1px 0 rgba(0, 115, 173, .8), -1px 0 0 rgba(0, 115, 173, .8), 1px 1px 1px rgba(255, 255, 255, .5);
+}
+
+header h2 {
+	margin: 8px 0 40px 0;
+	color: #b7b7b7;
+	font-size: 38px;
+	font-weight: bold;
+	line-height: 1em;
+	text-shadow: 0 -1px 0 rgba(128, 128, 128, .75)
+}
+
+header p {
+	font-weight: bold;
+}
+
+header a > img {
+	border: #bbbbbb 1px solid;
+}
+
+/* ============================================================
+ * Aside
+ * ============================================================ */ 
+aside {
+	float: left;
+	width: 220px;
+	margin-right: 20px;
+	display: block;
+	min-height: 1px;
+}
+
+/* ============================================================
+ * Nav: Main
+ * ============================================================ */
+nav.nav-main ul > li > a {
+	display: block;
+	padding: 6px 12px 6px 12px;
+	color: #3a3a3a;
+	line-height: 1em;
+	text-decoration: none;
+}
+
+nav.nav-main ul > li.nav-header > a {
+	margin-top: 18px;
+	padding: 6px 2px 6px 2px;
+	color: #0088cc;
+	font-size: 18px;
+	line-height: 1em;
+}
+
+nav.nav-main ul > li.nav-header:first-child > a {
+	margin-top: 0;
+}
+
+nav.nav-main ul > li > a:hover {
+	background: #0088cc;
+	color: #ffffff;
+	text-decoration: none;
+}
+
+/* ============================================================
+ * Main
+ * ============================================================ */ 
+#main {
+	margin: 0 38px 0 38px;
+}
+
+#main:before,
+#main:after {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+#main:after {
+	clear: both;
+}
+
+/* ============================================================
+ * Content
+ * ============================================================ */ 
+#content {
+	float: left;
+	display: block;
+	width: 624px;
+}
+
+#content h1 {
+	margin: 60px 0 20px 0;
+	color: #0088cc;
+	font-size: 28px;
+	font-weight: bold;
+	line-height: 1em;
+}
+
+#content section:first-child h1 {
+	margin-top: 0;
+}
+
+#content h2 {
+	margin: 40px 0 20px 0;
+	color: #0088cc;
+	font-size: 24px;
+	font-weight: bold;
+	line-height: 1em;
+}
+
+#content h3 {
+	margin: 18px 0 10px 0;
+	color: #808080;
+	font-size: 20px;
+	font-weight: normal;
+	line-height: 1em;
+}
+
+/* nth-child 1=h1, 2=article */ 
+#content section>:nth-child(2) h2 {
+	margin-top: 0;
+}
+
+#content ul {
+	list-style: disc;
+	margin: 8px 0 8px 20px;
+}
+
+/* ============================================================
+ * Footer
+ * ============================================================ */ 
+footer {
+	min-height: 45px;
+	margin-top: 60px;
+	padding: 0 38px;
+	background: #7a7a7a;
+}
+
+footer:before,
+footer:after {
+	content: "";
+	display: table;
+	line-height: 0;
+}
+
+footer:after {
+	clear: both;
+}
+
+footer img {
+	margin: 1px 0 0 30px;
+}
+
+footer .pull-left img {
+	margin: 8px 0 0 0px;
+}

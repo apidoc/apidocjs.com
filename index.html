@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>apiDoc - Inline Documentation for RESTful web APIs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+	<link href="css/style.css" rel="stylesheet" media="screen">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon">
+</head>
+<body>
+
+<nav class="nav-top">
+	<a id="forkme" href="https://github.com/apidoc/apidoc"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+	<ul>
+		<li><a href="#getting-started">Getting started</a></li>
+		<li><a href="#examples">Examples</a></li>
+		<li><a href="#params">APIDOC-Params</a></li>
+	</ul>
+</nav>
+
+<div class="container">
+
+<header role="banner">
+	<h1>APIDOC</h1>
+	<h2>Inline Documentation for RESTful web APIs</h2>
+	<div class="pull-left span8">
+		<p>apidoc creates a documentation of your application from the in your source code embedded descriptions.</p>
+		<p>An integrated template creates a standalone executable website with the API documentation. Own templates can be used.</p>
+		<p>Highlight is an API history, with that various API version levels can be compared. So you or a frontend developer can retrace what changes in the API since the last version.</p>
+		<p class="pull-right"><a href="example/">watch demo output &raquo;</a></p>
+	</div>
+	<div class="pull-right">
+		<a href="example/"><img src="img/example.png" width="241" height="171" alt="Example" title="Example output of a generated apidoc"></a>
+	</div>
+</header>
+
+<div id="main">
+	<aside>
+		<nav class="nav-main" role="navigation">
+			<ul>
+				<li class="nav-header"><a href="#getting-started">Getting started</a></li>
+				<li><a href="#install">Install</a></li>
+				<li><a href="#configure">Configure</a></li>
+				<li><a href="#run">Run</a></li>
+				<li><a href="#grunt-module">GRUNT Module</a></li>
+				<li><a href="#template">Template</a></li>
+				<li><a href="#extend">Extend</a></li>
+				<li class="nav-header"><a href="#examples">Examples</a></li>
+				<li><a href="#example-basic">Basic</a></li>
+				<li><a href="#example-inherit">Inherit</a></li>
+				<li><a href="#example-versioning">Versioning</a></li>
+				<li><a href="#example-full">Full example (all together)</a></li>
+				<li id="nav-main-params" class="nav-header"><a href="#params">apiDoc-Params</a></li>
+				<li><a href="#param-api">@api</a></li>
+				<li><a href="#param-api-define-error-structure">@apiDefineErrorStructure</a></li>
+				<li><a href="#param-api-define-permission">@apiDefinePermission</a></li>
+				<li><a href="#param-api-define-structure">@apiDefineStructure</a></li>
+				<li><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
+				<li><a href="#param-api-description">@apiDescription</a></li>
+				<li><a href="#param-api-error">@apiError</a></li>
+				<li><a href="#param-api-error-example">@apiErrorExample</a></li>
+				<li><a href="#param-api-error-structure">@apiErrorStructure</a></li>
+				<li><a href="#param-api-example">@apiExample</a></li>
+				<li><a href="#param-api-group">@apiGroup</a></li>
+				<li><a href="#param-api-name">@apiName</a></li>
+				<li><a href="#param-api-param">@apiParam</a></li>
+				<li><a href="#param-api-permission">@apiPermission</a></li>
+				<li><a href="#param-api-structure">@apiStructure</a></li>
+				<li><a href="#param-api-success">@apiSuccess</a></li>
+				<li><a href="#param-api-success-example">@apiSuccessExample</a></li>
+				<li><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
+				<li><a href="#param-api-version">@apiVersion</a></li>
+			</ul>
+		</nav>
+	</aside>
+	<div id="content" role="main">
+
+<!--
+ /* ============================================================
+  * Getting started
+  * ============================================================ */
+-->
+<section id="getting-started">
+	<h1>Getting started</h1>
+
+	<article id="install">
+		<h2>Install</h2>
+		<pre><code>npm install apidoc -g</code></pre>
+	</article>
+
+	<article id="configure">
+		<h2>Configure</h2>
+		<p>Without any parameter, apiDoc generate a documentation from all .js files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
+		<p>Show command line parameters:</p>
+		<pre><code>apidoc -h</code></pre>
+
+		<p>Important parameters:</p>
+		<table>
+			<thead>
+			<tr>
+				<th>Parameter</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code nowrap">-f, --file-filters</td>
+				<td>
+					RegEx-Filter to select files that should be parsed (many -f can be used). Default <code>*.js</code>.<br>
+					<br>
+					Example (parse all .js and .md files):<br>
+					<code>apidoc -f ".*\\.js$" -f ".*\\.md$"</code>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="code">-i, --input</td>
+				<td>
+					Input / source dirname. Location of your project files.<br>
+					<br>
+					Example:<br>
+					<code>apidoc -i myapp/</code>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="code">-o, --output</td>
+				<td>
+					Output dirname. Location where to put to generated documentation.<br>
+					<br>
+					Example:<br>
+					<code>apidoc -o apidoc/</code>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="code">-t, --template</td>
+				<td>
+					Use template for output files. You can create and use your own template.<br>
+					<br>
+					Example:<br>
+					<code>apidoc -t mytemplate/</code>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+	</article>
+
+	<article id="run">
+		<h2>Run</h2>
+		<pre><code>apidoc -i myapp/ -o apidoc/ -t mytemplate/</code></pre>
+		<p>Creates an apiDoc of all <code>*.js</code> files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
+	</article>
+
+	<article id="grunt-module">
+		<h2>GRUNT Module</h2>
+		<p>
+			A separate grunt module is supported, visit <a href="https://github.com/apidoc/grunt-apidoc">github.com/apidoc/grunt-apidoc</a><br>
+			or install via npm:
+		</p>
+		<pre><code>npm install grunt-apidoc --save-dev</code></pre>
+	</article>
+
+	<article id="template">
+		<h2>Template</h2>
+		<p>apiDoc include 2 similar templates. Both templates use <a href="http://handlebarsjs.com">handlebars</a>, <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, <a href="http://requirejs.org/">RequireJS</a> and <a href="http://jquery.com">jQuery</a> for the output of the generated <code>api_data.js</code> and <code>api_project.js</code> as html-page.</p>
+
+		<h3>default (complex with versioning and compare)</h3>
+		<p>By default the generated apiDoc use a complex Template, which support</p>
+		<ul>
+			<li>versioning: view different versions of your API</li>
+			<li>compare: view changes between two versions of your API</li>    
+		</ul>
+		<p><a href="example/">view default demo</a></p> 
+		
+		<h3>basic</h3>
+		<p>Only view the latest Data of your API (simpler template and less js).</p>
+		<p>Use with the full path to apiDoc: <code>apidoc -t /usr/local/lib/node_modules/apidoc/template_basic/</code></p>
+		<p><a href="example_basic/">view basic demo</a></p>
+
+		<h3>Create your own</h3>
+		<p>The basic Template is a good place to start and study the template usage.</p>
+		<p>You can create your own template and use the apiDoc generated files <code>api_data.js</code>, <code>api_project.js</code>, or json only files <code>api_data.json</code>, <code>api_project.json</code>.</p>
+	</article>
+
+	<article id="extend">
+		<h2>Extend</h2>
+		<p>apiDoc can be extended with own parameters (if you miss something). Look at the <code>lib/plugins/</code> dir for examples. <code>parser</code> split the parameter data, <code>worker</code> processes additional functions with all found data and <code>filter</code> reduce the data to needed things.</p>
+		<p>Example usage: <code>apidoc --parse-filters myFilter=pathToMyFilter/myFilter.js</code></p>
+		<p>Or easier: <a href="https://github.com/apidoc/apidoc">fork</a> the whole project ;-)</p>
+	</article>
+</section>
+
+<!--
+ /* ============================================================
+  * Examples
+  * ============================================================ */
+-->
+<section id="examples">
+	<h1>Examples</h1>
+
+	<article id="example-basic">
+		<h2>Basic</h2>
+		<p>In this basic example we have a small project file and a package.json.</p>
+		<p><a href="example_basic/">View example output</a></p>
+		<p><br></p>
+
+		<p><a href="source/example_basic/package.json">package.json</a></p>
+		<pre><code>{
+  "name": "example",
+  "version": "0.1.0",
+  "description": "A basic apiDoc example"
+}</code></pre>
+		<p>From <code>package.json</code> apiDoc get the name, version and description of your project.<br>
+		The file is <code>optional</code> (it depend on your template if the data is required).</p>
+		<p><br></p>
+
+		<p><a href="source/example_basic/example.js">example.js</a></p>
+		<pre><code>/**
+ * <code class="important">@api {get} /user/:id Request User information</code>
+ * <code class="important">@apiName GetUser</code>
+ * <code class="important">@apiGroup User</code>
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ *
+ * @apiError UserNotFound The <code>id</code> of the User was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */</code></pre>
+
+		<p>A documentation block starts with <code>/**</code> and end with <code>*/</code>.</p>
+		<p>This example describes a <code>GET</code> Method to request the User Information by the users <code>id</code>.</p>
+		<p><code>@api {get} /user/:id Request User information</code> is required, without <code>@api</code> apiDoc ignores a documentation block.</p>
+		<p><code>@apiName</code> is a <code>unique</code> name and should always be used.<br>
+		Format: <i>method</i> + <i>path</i> (e.g. Get + User)</p> 
+		<p><code>@apiGroup</code> should always be used, under that name will this method be grouped.</p>
+		<p>All other fields are optional, look at their description under <a href="#params">apiDoc-Params</a>.</p>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="example-inherit">
+		<h2>Inherit</h2>
+		<p>Inherit mean, that you can define parts of your documentation that shall be used many times.</p>
+		<p><a href="example_inherit/">View example output</a></p>
+		<p><br></p>
+		
+		<p><a href="source/example_inherit/package.json">package.json</a></p>
+		<pre><code>{
+  "name": "example-inherit",
+  "version": "0.1.0",
+  "description": "A apiDoc inherit example"
+}</code></pre>
+		<p><br></p>
+
+		<p><a href="source/example_inherit/example.js">example.js</a></p>
+		<pre><code>/**
+ * <code class="important">@apiDefineErrorStructure UserNotFoundError</code>
+ *
+ * @apiError UserNotFound The <code>id</code> of the User was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */
+
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ *
+ * <code class="important">@apiErrorStructure UserNotFoundError</code>
+ */
+
+/**
+ * @api {put} /user/ Modify User information
+ * @apiName PutUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id          Users unique ID.
+ * @apiParam {String} [firstname] Firstname of the User.
+ * @apiParam {String} [lastname]  Lastname of the User.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *
+ * <code class="important">@apiErrorStructure UserNotFoundError</code>
+ */</code></pre>
+		<p>
+			In this case a block named <code>UserNotFoundError</code> is defined with <code>@apiDefineErrorStructure</code>.<br>
+			That block could be used many times with <code>@apiErrorStructure UserNotFoundError</code>.
+		</p>
+		<p>In the generated output, both methods <code>GET and PUT</code> will have the complete UserNotFoundError documentation.</p>
+		<p><br></p>
+		<p>
+			Inherit define commands are <code>apiDefineErrorStructure</code>, <code>apiDefinePermission</code>, <code>apiDefineStructure</code> and <code>apiDefineSuccessStructure</code>.<br>
+			Use names are <code>apiErrorStructure</code>, <code>apiPermission</code>, <code>apiStructure</code> and <code>apiSuccessStructure</code>.
+		</p>
+		<p>At the moment inherit use only 1 parent, more levels would make the inline code unreadable and changes really complex.</p>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="example-versioning">
+		<h2>Versioning</h2>
+		<p>Nice feature is the keeping of previous defined documentation blocks. That makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and modify their code.</p>
+		<p><a href="example_versioning/">View example output</a></p>
+		<p>In the example, click top right on select box (the main version) and select <code>Compare all with predecessor</code>.</p>
+		<ul>
+			<li>The main navigation mark all changed methods with a green bar.</li>
+			<li>Each method show the difference to its predecessor.</li>
+			<li>Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
+			<li>Red marks contents that were removed.</li>
+		</ul>
+		<p>You can change the main version (top right) to a previous version and compare older methods with their predecessor.</p>	
+		<p><br></p>
+		
+		<p><a href="source/example_inherit/package.json">package.json</a></p>
+		<pre><code>{
+  "name": "example-versioning",
+  "version": "0.2.0",
+  "description": "A apiDoc versioning example"
+}</code></pre>
+		<p><br></p>
+
+		<p>So that your code not blow out with documentation blocks, i prefer to use a separate history file named <code>_apidoc.js</code>. Before you change your documentation block, copy the old block to to this file, that's all.</p>
+		<p><a href="source/example_versioning/_apidoc.js">_apidoc.js</a></p>
+		<pre><code>/**
+ * @api {get} /user/:id Get User information
+ * <code class="important">@apiVersion 0.1.0</code>
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ *
+ * @apiError UserNotFound The <code>id</code> of the User was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */</code></pre>
+
+		<p><a href="source/example_versioning/example.js">example.js</a> (your current project file)</p>
+		<pre><code>/**
+ * @api {get} /user/:id Get User information and Date of Registration.
+ * <code class="important">@apiVersion 0.2.0</code>
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname  Firstname of the User.
+ * @apiSuccess {String} lastname   Lastname of the User.
+ * @apiSuccess {Date}   registered Date of Registration.
+ *
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ *
+ * @apiError UserNotFound The <code>id</code> of the User was not found.
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */</code></pre>
+		<p>Important is to set the version with <code>@apiVersion</code> on every documentation block.</p>
+		<p><br></p>
+		<p>The version can be used on every block, also on inherit blocks. You don't have to change the version on an inherit block, the parser check automatically for the nearest predecessor.</p>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="example-full">
+		<h2>Full example (all together)</h2>
+		<p>This is a complex example with <code>inherit</code>, <code>versioning</code>, <code>API.md</code> file and history file <code>_apidoc.js</code>, explanation is within code and generated documentation.</p>
+		<p><a href="example/">View example output</a></p>
+		<p><br></p>
+		<p>Files:</p>
+		<ul>
+			<li><a href="source/example_full/_apidoc.js">_apidoc.js</a></li>
+			<li><a href="source/example_full/API.md">API.md</a></li>
+			<li><a href="source/example_full/example.js">example.js</a></li>
+			<li><a href="source/example_full/package.json">package.json</a></li>
+		</ul>
+	</article>
+</section>
+
+<!--
+ /* ============================================================
+  * Params
+  * ============================================================ */
+-->
+<section id="params">
+	<h1>apiDoc-Params</h1>
+
+	<article id="param-api">
+		<h2>@api</h2>
+		<pre><code>@api {method} path [title]</code></pre>
+		<p><strong>Required!</strong></p>
+		<p>Without that indicator, apiDoc parser ignore the documentation block.</p>
+		<p>Except definition blocks like <code>@apiDefineStructure</code>, they not need <code>@api</code>.</p>
+		<p>Usage: <code>@api {get} /user/:id Users unique ID.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">method</td>
+				<td>
+					Request method name: <code>DELETE</code>, <code>GET</code>, <code>POST</code>, <code>PUT</code>, ...<br>
+					More info <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">Wikipedia HTTP-Request_methods</a>
+				</td>
+			</tr>
+			<tr>
+				<td class="code">path</td>
+				<td>Request Path.</td>
+			</tr>
+			<tr>
+				<td class="code">title <span class="label label-optional">optional</span></td>
+				<td>A short title. (used for navigation and article header)</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ */</code></pre>
+	</article>
+	
+<!-- ============================================================ -->
+
+	<article id="param-api-define-error-structure">
+		<h2>@apiDefineErrorStructure</h2>
+		<pre><code>@apiDefineErrorStructure name</code></pre>
+		<p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+		<p>Should be used to define Error Parameters, like <code>@apiError</code>, <code>@apiErrorExample</code>.</p>
+		<p>Usage: <code>@apiDefineErrorStructure MyError</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name for the block.<br>
+					Same name with different <code>@apiVersion</code> can be defined.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiDefineErrorStructure MyError
+ * @apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiErrorStructure MyError
+ */</code></pre>
+		<p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+	</article>
+	
+<!-- ============================================================ -->
+
+	<article id="param-api-define-permission">
+		<h2>@apiDefinePermission</h2>
+		<pre><code>@apiDefinePermission name [title]
+                     [description]</code></pre>
+		<p>Defines a permission as a draft to be used in normal <code>@api</code> blocks.</p>
+		<p>Usage: <code>@apiDefinePermission admin</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name for the Permission.<br>
+					Same name with different <code>@apiVersion</code> can be defined.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">title <span class="label label-optional">optional</span></td>
+				<td>
+					A short title.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description <span class="label label-optional">optional</span></td>
+				<td>
+					Detailed Description start at the next line, multiple lines can be used.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiDefinePermission admin Admin access rights needed. 
+ * Optionally you can write here further Informations about the permission.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiPermission admin
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-define-structure">
+		<h2>@apiDefineStructure</h2>
+		<pre><code>@apiDefineStructure name</code></pre>
+		<p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+		<p>Should be used to define normal Parameters, like <code>@apiParam</code>, <code>@apiExample</code></p>
+		<p>Usage: <code>@apiDefineStructure MyName</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name for the block.<br>
+					Same name with different <code>@apiVersion</code> can be defined.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiDefineStructure MyName
+ * @apiParam {Number} id Users unique ID.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiStructure MyName
+ */</code></pre>
+		<p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-define-success-structure">
+		<h2>@apiDefineSuccessStructure</h2>
+		<pre><code>@apiDefineSuccessStructure name</code></pre>
+		<p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+		<p>Should be used to define Success Parameters, like <code>@apiSuccess</code>, <code>@apiSuccessExample</code>.</p>
+		<p>Usage: <code>@apiDefineSuccessStructure MySuccess</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name for the block.<br>
+					Same name with different <code>@apiVersion</code> can be defined.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiDefineSuccessStructure MySuccess
+ * @apiSuccess {String} firstname Firstname of the User.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiSuccessStructure MySuccess
+ */</code></pre>
+		<p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-description">
+		<h2>@apiDescription</h2>
+		<pre><code>@apiDescription text</code></pre>
+		<p>Detailed description of the API Method.</p>
+		<p>Usage: <code>@apiDescription This is the Description.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">text</td>
+				<td>Multiline description text.</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiDescription This is the Description.
+ * It is multiline capable.
+ *
+ * Last line of Description.
+ */
+</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-error">
+		<h2>@apiError</h2>
+		<pre><code>@apiError [{type}] field [description]</code></pre>
+		<p>Error return Parameter.</p>
+		<p>Usage: <code>@apiError UserNotFound</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">{type}<span class="label label-optional">optional</span></td>
+				<td>
+					Return type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+				</td>
+			</tr>
+			<tr>
+				<td class="code">field</td>
+				<td>
+					Return Identifier (returned error code).
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description<span class="label label-optional">optional</span></td>
+				<td>
+					Description of the field.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-error-example">
+		<h2>@apiErrorExample</h2>
+		<pre><code>@apiErrorExample [title]
+                 example</code></pre>
+		<p>Example of an error return message, output as a pre-formatted code.</p>
+		<p>Usage: <code>@apiErrorExample Error-Response:<br>                 This is an example.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">title<span class="label label-optional">optional</span></td>
+				<td>
+					Short title for the example.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">example</td>
+				<td>
+					Detailed example, multilines capable.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": "UserNotFound"
+ *     }
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-error-structure">
+		<h2>@apiErrorStructure</h2>
+		<pre><code>@apiErrorStructure name</code></pre>
+		<p>Include a with <code>@apiDefineErrorStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Usage: <code>@apiErrorStructure MyError</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Name of the defined error block.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiErrorStructure MyError
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-example">
+		<h2>@apiExample</h2>
+		<pre><code>@apiExample [title]
+            example</code></pre>
+		<p>Example for usage of an API method. Output as a pre-formatted code.</p>
+		<p>Usage: <code>@apiExample Example usage:<br>            This is an example.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">title<span class="label label-optional">optional</span></td>
+				<td>
+					Short title for the example.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">example</td>
+				<td>
+					Detailed example, multilines capable.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiExample Example usage:
+ *     curl -i http://localhost/user/4711
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-group">
+		<h2>@apiGroup</h2>
+		<pre><code>@apiGroup name</code></pre>
+		<p><strong>Should always be used.</strong></p>
+		<p>Defines to which group the method documentation block belongs. Groups will be used for the Main-Navigation in the generated output. Structure definition not need <code>@apiGroup</code>.</p>
+		<p>Usage: <code>@apiGroup User</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Name of the group. Also used as navigation title. 
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiGroup User
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-name">
+		<h2>@apiName</h2>
+		<pre><code>@apiName name</code></pre>
+		<p><strong>Should always be used.</strong></p>
+		<p>Defines the name of the method documentation block. Names will be used for the Sub-Navigation in the generated output. Structure definition not need <code>@apiName</code>.</p>
+		<p>Usage: <code>@apiName GetUser</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name of the method. Same name with different <code>@apiVersion</code> can be defined.<br>
+					Format: <i>method</i> + <i>path</i> (e.g. Get + User), only a proposal, you can name as you want.<br>
+					Also used as navigation title.<br>
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiName GetUser
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-param">
+		<h2>@apiParam</h2>
+		<pre><code>@apiParam [{type}] [field=defaultValue] [description]</code></pre>
+		<p>A parameter when call the method.</p>
+		<p>Usage: <code>@apiParam {Number} id Users unique ID.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">{type}<span class="label label-optional">optional</span></td>
+				<td>
+					Parameter type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+				</td>
+			</tr>
+			<tr>
+				<td class="code">field</td>
+				<td>
+					Variablename.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">[field]</td>
+				<td>
+					Fieldname with brackets define the Variable as optional.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">=devaultValue<span class="label label-optional">optional</span></td>
+				<td>
+					The parameters default value.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description<span class="label label-optional">optional</span></td>
+				<td>
+					Description of the field.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Examples:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiParam {Number} id Users unique ID.
+ */
+
+/**
+ * @api {post} /user/
+ * @apiParam {String} [firstname]  Optional Firstname of the User.
+ * @apiParam {String} lastname     Mandatory Lastname.
+ * @apiParam {String} country="DE" Mandatory with default value "DE".
+ * @apiParam {String} [age=18]     Optional Age with default 18.
+ */
+ </code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-permission">
+		<h2>@apiPermission</h2>
+		<pre><code>@apiPermission name</code></pre>
+		<p>Outputs the permission name. If the name is defined with <code>@apiDefinePermission</code> the generated documentation include the additional title and description.</p>
+		<p>Usage: <code>@apiPermission admin</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Unique name of the permission.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiPermission none
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-structure">
+		<h2>@apiStructure</h2>
+		<pre><code>@apiStructure name</code></pre>
+		<p>Include a with <code>@apiDefineStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Usage: <code>@apiStructure MyStructure</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Name of the defined block.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiStructure MyStructure
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-success">
+		<h2>@apiSuccess</h2>
+		<pre><code>@apiSuccess [{type}] field [description]</code></pre>
+		<p>Success return Parameter.</p>
+		<p>Usage: <code>@apiSuccess UserNotFound</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">{type}<span class="label label-optional">optional</span></td>
+				<td>
+					Return type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+				</td>
+			</tr>
+			<tr>
+				<td class="code">field</td>
+				<td>
+					Return Identifier (returned success code).
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description<span class="label label-optional">optional</span></td>
+				<td>
+					Description of the field.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-success-example">
+		<h2>@apiSuccessExample</h2>
+		<pre><code>@apiSuccessExample [title]
+                   example</code></pre>
+		<p>Example of a success return message, output as a pre-formatted code.</p>
+		<p>Usage: <code>@apiSuccessExample Success-Response:<br>                   This is an example.</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">title<span class="label label-optional">optional</span></td>
+				<td>
+					Short title for the example.
+				</td>
+			</tr>
+			<tr>
+				<td class="code">example</td>
+				<td>
+					Detailed example, multilines capable.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccessExample Success-Response:
+ *     HTTP/1.1 200 OK
+ *     {
+ *       "firstname": "John",
+ *       "lastname": "Doe"
+ *     }
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-success-structure">
+		<h2>@apiSuccessStructure</h2>
+		<pre><code>@apiSuccessStructure name</code></pre>
+		<p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Usage: <code>@apiSuccessStructure MySuccess</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">name</td>
+				<td>
+					Name of the defined success block.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccessStructure MySuccess
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-version">
+		<h2>@apiVersion</h2>
+		<pre><code>@apiVersion version</code></pre>
+		<p>Set the version of an documentation block. Version can also be defined in <code>@apDefineErrorStructure</code>, <code>@apDefinePermission</code>, <code>@apDefineStructure</code> and <code>@apDefineSuccessStructure</code>.</p>
+		<p>Blocks with same group and name, but different versions can be compared in the generated output, so you or a frontend developer can retrace what changes in the API since the last version.</p>
+		<p>Usage: <code>@apiVersion 1.6.2</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">version</td>
+				<td>
+					Simple versioning supported (major.minor.patch). More info on <a href="http://semver.org">Semantic Versioning Specification (SemVer)</a>.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiVersion 1.6.2
+ */</code></pre>
+ 		<p>For more watch <a href="#example-versioning">versioning example</a>.</p>
+	</article>
+
+<!-- ============================================================ -->
+</section>
+
+<!--
+ /* ============================================================
+  * License
+  * ============================================================ */
+-->
+<section id="license">
+	<article>
+		<h1>MIT License</h1>
+		<p>
+			<a href="https://github.com/apidoc/apidoc/blob/master/LICENSE.md">github.com/apidoc/apidoc/blob/master/LICENSE.md</a><br>
+			Copyright (c) 2013 inveris OHG<br>
+			Author Peter Rottmann
+		</p>
+		<p><br></p>
+		
+		<p>Contact, support and error reporting on GitHub: <a href="https://github.com/apidoc/grunt-apidoc/issues">github.com/apidoc/apidoc/issues</a></p>
+	</article>
+</section>
+
+	</div><!-- /#content -->
+</div><!-- /#main -->
+
+<footer class="contentinfo">
+	<div class="pull-left">
+		<a href="http://www.inveris.de"><img src="img/logo_inveris.png" width="145" height="27" alt="inveris OHG" title="apiDoc development supported by inveris"></a>
+	</div>
+	<div class="pull-right">
+		<a href="http://nodejs.org"><img src="img/logo_node.png" width="160" height="43" alt="Node.js" title="Build with Node.js"></a>
+		<a href="https://npmjs.org/package/apidoc"><img src="img/logo_npm.png" width="110" height="43" alt="npm" title="apiDoc on Node Packaged Modules"></a>
+		<a href="https://github.com/apidoc/apidoc"><img src="img/logo_github.png" width="96" height="43" alt="GitHub" title="apiDoc hosted on GitHub"></a>
+	</div>
+</footer>
+
+</div><!-- /.container -->
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-40027356-1', 'apidocjs.com'); ga('send', 'pageview');</script>
+<script>
+$(document).ready(function() {
+	var headerSize = 70;
+	// Anchor scroll.
+	$("a").each(function() {
+		if($(this).attr("href").substr(0, 1) === "#")
+		{
+			$(this).on("click", function(e) {
+				e.preventDefault();
+				var id = $(this).attr("href");
+				$("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 300);
+				window.location.hash = $(this).attr("href");
+			}); // each
+		}
+	});
+	if(window.location.hash)
+	{
+		var id = window.location.hash;
+		$("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 0);
+	}
+
+	// Simple fix nav-main Scrollposition (no-resize).
+	var $window = $(window);
+	var $nav = $(".nav-main");
+	var $params = $("#nav-main-params");
+	var maxMove = $params.offset().top - headerSize;
+	var height = $nav.height() - ($params.position().top - $nav.position().top) + headerSize;
+	function moveNav()
+	{
+ 		if($window.scrollTop() > maxMove) $nav.css({ marginTop: $window.scrollTop() - maxMove });
+		else $nav.css({ marginTop: 0 });
+	} // moveNav
+	// Enable if screen is heigh enough.
+	if($window.height() >= height)
+	{
+		moveNav();
+	  $window.scroll(function() { moveNav(); });
+	}
+});
+</script>
+</body>
+</html>
