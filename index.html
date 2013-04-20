@@ -12,10 +12,10 @@
 
 <nav class="nav-top">
 	<a id="forkme" href="https://github.com/apidoc/apidoc"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-	<ul>
-		<li><a href="#getting-started">Getting started</a></li>
-		<li><a href="#examples">Examples</a></li>
-		<li><a href="#params">APIDOC-Params</a></li>
+	<ul role="list">
+		<li role="listitem"><a href="#getting-started">Getting started</a></li>
+		<li role="listitem"><a href="#examples">Examples</a></li>
+		<li role="listitem"><a href="#params">APIDOC-Params</a></li>
 	</ul>
 </nav>
 
@@ -25,9 +25,9 @@
 	<h1>APIDOC</h1>
 	<h2>Inline Documentation for RESTful web APIs</h2>
 	<div class="pull-left span8">
-		<p>apidoc creates a documentation of your application from the in your source code embedded descriptions.</p>
-		<p>An integrated template creates a standalone executable website with the API documentation. Own templates can be used.</p>
-		<p>Highlight is an API history, with that various API version levels can be compared. So you or a frontend developer can retrace what changes in the API since the last version.</p>
+		<p>apiDoc creates a documentation of your embedded API descriptions in your application source code.</p>
+		<p>With an integrated template you generate a standalone usable website with the API documentation. Own templates can be used.</p>
+		<p>Highlight is an API history, with that various API version levels can be compared. So you, or a frontend developer, can retrace what changes in the API since the last version.</p>
 		<p class="pull-right"><a href="example/">watch demo output &raquo;</a></p>
 	</div>
 	<div class="pull-right">
@@ -38,39 +38,39 @@
 <div id="main">
 	<aside>
 		<nav class="nav-main" role="navigation">
-			<ul>
-				<li class="nav-header"><a href="#getting-started">Getting started</a></li>
-				<li><a href="#install">Install</a></li>
-				<li><a href="#configure">Configure</a></li>
-				<li><a href="#run">Run</a></li>
-				<li><a href="#grunt-module">GRUNT Module</a></li>
-				<li><a href="#template">Template</a></li>
-				<li><a href="#extend">Extend</a></li>
-				<li class="nav-header"><a href="#examples">Examples</a></li>
-				<li><a href="#example-basic">Basic</a></li>
-				<li><a href="#example-inherit">Inherit</a></li>
-				<li><a href="#example-versioning">Versioning</a></li>
-				<li><a href="#example-full">Full example (all together)</a></li>
-				<li id="nav-main-params" class="nav-header"><a href="#params">apiDoc-Params</a></li>
-				<li><a href="#param-api">@api</a></li>
-				<li><a href="#param-api-define-error-structure">@apiDefineErrorStructure</a></li>
-				<li><a href="#param-api-define-permission">@apiDefinePermission</a></li>
-				<li><a href="#param-api-define-structure">@apiDefineStructure</a></li>
-				<li><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
-				<li><a href="#param-api-description">@apiDescription</a></li>
-				<li><a href="#param-api-error">@apiError</a></li>
-				<li><a href="#param-api-error-example">@apiErrorExample</a></li>
-				<li><a href="#param-api-error-structure">@apiErrorStructure</a></li>
-				<li><a href="#param-api-example">@apiExample</a></li>
-				<li><a href="#param-api-group">@apiGroup</a></li>
-				<li><a href="#param-api-name">@apiName</a></li>
-				<li><a href="#param-api-param">@apiParam</a></li>
-				<li><a href="#param-api-permission">@apiPermission</a></li>
-				<li><a href="#param-api-structure">@apiStructure</a></li>
-				<li><a href="#param-api-success">@apiSuccess</a></li>
-				<li><a href="#param-api-success-example">@apiSuccessExample</a></li>
-				<li><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
-				<li><a href="#param-api-version">@apiVersion</a></li>
+			<ul role="list">
+				<li role="listitem" class="nav-header"><a href="#getting-started">Getting started</a></li>
+				<li role="listitem"><a href="#install">Install</a></li>
+				<li role="listitem"><a href="#run">Run</a></li>
+				<li role="listitem"><a href="#configure">Configure</a></li>
+				<li role="listitem"><a href="#grunt-module">GRUNT Module</a></li>
+				<li role="listitem"><a href="#template">Template</a></li>
+				<li role="listitem"><a href="#extend">Extend</a></li>
+				<li role="listitem" class="nav-header"><a href="#examples">Examples</a></li>
+				<li role="listitem"><a href="#example-basic">Basic</a></li>
+				<li role="listitem"><a href="#example-inherit">Inherit</a></li>
+				<li role="listitem"><a href="#example-versioning">Versioning</a></li>
+				<li role="listitem"><a href="#example-full">Full example (all together)</a></li>
+				<li role="listitem" id="nav-main-params" class="nav-header"><a href="#params">apiDoc-Params</a></li>
+				<li role="listitem"><a href="#param-api">@api</a></li>
+				<li role="listitem"><a href="#param-api-define-error-structure">@apiDefineErrorStructure</a></li>
+				<li role="listitem"><a href="#param-api-define-permission">@apiDefinePermission</a></li>
+				<li role="listitem"><a href="#param-api-define-structure">@apiDefineStructure</a></li>
+				<li role="listitem"><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
+				<li role="listitem"><a href="#param-api-description">@apiDescription</a></li>
+				<li role="listitem"><a href="#param-api-error">@apiError</a></li>
+				<li role="listitem"><a href="#param-api-error-example">@apiErrorExample</a></li>
+				<li role="listitem"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
+				<li role="listitem"><a href="#param-api-example">@apiExample</a></li>
+				<li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
+				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
+				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
+				<li role="listitem"><a href="#param-api-permission">@apiPermission</a></li>
+				<li role="listitem"><a href="#param-api-structure">@apiStructure</a></li>
+				<li role="listitem"><a href="#param-api-success">@apiSuccess</a></li>
+				<li role="listitem"><a href="#param-api-success-example">@apiSuccessExample</a></li>
+				<li role="listitem"><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
+				<li role="listitem"><a href="#param-api-version">@apiVersion</a></li>
 			</ul>
 		</nav>
 	</aside>
@@ -89,9 +89,15 @@
 		<pre><code>npm install apidoc -g</code></pre>
 	</article>
 
+	<article id="run">
+		<h2>Run</h2>
+		<pre><code>apidoc -i myapp/ -o apidoc/ -t mytemplate/</code></pre>
+		<p>Without any parameter, apiDoc generate a documentation from all .js files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
+		<p>Creates an apiDoc of all <code>*.js</code> files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
+	</article>
+
 	<article id="configure">
 		<h2>Configure</h2>
-		<p>Without any parameter, apiDoc generate a documentation from all .js files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
 		<p>Show command line parameters:</p>
 		<pre><code>apidoc -h</code></pre>
 
@@ -147,12 +153,6 @@
 		</table>
 	</article>
 
-	<article id="run">
-		<h2>Run</h2>
-		<pre><code>apidoc -i myapp/ -o apidoc/ -t mytemplate/</code></pre>
-		<p>Creates an apiDoc of all <code>*.js</code> files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
-	</article>
-
 	<article id="grunt-module">
 		<h2>GRUNT Module</h2>
 		<p>
@@ -168,9 +168,9 @@
 
 		<h3>default (complex with versioning and compare)</h3>
 		<p>By default the generated apiDoc use a complex Template, which support</p>
-		<ul>
-			<li>versioning: view different versions of your API</li>
-			<li>compare: view changes between two versions of your API</li>    
+		<ul role="list">
+			<li role="listitem">versioning: view different versions of your API</li>
+			<li role="listitem">compare: view changes between two versions of your API</li>    
 		</ul>
 		<p><a href="example/">view default demo</a></p> 
 		
@@ -335,11 +335,11 @@
 		<p>Nice feature is the keeping of previous defined documentation blocks. That makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and modify their code.</p>
 		<p><a href="example_versioning/">View example output</a></p>
 		<p>In the example, click top right on select box (the main version) and select <code>Compare all with predecessor</code>.</p>
-		<ul>
-			<li>The main navigation mark all changed methods with a green bar.</li>
-			<li>Each method show the difference to its predecessor.</li>
-			<li>Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
-			<li>Red marks contents that were removed.</li>
+		<ul role="list">
+			<li role="listitem">The main navigation mark all changed methods with a green bar.</li>
+			<li role="listitem">Each method show the difference to its predecessor.</li>
+			<li role="listitem">Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
+			<li role="listitem">Red marks contents that were removed.</li>
 		</ul>
 		<p>You can change the main version (top right) to a previous version and compare older methods with their predecessor.</p>	
 		<p><br></p>
@@ -422,11 +422,11 @@
 		<p><a href="example/">View example output</a></p>
 		<p><br></p>
 		<p>Files:</p>
-		<ul>
-			<li><a href="source/example_full/_apidoc.js">_apidoc.js</a></li>
-			<li><a href="source/example_full/API.md">API.md</a></li>
-			<li><a href="source/example_full/example.js">example.js</a></li>
-			<li><a href="source/example_full/package.json">package.json</a></li>
+		<ul role="list">
+			<li role="listitem"><a href="source/example_full/_apidoc.js">_apidoc.js</a></li>
+			<li role="listitem"><a href="source/example_full/API.md">API.md</a></li>
+			<li role="listitem"><a href="source/example_full/example.js">example.js</a></li>
+			<li role="listitem"><a href="source/example_full/package.json">package.json</a></li>
 		</ul>
 	</article>
 </section>
@@ -438,6 +438,15 @@
 -->
 <section id="params">
 	<h1>apiDoc-Params</h1>
+	<p>	Structure Params like:</p>
+	<ul role="list">
+		<li role="listitem"><code>@apiDefineErrorStructure</code></li>
+		<li role="listitem"><code>@apiDefinePermission</code></li>
+		<li role="listitem"><code>@apiDefineStructure</code></li>
+		<li role="listitem"><code>@apiDefineSuccessStructure</code></li>
+	</ul>
+	<p>are used to define a documentation block as a draft. This drafts can be included in normal api documentation blocks. With drafts you can separate complex or recurrent blocks.</p>
+	<p>A structure block can have all normal params (like <code>@apiParam</code>), except other structures, but you should e. g. use ErrorStructures for errors and SuccessStructures for success documentation blocks (for better overview).</p>
 
 	<article id="param-api">
 		<h2>@api</h2>
@@ -1045,7 +1054,7 @@
 		<h2>@apiSuccess</h2>
 		<pre><code>@apiSuccess [{type}] field [description]</code></pre>
 		<p>Success return Parameter.</p>
-		<p>Usage: <code>@apiSuccess UserNotFound</code></p>
+		<p>Usage: <code>@apiSuccess {String} firstname Firstname of the User.</code></p>
 
 		<table>
 			<thead>
