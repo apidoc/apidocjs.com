@@ -63,6 +63,7 @@
 				<li role="listitem"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
 				<li role="listitem"><a href="#param-api-example">@apiExample</a></li>
 				<li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
+				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>				
 				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
 				<li role="listitem"><a href="#param-api-permission">@apiPermission</a></li>
@@ -881,6 +882,39 @@
 		<pre class="example"><code>/**
  * @api {get} /user/:id
  * @apiGroup User
+ */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-ignore">
+		<h2>@apiIgnore</h2>
+		<pre><code>@apiIgnore [hint]</code></pre>
+		<p><strong>Place it on top of a block.</strong></p>
+		<p>A block with <code>@apiIgnore</code> will not be parsed. It is usefull, if you leave outdated or not finished Methods in your source code and you don't want to publish it into the documentation.</p>
+		<p>Usage: <code>@apiIgnore Not finished Method</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">hint<span class="label label-optional">optional</span></td>
+				<td>
+					Short information why this block should be ignored. 
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Example:</p>
+		<pre class="example"><code>/**
+ * @apiIgnore Not finished Method
+ * @api {get} /user/:id
  */</code></pre>
 	</article>
 
