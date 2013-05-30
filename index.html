@@ -59,6 +59,7 @@
 				<li role="listitem"><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
 				<li role="listitem"><a href="#param-api-description">@apiDescription</a></li>
 				<li role="listitem"><a href="#param-api-error">@apiError</a></li>
+				<li role="listitem"><a href="#param-api-error-title">@apiErrorTitle</a></li>
 				<li role="listitem"><a href="#param-api-error-example">@apiErrorExample</a></li>
 				<li role="listitem"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
 				<li role="listitem"><a href="#param-api-example">@apiExample</a></li>
@@ -66,9 +67,11 @@
 				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>				
 				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
+				<li role="listitem"><a href="#param-api-param-title">@apiParamTitle</a></li>
 				<li role="listitem"><a href="#param-api-permission">@apiPermission</a></li>
 				<li role="listitem"><a href="#param-api-structure">@apiStructure</a></li>
 				<li role="listitem"><a href="#param-api-success">@apiSuccess</a></li>
+				<li role="listitem"><a href="#param-api-success-title">@apiSuccessTitle</a></li>
 				<li role="listitem"><a href="#param-api-success-example">@apiSuccessExample</a></li>
 				<li role="listitem"><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
 				<li role="listitem"><a href="#param-api-version">@apiVersion</a></li>
@@ -697,7 +700,7 @@
 
 	<article id="param-api-error">
 		<h2>@apiError</h2>
-		<pre><code>@apiError [{type}] field [description]</code></pre>
+		<pre><code>@apiError [(group)] [{type}] field [description]</code></pre>
 		<p>Error return Parameter.</p>
 		<p>Usage: <code>@apiError UserNotFound</code></p>
 
@@ -709,6 +712,14 @@
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">(group)<span class="label label-optional">optional</span></td>
+				<td>
+					All parameters will be grouped by this name.<br>
+					Without a group, the default <code>Error 4xx</code> is set.<br>
+					You can set a simple name and describe it with <a href="#param-api-error-title">@apiErrorTitle</a>.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">{type}<span class="label label-optional">optional</span></td>
 				<td>
@@ -735,6 +746,61 @@
  * @api {get} /user/:id
  * @apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.
  */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-error-title">
+		<h2>@apiErrorTitle</h2>
+		<pre><code>@apiErrorTitle (group) description</code></pre>
+		<p>Replace the short group-name with a description</p>
+		<p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+		<p>Usage: <code>@apiErrorTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">(group)</td>
+				<td>
+					All errors will be grouped by this name.<br>
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description</td>
+				<td>
+					In documentation the short group-name will be replaced with the description.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Examples:</p>
+		<pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiErrorTitle (401) 401 Unauthorized
+ * @apiError (401) notAuthorizedError User not found.
+ *
+ * @apiErrorTitle (404) 404 Not Found
+ * @apiError (404) notFoundError Data not found.
+ *
+ * @apiError (500) serverError apiErrorTitle is not needed.
+ */
+
+Example without @apiErrorTitle:
+/**
+ * @api {post} /user/
+ * @apiError (401 Unauthorized) notAuthorizedError User not found.
+ * @apiError (404 Not Found) notFoundError Data not found.
+ * @apiError (500) serverError apiErrorTitle is not needed.
+ */
+ </code></pre>
 	</article>
 
 <!-- ============================================================ -->
@@ -957,9 +1023,9 @@
 
 	<article id="param-api-param">
 		<h2>@apiParam</h2>
-		<pre><code>@apiParam [{type}] [field=defaultValue] [description]</code></pre>
-		<p>A parameter when call the method.</p>
-		<p>Usage: <code>@apiParam {Number} id Users unique ID.</code></p>
+		<pre><code>@apiParam [(group)] [{type}] [field=defaultValue] [description]</code></pre>
+		<p>Describe a parameter passed to you API-Method.</p>
+		<p>Usage: <code>@apiParam (MyGroup) {Number} id Users unique ID.</code></p>
 
 		<table>
 			<thead>
@@ -969,6 +1035,14 @@
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">(group)<span class="label label-optional">optional</span></td>
+				<td>
+					All parameters will be grouped by this name.<br>
+					Without a group, the default <code>Parameter</code> is set.<br>
+					You can set a simple name and describe it with <a href="#param-api-param-title">@apiParamTitle</a>.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">{type}<span class="label label-optional">optional</span></td>
 				<td>
@@ -988,7 +1062,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="code">=devaultValue<span class="label label-optional">optional</span></td>
+				<td class="code">=defaultValue<span class="label label-optional">optional</span></td>
 				<td>
 					The parameters default value.
 				</td>
@@ -1014,6 +1088,66 @@
  * @apiParam {String} lastname     Mandatory Lastname.
  * @apiParam {String} country="DE" Mandatory with default value "DE".
  * @apiParam {String} [age=18]     Optional Age with default 18.
+ *
+ * @apiParam (Login) {String} pass Only logged in users can post this.
+ *                                 In generated documentation a separate
+ *                                 "Login" Block will be generated.
+ */
+ </code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-param-title">
+		<h2>@apiParamTitle</h2>
+		<pre><code>@apiParamTitle (group) description</code></pre>
+		<p>Replace the short group-name with a description</p>
+		<p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+		<p>Usage: <code>@apiParamTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">(group)</td>
+				<td>
+					All parameters will be grouped by this name.<br>
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description</td>
+				<td>
+					In documentation the short group-name will be replaced with the description.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Examples:</p>
+		<pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiParamTitle (Login) Parameters only for loggedin users:
+ * @apiParam (Login) {String} newPassword New password.
+ *
+ * @apiParamTitle (Admin) Parameters only for admin users:
+ * @apiParam (Admin) {String} newPassword New password.
+ * @apiParam (Admin) {String} userId Change password of that user.
+ */
+
+Example without @apiParamTitle:
+/**
+ * @api {post} /user/
+ *
+ * @apiParam (Parameters only for loggedin users:) {String} newPassword New password.
+ *
+ * @apiParam (Parameters only for admin users:) {String} newPassword New password.
+ * @apiParam (Parameters only for admin users:) {String} userId Change password of that user.
  */
  </code></pre>
 	</article>
@@ -1086,7 +1220,7 @@
 
 	<article id="param-api-success">
 		<h2>@apiSuccess</h2>
-		<pre><code>@apiSuccess [{type}] field [description]</code></pre>
+		<pre><code>@apiSuccess [(group)] [{type}] field [description]</code></pre>
 		<p>Success return Parameter.</p>
 		<p>Usage: <code>@apiSuccess {String} firstname Firstname of the User.</code></p>
 
@@ -1098,6 +1232,14 @@
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">(group)<span class="label label-optional">optional</span></td>
+				<td>
+					All parameters will be grouped by this name.<br>
+					Without a group, the default <code>Success 200</code> is set.<br>
+					You can set a simple name and describe it with <a href="#param-api-success-title">@apiSuccessTitle</a>.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">{type}<span class="label label-optional">optional</span></td>
 				<td>
@@ -1125,6 +1267,64 @@
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */</code></pre>
+	</article>
+
+<!-- ============================================================ -->
+
+	<article id="param-api-success-title">
+		<h2>@apiSuccessTitle</h2>
+		<pre><code>@apiSuccessTitle (group) description</code></pre>
+		<p>Replace the short group-name with a description</p>
+		<p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+		<p>Usage: <code>@apiSuccessTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+		<table>
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr>
+				<td class="code">(group)</td>
+				<td>
+					All success messages will be grouped by this name.<br>
+				</td>
+			</tr>
+			<tr>
+				<td class="code">description</td>
+				<td>
+					In documentation the short group-name will be replaced with the description.
+				</td>
+			</tr>
+			</tbody>
+		</table>
+
+		<p>Examples:</p>
+		<pre class="example"><code>/**
+ * @api {post} /user/
+ * @apiSuccessTitle (All) 200 - Data for all users:
+ * @apiSuccess (All) id   The ID of a user.
+ * @apiSuccess (All) name The name of a user.
+ *
+ * @apiSuccessTitle (LoggedIn) Data for LoggedIn users:
+ * @apiSuccess (LoggedIn) id    The ID of a user.
+ * @apiSuccess (LoggedIn) name  The name of a user.
+ * @apiSuccess (LoggedIn) email E-Mail address of a user.
+ */
+
+Example without @apiErrorTitle:
+/**
+ * @api {post} /user/
+ * @apiSuccess (200 - Data for all users:) id   The ID of a user.
+ * @apiSuccess (200 - Data for all users:) name The name of a user.
+ *
+ * @apiSuccess (Data for LoggedIn users:) id    The ID of a user.
+ * @apiSuccess (Data for LoggedIn users:) name  The name of a user.
+ * @apiSuccess (Data for LoggedIn users:) email E-Mail address of a user.
+ */
+ </code></pre>
 	</article>
 
 <!-- ============================================================ -->

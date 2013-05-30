@@ -149,6 +149,7 @@ pre > code {
 	border: none;
 	border-radius: 8px;
 	color: #ffffff;
+	overflow: auto;
 }
 
 pre.example > code {
