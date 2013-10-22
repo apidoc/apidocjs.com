@@ -1272,6 +1272,30 @@ Example without @apiParamTitle:
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */</code></pre>
+
+		<p>Example with <code>(group)</code>, more group-examples at <a href="#param-api-success-title">@apiSuccessTitle</a>:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccess (200) {String} firstname Firstname of the User.
+ * @apiSuccess (200) {String} lastname  Lastname of the User.
+ */</code></pre>
+
+		<p>Example with Object:</p>
+		<pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccess {Boolean} active        Specify if the account is active. 
+ * @apiSuccess {Object}  profile       User profile information.
+ * @apiSuccess {Number}  profile.age   Users age.
+ * @apiSuccess {String}  profile.image Avatar-Image.
+ */</code></pre>
+
+		<p>Example with Array:</p>
+		<pre class="example"><code>/**
+ * @api {get} /users
+ * @apiSuccess {Object[]} profiles       List of user profiles.
+ * @apiSuccess {Number}   profiles.age   Users age.
+ * @apiSuccess {String}   profiles.image Avatar-Image.
+ */</code></pre>
 	</article>
 
 <!-- ============================================================ -->
