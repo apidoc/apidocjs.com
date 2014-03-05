@@ -13,50 +13,62 @@
     },
     "description": "Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          }
+        ]
+      }
     },
     "success": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        },
-        {
-          "type": "Date",
-          "field": "registered",
-          "optional": false,
-          "description": "Registration Date."
-        },
-        {
-          "type": "Date",
-          "field": "name",
-          "optional": false,
-          "description": "Fullname of the User."
-        }
-      ]
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "field": "registered",
+            "optional": false,
+            "description": "Registration Date."
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "field": "name",
+            "optional": false,
+            "description": "Fullname of the User."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "NoAccessRight",
-          "optional": false,
-          "description": "Only authenticated Admins can access the data."
-        },
-        {
-          "field": "UserNotFound",
-          "optional": false,
-          "description": "The <code>id</code> of the User was not found."
-        }
-      ],
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "NoAccessRight",
+            "optional": false,
+            "description": "Only authenticated Admins can access the data."
+          },
+          {
+            "group": "Error 4xx",
+            "field": "UserNotFound",
+            "optional": false,
+            "description": "The <code>id</code> of the User was not found."
+          }
+        ]
+      },
       "examples": [
         {
           "title": "Response (example):",
@@ -80,39 +92,49 @@
     },
     "description": "Here you can describe the function.\nMultilines are possible.",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          }
+        ]
+      }
     },
     "success": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        },
-        {
-          "type": "Date",
-          "field": "name",
-          "optional": false,
-          "description": "Fullname of the User."
-        }
-      ]
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "field": "name",
+            "optional": false,
+            "description": "Fullname of the User."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "UserNotFound",
-          "optional": false,
-          "description": "The <code>id</code> of the User was not found."
-        }
-      ]
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "UserNotFound",
+            "optional": false,
+            "description": "The <code>id</code> of the User was not found."
+          }
+        ]
+      }
     },
     "filename": "source/example_full/_apidoc.js"
   },
@@ -130,39 +152,49 @@
     },
     "description": "Here you can describe the function.\nMultilines are possible.",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          }
+        ]
+      }
     },
     "success": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        },
-        {
-          "type": "Date",
-          "field": "name",
-          "optional": false,
-          "description": "Fullname of the User."
-        }
-      ]
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "field": "name",
+            "optional": false,
+            "description": "Fullname of the User."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "UserNotFound",
-          "optional": false,
-          "description": "The error description text in version 0.1.0."
-        }
-      ]
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "UserNotFound",
+            "optional": false,
+            "description": "The error description text in version 0.1.0."
+          }
+        ]
+      }
     },
     "filename": "source/example_full/_apidoc.js"
   },
@@ -176,38 +208,48 @@
     "permission": "none",
     "description": "In this case \"apiErrorStructure\" is defined and used.\nDefine blocks with params that will be used in several functions, so you dont have to rewrite them.",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "name",
-          "optional": false,
-          "description": "Name of the User."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the User."
+          }
+        ]
+      }
     },
     "success": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The new Users-ID."
-        }
-      ]
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The new Users-ID."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "NoAccessRight",
-          "optional": false,
-          "description": "Only authenticated Admins can access the data."
-        },
-        {
-          "field": "UserNameTooShort",
-          "optional": false,
-          "description": "Minimum of 5 characters required."
-        }
-      ],
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "NoAccessRight",
+            "optional": false,
+            "description": "Only authenticated Admins can access the data."
+          },
+          {
+            "group": "Error 4xx",
+            "field": "UserNameTooShort",
+            "optional": false,
+            "description": "Minimum of 5 characters required."
+          }
+        ]
+      },
       "examples": [
         {
           "title": " Response (example):",
@@ -227,38 +269,48 @@
     "permission": "none",
     "description": "In this case \"apiErrorStructure\" is defined and used.\nDefine blocks with params that will be used in several functions, so you dont have to rewrite them.",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "name",
-          "optional": false,
-          "description": "Name of the User."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the User."
+          }
+        ]
+      }
     },
     "success": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "id",
-          "optional": false,
-          "description": "The Users-ID."
-        }
-      ]
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "field": "id",
+            "optional": false,
+            "description": "The Users-ID."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "NoAccessRight",
-          "optional": false,
-          "description": "Only authenticated Admins can access the data."
-        },
-        {
-          "field": "UserNameTooShort",
-          "optional": false,
-          "description": "Minimum of 5 characters required."
-        }
-      ],
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "NoAccessRight",
+            "optional": false,
+            "description": "Only authenticated Admins can access the data."
+          },
+          {
+            "group": "Error 4xx",
+            "field": "UserNameTooShort",
+            "optional": false,
+            "description": "Minimum of 5 characters required."
+          }
+        ]
+      },
       "examples": [
         {
           "title": " Response (example):",
@@ -278,28 +330,35 @@
     "permission": "none",
     "description": "This function has same errors like POST /user, but errors not defined again, they were included with \"apiErrorStructure\"",
     "parameter": {
-      "fields": [
-        {
-          "type": "String",
-          "field": "name",
-          "optional": false,
-          "description": "Name of the User."
-        }
-      ]
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "field": "name",
+            "optional": false,
+            "description": "Name of the User."
+          }
+        ]
+      }
     },
     "error": {
-      "fields": [
-        {
-          "field": "NoAccessRight",
-          "optional": false,
-          "description": "Only authenticated Admins can access the data."
-        },
-        {
-          "field": "UserNameTooShort",
-          "optional": false,
-          "description": "Minimum of 5 characters required."
-        }
-      ],
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "NoAccessRight",
+            "optional": false,
+            "description": "Only authenticated Admins can access the data."
+          },
+          {
+            "group": "Error 4xx",
+            "field": "UserNameTooShort",
+            "optional": false,
+            "description": "Minimum of 5 characters required."
+          }
+        ]
+      },
       "examples": [
         {
           "title": " Response (example):",
@@ -308,5 +367,50 @@
       ]
     },
     "filename": "source/example_full/example.js"
+  },
+  {
+    "version": "0.3.0",
+    "group": "_apidoc.js",
+    "type": "",
+    "url": "",
+    "filename": "source/example_full/_apidoc.js"
+  },
+  {
+    "version": "0.2.0",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "field": "NoAccessRight",
+            "optional": false,
+            "description": "Only authenticated Admins can access the data."
+          },
+          {
+            "group": "Error 4xx",
+            "field": "UserNameTooShort",
+            "optional": false,
+            "description": "Minimum of 5 characters required."
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": " Response (example):",
+          "content": "   HTTP/1.1 400 Bad Request\n   {\n     \"error\": \"UserNameTooShort\"\n   }\n"
+        }
+      ]
+    },
+    "group": "_apidoc.js",
+    "type": "",
+    "url": "",
+    "filename": "source/example_full/_apidoc.js"
+  },
+  {
+    "version": "0.1.0",
+    "group": "_apidoc.js",
+    "type": "",
+    "url": "",
+    "filename": "source/example_full/_apidoc.js"
   }
 ]

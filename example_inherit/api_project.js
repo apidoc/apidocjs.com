@@ -4,7 +4,7 @@ define({
   "description": "A apiDoc inherit example",
   "apidoc": "",
   "generator": {
-    "version": "0.1.5",
-    "time": "2013-04-12T15:24:43.818Z"
+    "version": "0.4.0",
+    "time": "2014-03-05T11:59:05.463Z"
   }
 });
