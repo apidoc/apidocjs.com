@@ -1631,7 +1631,6 @@ $(document).ready(function() {
 	var height = $nav.height() - ($params.position().top - $nav.position().top) + headerSize;
 	function moveNav()
 	{
-		console.log("X");
  		if($doc.scrollTop() > maxMove) $nav.css({ marginTop: $doc.scrollTop() - maxMove });
 		else $nav.css({ marginTop: 0 });
 	} // moveNav
