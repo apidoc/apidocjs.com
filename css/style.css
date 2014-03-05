@@ -492,3 +492,41 @@ footer img {
 footer .pull-left img {
 	margin: 12px 0 0 0px;
 }
+
+/* ============================================================
+ * Plugin: Easy Responsive Tabs
+ * ============================================================ */
+.resp-tabs-container {
+	margin-bottom: 12px;
+}
+
+.resp-tabs-list li {
+	padding: 6px 10px;
+}
+
+.resp-tab-active {
+	padding: 5px 9px 7px 10px !important;
+	background: #f5f5f5;
+}
+
+.resp-tab-content {
+	padding: 0;
+	margin: 0;
+	background: #f5f5f5;
+	color: #3a3a3a;
+}
+
+.resp-tabs-container pre > code {
+	margin: 0 !important;
+}
+
+.resp-tabs-container pre.example > code {
+	border: none;
+}
+
+h2.resp-accordion {
+	color: #000000 !important;
+	text-shadow: none;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+}

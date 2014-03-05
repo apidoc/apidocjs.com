@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+	<link href="css/easy-responsive-tabs.css" rel="stylesheet" media="screen">
 	<link href="css/style.css" rel="stylesheet" media="screen">
 	<link href="img/favicon.ico" rel="icon" type="image/x-icon">
 </head>
@@ -26,7 +27,18 @@
 	<h2>Inline Documentation for RESTful web APIs</h2>
 	<p>apiDoc creates a documentation from API descriptions in your source code.</p>
 	<div class="pull-left span8">
-		<pre class="example"><code>/**
+	
+		<div id="exampleTab">          
+			<ul class="resp-tabs-list">
+				<li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
+				<li title="Erlang">Erlang</li>
+				<li title="Python">Python</li>
+				<li title="Ruby">Ruby</li>
+			</ul> 
+			<div class="resp-tabs-container">
+				<!-- Tab 1 -->                                                        
+				<div>
+					<pre class="example"><code>/**
  * @api {get} /user/:id Request User information
  * @apiName GetUser
  * @apiGroup User
@@ -36,9 +48,55 @@
  * @apiSuccess {String} firstname Firstname of the User.
  * @apiSuccess {String} lastname  Lastname of the User.
  */</code></pre>
+				</div>
+
+				<!-- Tab 2 -->
+				<div>
+					<pre class="example"><code>%{
+% @api {get} /user/:id Request User information
+% @apiName GetUser
+% @apiGroup User
+%
+% @apiParam {Number} id Users unique ID.
+%
+% @apiSuccess {String} firstname Firstname of the User.
+% @apiSuccess {String} lastname  Lastname of the User.
+%}</code></pre>
+				</div>
+				
+				<!-- Tab 3 -->
+				<div>
+					<pre class="example"><code>"""
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+"""</code></pre>
+				</div>
+				
+				<!-- Tab 4 -->
+				<div>
+					<pre class="example"><code>=begin
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+=end*/</code></pre>
+				</div>
+			</div>
+		</div>  
+
 		<p>Highlight is an API history, with that various API version levels can be compared. So you, or a frontend developer, can retrace what changed in the API since the last version.</p>
 	</div>
-	<div class="pull-right" style="padding-top: 12px;">
+	<div class="pull-right" style="padding-top: 32px;">
 		<a href="example/"><img src="img/example.png" width="241" height="171" alt="Example" title="Example output of a generated apidoc"></a>
 		<p style="text-align:right;">
 			<a href="example/" title="demo">watch demo output &raquo;</a><br>
@@ -52,6 +110,7 @@
 		<nav class="nav-main" role="navigation">
 			<ul role="list">
 				<li role="listitem" class="nav-header"><a href="#getting-started">Getting started</a></li>
+				<li role="listitem"><a href="#preface">Preface</a></li>
 				<li role="listitem"><a href="#install">Install</a></li>
 				<li role="listitem"><a href="#run">Run</a></li>
 				<li role="listitem"><a href="#configure">Configure</a></li>
@@ -100,6 +159,30 @@
 <section id="getting-started">
 	<h1>Getting started</h1>
 
+	<article id="preface">
+		<h2>Preface</h2>
+		<p>All examples in this document use the <strong>Javadoc-Style</strong> (can be used in C#, Go, Dart, Java, JavaScript, PHP, TypeScript and all other Javadoc capable languages):</p>
+		<pre class="example"><code>/**
+ * This is a comment.
+ */</code></pre>
+
+		<p>For other languages use their specific multiline comment code:</p>
+		<p>Erlang (% within the comment is optional)</p>
+		<pre class="example"><code>%{
+% This is a comment.
+%}</code></pre>
+
+		<p>Python</p>
+		<pre class="example"><code>"""
+This is a comment.
+"""</code></pre>
+
+		<p>Ruby</p>
+		<pre class="example"><code>=begin
+This is a comment.
+=end</code></pre>
+	</article>
+
 	<article id="install">
 		<h2>Install</h2>
 		<pre><code>npm install apidoc -g</code></pre>
@@ -108,8 +191,8 @@
 	<article id="run">
 		<h2>Run</h2>
 		<pre><code>apidoc -i myapp/ -o apidoc/ -t mytemplate/</code></pre>
-		<p>Without any parameter, apiDoc generate a documentation from all .js files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
-		<p>Creates an apiDoc of all <code>*.js</code> files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
+		<p>Creates an apiDoc of all files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
+		<p>Without any parameter, apiDoc generate a documentation from all <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code> files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
 	</article>
 
 	<article id="configure">
@@ -129,10 +212,10 @@
 			<tr>
 				<td class="code nowrap">-f, --file-filters</td>
 				<td>
-					RegEx-Filter to select files that should be parsed (many -f can be used). Default <code>*.js</code>.<br>
+					RegEx-Filter to select files that should be parsed (many -f can be used). Default <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code>.<br>
 					<br>
-					Example (parse all .js and .md files):<br>
-					<code>apidoc -f ".*\\.js$" -f ".*\\.md$"</code>
+					Example (parse only .js and .ts files):<br>
+					<code>apidoc -f ".*\\.js$" -f ".*\\.ts$"</code>
 				</td>
 			</tr>
 
@@ -1514,11 +1597,12 @@ Example without @apiErrorTitle:
 </div><!-- /.container -->
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/easyResponsiveTabs.js"></script>
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-40027356-1', 'apidocjs.com'); ga('send', 'pageview');</script>
 <script>
 $(document).ready(function() {
 	var headerSize = 70;
-	// Anchor scroll.
+	// Anchor scroll
 	$("a").each(function() {
 		if($(this).attr("href").substr(0, 1) === "#")
 		{
@@ -1536,22 +1620,26 @@ $(document).ready(function() {
 		$("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 0);
 	}
 
-	// Simple fix nav-main Scrollposition (no-resize).
-	var $window = $(window);
+	// Easy-Responsive-Tabs
+  $('#exampleTab').easyResponsiveTabs();
+
+	// Simple fix nav-main Scrollposition (no-resize)
+	var $doc = $(document);
 	var $nav = $(".nav-main");
 	var $params = $("#nav-main-params");
 	var maxMove = $params.offset().top - headerSize;
 	var height = $nav.height() - ($params.position().top - $nav.position().top) + headerSize;
 	function moveNav()
 	{
- 		if($window.scrollTop() > maxMove) $nav.css({ marginTop: $window.scrollTop() - maxMove });
+		console.log("X");
+ 		if($doc.scrollTop() > maxMove) $nav.css({ marginTop: $doc.scrollTop() - maxMove });
 		else $nav.css({ marginTop: 0 });
 	} // moveNav
-	// Enable if screen is heigh enough.
-	if($window.height() >= height)
+	// Enable if screen is heigh enough
+	if($doc.height() >= height)
 	{
 		moveNav();
-	  $window.scroll(function() { moveNav(); });
+	  $doc.scroll(function() { moveNav(); });
 	}
 });
 </script>
