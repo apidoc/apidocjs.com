@@ -31,6 +31,7 @@
 		<div id="exampleTab">          
 			<ul class="resp-tabs-list">
 				<li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
+				<li title="CoffeeScript">CoffeeScript</li>
 				<li title="Erlang">Erlang</li>
 				<li title="Python">Python</li>
 				<li title="Ruby">Ruby</li>
@@ -50,7 +51,21 @@
  */</code></pre>
 				</div>
 
-				<!-- Tab 2 -->
+				<!-- Tab CoffeeScript -->                                                        
+				<div>
+					<pre class="example"><code>###
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+###</code></pre>
+				</div>
+
+				<!-- Tab Erlang -->
 				<div>
 					<pre class="example"><code>%{
 % @api {get} /user/:id Request User information
@@ -64,7 +79,7 @@
 %}</code></pre>
 				</div>
 				
-				<!-- Tab 3 -->
+				<!-- Tab Python -->
 				<div>
 					<pre class="example"><code>"""
 @api {get} /user/:id Request User information
@@ -78,7 +93,7 @@
 """</code></pre>
 				</div>
 				
-				<!-- Tab 4 -->
+				<!-- Tab Ruby -->
 				<div>
 					<pre class="example"><code>=begin
 @api {get} /user/:id Request User information
@@ -167,6 +182,12 @@
  */</code></pre>
 
 		<p>For other languages use their specific multiline comment code:</p>
+
+		<p>CoffeeScript</p>
+		<pre class="example"><code>###
+This is a comment.
+###</code></pre>
+
 		<p>Erlang (% within the comment is optional)</p>
 		<pre class="example"><code>%{
 % This is a comment.
