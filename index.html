@@ -285,31 +285,24 @@ This is a comment.
 
 	<article id="template">
 		<h2>Template</h2>
-		<p>apiDoc include 2 similar templates. Both templates use <a href="http://handlebarsjs.com">handlebars</a>, <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, <a href="http://requirejs.org/">RequireJS</a> and <a href="http://jquery.com">jQuery</a> for the output of the generated <code>api_data.js</code> and <code>api_project.js</code> as html-page.</p>
-
-		<h3>default (complex with versioning and compare)</h3>
+		<p>apiDoc include a default template which uses <a href="http://handlebarsjs.com">handlebars</a>, <a href="http://twitter.github.io/bootstrap/">Bootstrap</a>, <a href="http://requirejs.org/">RequireJS</a> and <a href="http://jquery.com">jQuery</a> for the output of the generated <code>api_data.js</code> and <code>api_project.js</code> as a html-page.</p>
 		<p>By default the generated apiDoc use a complex Template, which support</p>
 		<ul role="list">
 			<li role="listitem">versioning: view different versions of your API</li>
 			<li role="listitem">compare: view changes between two versions of your API</li>    
 		</ul>
 		<p><a href="example/">view default demo</a></p> 
-		
-		<h3>basic</h3>
-		<p>Only view the latest Data of your API (simpler template and less js).</p>
-		<p>Use with the full path to apiDoc: <code>apidoc -t /usr/local/lib/node_modules/apidoc/template_basic/</code></p>
-		<p><a href="example_basic/">view basic demo</a></p>
 
 		<h3>Create your own</h3>
-		<p>The basic Template is a good place to start and study the template usage.</p>
 		<p>You can create your own template and use the apiDoc generated files <code>api_data.js</code>, <code>api_project.js</code>, or json only files <code>api_data.json</code>, <code>api_project.json</code>.</p>
+		<p>View the source on <a href="https://github.com/apidoc/apidoc/tree/master/template">https://github.com/apidoc/apidoc/tree/master/template</a></p>
 	</article>
 
 	<article id="extend">
 		<h2>Extend</h2>
-		<p>apiDoc can be extended with own parameters (if you miss something). Look at the <code>lib/plugins/</code> dir for examples. <code>parser</code> split the parameter data, <code>worker</code> processes additional functions with all found data and <code>filter</code> reduce the data to needed things.</p>
+		<p>apiDoc can be extended with own parameters (if you miss something). Look at the <a href="https://github.com/apidoc/apidoc/tree/master/lib/plugins">lib/plugins/</a> dir for examples. <code>parser</code> split the parameter data, <code>worker</code> processes additional functions with all found data and <code>filter</code> reduce the data to needed things.</p>
 		<p>Example usage: <code>apidoc --parse-filters myFilter=pathToMyFilter/myFilter.js</code></p>
-		<p>Or easier: <a href="https://github.com/apidoc/apidoc">fork</a> the whole project ;-)</p>
+		<p><strong>Or <a href="https://github.com/apidoc/apidoc">fork</a> the whole project and create a pull request to make apiDoc better.</strong></p>
 	</article>
 </section>
 
@@ -1627,7 +1620,7 @@ Example without @apiErrorTitle:
 		<h1>MIT License</h1>
 		<p>
 			<a href="https://github.com/apidoc/apidoc/blob/master/LICENSE.md">github.com/apidoc/apidoc/blob/master/LICENSE.md</a><br>
-			Copyright (c) 2013 inveris OHG<br>
+			Copyright (c) 2013-2014 inveris OHG<br>
 			Author Peter Rottmann
 		</p>
 		<p><br></p>
