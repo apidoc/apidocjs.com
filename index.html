@@ -150,6 +150,7 @@
 				<li role="listitem"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
 				<li role="listitem"><a href="#param-api-example">@apiExample</a></li>
 				<li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
+				<li role="listitem"><a href="#param-api-group-description">@apiGroupDescription</a></li>
 				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>				
 				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
@@ -1068,6 +1069,40 @@ Example without @apiErrorTitle:
  * @apiGroup User
  */</code></pre>
 	</article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-group-description">
+        <h2>@apiGroupDescription</h2>
+        <pre><code>@apiGroupDescription text</code></pre>
+        <p><strong>Singleton usage at the moment. Use the tag only once for a group.</strong></p>
+        <p>Detailed description of the Group, it will be in the documentation at the beginning of a group.</p>
+        <p>Usage: <code>@apiGroupDescription Some information about the group</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">text</td>
+                <td>
+                    Multiline description text.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiGroup User
+ * @apiGroupDescription The User-Group description.
+ */</code></pre>
+    </article>
 
 <!-- ============================================================ -->
 
