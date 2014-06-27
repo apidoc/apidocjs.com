@@ -468,29 +468,24 @@ nav.nav-main ul > li > a:hover {
  * Footer
  * ============================================================ */ 
 footer {
-	min-height: 45px;
+	height: 57px;
 	margin-top: 60px;
 	padding: 0 38px;
 	background: #7a7a7a;
 }
 
-footer:before,
-footer:after {
-	content: "";
-	display: table;
-	line-height: 0;
-}
-
-footer:after {
-	clear: both;
+footer div {
+	line-height: 52px;
 }
 
 footer img {
-	margin: 1px 0 0 30px;
+	vertical-align: middle;
+	margin: 0 20px 0 0;
 }
 
-footer .pull-left img {
-	margin: 12px 0 0 0px;
+
+footer .pull-right img {
+  margin: 0 0 0 12px;
 }
 
 /* ============================================================
