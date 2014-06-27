@@ -375,7 +375,7 @@ aside {
  * ============================================================ */
 nav.nav-main ul > li > a {
 	display: block;
-	padding: 6px 12px 6px 12px;
+	padding: 5px 12px 5px 12px;
 	color: #3a3a3a;
 	line-height: 1em;
 	text-decoration: none;
@@ -462,6 +462,10 @@ nav.nav-main ul > li > a:hover {
 #content ul {
 	list-style: disc;
 	margin: 8px 0 8px 20px;
+}
+
+#content .similar-operation {
+	font-style: italic;
 }
 
 /* ============================================================

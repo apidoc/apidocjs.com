@@ -132,6 +132,7 @@
 				<li role="listitem"><a href="#grunt-module">GRUNT Module</a></li>
 				<li role="listitem"><a href="#template">Template</a></li>
 				<li role="listitem"><a href="#extend">Extend</a></li>
+        <li role="listitem"><a href="#headerfooter">Header / Footer</a></li>
 				<li role="listitem" class="nav-header"><a href="#examples">Examples</a></li>
 				<li role="listitem"><a href="#example-basic">Basic</a></li>
 				<li role="listitem"><a href="#example-inherit">Inherit</a></li>
@@ -140,6 +141,7 @@
 				<li role="listitem" id="nav-main-params" class="nav-header"><a href="#params">apiDoc-Params</a></li>
 				<li role="listitem"><a href="#param-api">@api</a></li>
 				<li role="listitem"><a href="#param-api-define-error-structure">@apiDefineErrorStructure</a></li>
+        <li role="listitem"><a href="#param-api-define-header-structure">@apiDefineHeaderStructure</a></li>
 				<li role="listitem"><a href="#param-api-define-permission">@apiDefinePermission</a></li>
 				<li role="listitem"><a href="#param-api-define-structure">@apiDefineStructure</a></li>
 				<li role="listitem"><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
@@ -151,6 +153,9 @@
 				<li role="listitem"><a href="#param-api-example">@apiExample</a></li>
 				<li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
 				<li role="listitem"><a href="#param-api-group-description">@apiGroupDescription</a></li>
+        <li role="listitem"><a href="#param-api-header">@apiHeader</a></li>
+        <li role="listitem"><a href="#param-api-header-structure">@apiHeaderStructure</a></li>
+        <li role="listitem"><a href="#param-api-header-title">@apiHeaderTitle</a></li>
 				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>				
 				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
@@ -304,6 +309,29 @@ This is a comment.
 		<p>Example usage: <code>apidoc --parse-filters myFilter=pathToMyFilter/myFilter.js</code></p>
 		<p><strong>Or <a href="https://github.com/apidoc/apidoc">fork</a> the whole project and create a pull request to make apiDoc better.</strong></p>
 	</article>
+
+  <article id="headerfooter">
+    <h2>Header / Footer</h2>
+    <p>In your projects <code>package.json</code> you can add an <code>apidoc</code> section with header an footer.</p>
+    <p>The title will be visible in the navigation. The filename should be a markdown textfile.</p>
+    <p><a href="source/example_full/package.json">package.json</a></p>
+    <pre><code>{
+  "name": "example",
+  "version": "0.1.0",
+  "description": "A basic apiDoc example",
+  "apidoc": {
+    "header": {
+      "title": "My own header title",
+      "filename": "header.md"
+    },
+    "footer": {
+      "title": "My own footer title",
+      "filename": "footer.md"
+    }
+  }
+}</code></pre>
+
+  </article>
 </section>
 
 <!--
@@ -643,7 +671,48 @@ This is a comment.
  */</code></pre>
 		<p>For more watch <a href="#example-inherit">inherit example</a>.</p>
 	</article>
-	
+
+<!-- ============================================================ -->
+
+  <article id="param-api-define-header-structure">
+    <h2>@apiDefineHeaderStructure</h2>
+    <pre><code>@apiDefineHeaderStructure name</code></pre>
+    <p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+    <p>Should be used to define Header Parameters, like <code>@apiHeader</code>, <code>@apiHeaderExample</code>.</p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-define-structure">@apiDefineStructure</a>.</p>
+    <p>Usage: <code>@apiDefineHeaderStructure MyHeader</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">name</td>
+        <td>
+          Unique name for the block.<br>
+          Same name with different <code>@apiVersion</code> can be defined.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Example:</p>
+    <pre class="example"><code>/**
+ * @apiDefineHeaderStructure MyHeader
+ * @apiHeader {String} firstname Firstname of the User.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiHeaderStructure MyHeader
+ */</code></pre>
+    <p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+  </article>
+
 <!-- ============================================================ -->
 
 	<article id="param-api-define-permission">
@@ -963,7 +1032,7 @@ Example without @apiErrorTitle:
 	<article id="param-api-error-structure">
 		<h2>@apiErrorStructure</h2>
 		<pre><code>@apiErrorStructure name</code></pre>
-		<p>Include a with <code>@apiDefineErrorStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Include a with <code>@apiDefineErrorStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
 		<p>Usage: <code>@apiErrorStructure MyError</code></p>
 
 		<table>
@@ -1096,6 +1165,156 @@ Example without @apiErrorTitle:
  * @apiGroupDescription The User-Group description.
  */</code></pre>
     </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-header">
+    <h2>@apiHeader</h2>
+    <pre><code>@apiHeader [(group)] [{type}] [field=defaultValue] [description]</code></pre>
+    <p>Describe a parameter passed to you API-Header e.g. for Authorization.</p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-param">@apiParam</a>, only the output is above the parameters.</p>
+    <p>Usage: <code>@apiHeader (MyHeaderGroup) {String} authorization Authorization value.</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">(group)<span class="label label-optional">optional</span></td>
+        <td>
+          All parameters will be grouped by this name.<br>
+          Without a group, the default <code>Parameter</code> is set.<br>
+          You can set a simple name and describe it with <a href="#param-api-header-title">@apiHeaderTitle</a>.
+        </td>
+      </tr>
+      <tr>
+        <td class="code">{type}<span class="label label-optional">optional</span></td>
+        <td>
+          Parameter type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+        </td>
+      </tr>
+      <tr>
+        <td class="code">field</td>
+        <td>
+          Variablename.
+        </td>
+      </tr>
+      <tr>
+        <td class="code">[field]</td>
+        <td>
+          Fieldname with brackets define the Variable as optional.
+        </td>
+      </tr>
+      <tr>
+        <td class="code">=defaultValue<span class="label label-optional">optional</span></td>
+        <td>
+          The parameters default value.
+        </td>
+      </tr>
+      <tr>
+        <td class="code">description<span class="label label-optional">optional</span></td>
+        <td>
+          Description of the field.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Examples:</p>
+    <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiHeader {String} access-key Users unique access-key.
+ */
+ </code></pre>
+  </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-header-structure">
+    <h2>@apiHeaderStructure</h2>
+    <pre><code>@apiHeaderStructure name</code></pre>
+    <p>Include a with <code>@apiDefineHeaderStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-structure">@apiStructure</a>.</p>
+    <p>Usage: <code>@apiHeaderStructure MyHeader</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">name</td>
+        <td>
+          Name of the defined header block.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Example:</p>
+    <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiHeaderStructure MyHeader
+ */</code></pre>
+  </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-header-title">
+    <h2>@apiHeaderTitle</h2>
+    <pre><code>@apiHeaderTitle (group) description</code></pre>
+    <p>Replace the short group-name with a description</p>
+    <p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-param-title">@apiParamTitle</a>.</p>
+    <p>Usage: <code>@apiHeaderTitle (MyHeaderGroup) This are the Parameters for MyHeaderGroup:</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">(group)</td>
+        <td>
+          All parameters will be grouped by this name.<br>
+        </td>
+      </tr>
+      <tr>
+        <td class="code">description</td>
+        <td>
+          In documentation the short group-name will be replaced with the description.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Examples:</p>
+    <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiHeaderTitle (Auth) Parameters only for loggedin users:
+ * @apiHeader (Auth) {String} key Users unique access-key.
+ * @apiHeader (Auth) {String} system-key Access-key from external system.
+ */</code></pre>
+
+    <p>Example without @apiHeaderTitle:</p>
+    <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiHeader (Parameters only for loggedin users:) {String} key Users unique access-key.
+ * @apiHeader (Parameters only for loggedin users:) {String} system-key Access-key from external system.
+ */</code></pre>
+  </article>
 
 <!-- ============================================================ -->
 
@@ -1238,8 +1457,7 @@ Example without @apiErrorTitle:
  * @apiParam (Login) {String} pass Only logged in users can post this.
  *                                 In generated documentation a separate
  *                                 "Login" Block will be generated.
- */
- </code></pre>
+ */</code></pre>
 	</article>
 
 <!-- ============================================================ -->
@@ -1284,18 +1502,17 @@ Example without @apiErrorTitle:
  * @apiParamTitle (Admin) Parameters only for admin users:
  * @apiParam (Admin) {String} newPassword New password.
  * @apiParam (Admin) {String} userId Change password of that user.
- */
+ */</code></pre>
 
-Example without @apiParamTitle:
-/**
+    <p>Example without @apiParamTitle:</p>
+    <pre class="example"><code>/**
  * @api {post} /user/
  *
  * @apiParam (Parameters only for loggedin users:) {String} newPassword New password.
  *
  * @apiParam (Parameters only for admin users:) {String} newPassword New password.
  * @apiParam (Parameters only for admin users:) {String} userId Change password of that user.
- */
- </code></pre>
+ */</code></pre>
 	</article>
 
 <!-- ============================================================ -->
@@ -1335,7 +1552,7 @@ Example without @apiParamTitle:
 	<article id="param-api-structure">
 		<h2>@apiStructure</h2>
 		<pre><code>@apiStructure name</code></pre>
-		<p>Include a with <code>@apiDefineStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Include a with <code>@apiDefineStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
 		<p>Usage: <code>@apiStructure MyStructure</code></p>
 
 		<table>
@@ -1546,7 +1763,7 @@ Example without @apiErrorTitle:
 	<article id="param-api-success-structure">
 		<h2>@apiSuccessStructure</h2>
 		<pre><code>@apiSuccessStructure name</code></pre>
-		<p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If work with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+		<p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
 		<p>Usage: <code>@apiSuccessStructure MySuccess</code></p>
 
 		<table>
