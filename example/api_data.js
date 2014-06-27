@@ -131,7 +131,7 @@ define({ api: [
         }
       ]
     },
-    "filename": "source/example_full/example.js"
+    "filename": "source/example/example.js"
   },
   {
     "type": "get",
@@ -191,7 +191,7 @@ define({ api: [
         ]
       }
     },
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   },
   {
     "type": "get",
@@ -251,7 +251,7 @@ define({ api: [
         ]
       }
     },
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   },
   {
     "type": "post",
@@ -312,7 +312,7 @@ define({ api: [
         }
       ]
     },
-    "filename": "source/example_full/example.js"
+    "filename": "source/example/example.js"
   },
   {
     "type": "post",
@@ -373,7 +373,7 @@ define({ api: [
         }
       ]
     },
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   },
   {
     "type": "put",
@@ -421,14 +421,14 @@ define({ api: [
         }
       ]
     },
-    "filename": "source/example_full/example.js"
+    "filename": "source/example/example.js"
   },
   {
     "version": "0.3.0",
     "group": "_apidoc.js",
     "type": "",
     "url": "",
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   },
   {
     "version": "0.2.0",
@@ -459,13 +459,13 @@ define({ api: [
     "group": "_apidoc.js",
     "type": "",
     "url": "",
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   },
   {
     "version": "0.1.0",
     "group": "_apidoc.js",
     "type": "",
     "url": "",
-    "filename": "source/example_full/_apidoc.js"
+    "filename": "source/example/_apidoc.js"
   }
 ] });

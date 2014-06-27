@@ -4,6 +4,7 @@ require.config({
 		diffMatchPatch: "./vendor/diff_match_patch.min",
 		handlebars: "./vendor/handlebars.min",
 		handlebarsExtended: "./handlebars_helper",
+		jquery: "./vendor/jquery.min",
 		locales: "./locales/locale",
 		lodash: "./vendor/lodash.min",
 		prettify: "./vendor/prettify/prettify"
@@ -19,7 +20,7 @@ require.config({
 			exports: "Handlebars"
 		},
 		handlebarsExtended: {
-			deps: ["handlebars"],
+			deps: ["jquery", "handlebars"],
 			exports: "Handlebars"
 		},
 		prettify: {
@@ -45,7 +46,8 @@ require([
 	/**
 	 * Templates.
 	 */
-	var templateApidoc         = Handlebars.compile( $("#template-apidoc").html() );
+	var templateHeader         = Handlebars.compile( $("#template-header").html() );
+	var templateFooter         = Handlebars.compile( $("#template-footer").html() );
 	var templateArticle        = Handlebars.compile( $("#template-article").html() );
 	var templateCompareArticle = Handlebars.compile( $("#template-compare-article").html() );
 	var templateGenerator      = Handlebars.compile( $("#template-generator").html() );
@@ -163,13 +165,22 @@ require([
 		}); // forEach
 	}); // forEach
 
-	// Mainmenu "General" Entry.
-	if(apiProject.apidoc)
-	{
-		nav.push({
+	// Mainmenu Header Entry.
+	if(apiProject.header) {
+		nav.unshift({
 			group: "_",
 			isHeader: true,
-			title: locale.__("General"),
+			title: (apiProject.header.title == null) ? locale.__("General") : apiProject.header.title,
+			isFixed: true
+		});
+	}
+
+	// Mainmenu Footer Entry.
+	if(apiProject.footer && apiProject.footer.title != null) {
+		nav.push({
+			group: "_footer",
+			isHeader: true,
+			title: apiProject.footer.title,
 			isFixed: true
 		});
 	}
@@ -200,9 +211,10 @@ require([
 	$("#project").append( templateProject(apiProject) );
 
 	/**
-	 * Render ApiDoc, general documentation.
+	 * Render ApiDoc, header/footer documentation.
 	 */
-	$("#apidoc").append( templateApidoc(apiProject) );
+	if(apiProject.header) $("#header").append( templateHeader(apiProject.header) );
+	if(apiProject.footer) $("#footer").append( templateFooter(apiProject.footer) );
 
 	/**
 	 *  Render Sections and Articles
@@ -212,6 +224,7 @@ require([
 		var articles = [];
 		var oldName = "";
 		var fields = {};
+		var description = "";
 		articleVersions[groupEntry] = {};
 		// Render all Articls of a group.
 		api.forEach(function(entry) {
@@ -241,10 +254,14 @@ require([
 					};
 				}
 
+				if(entry.header && entry.header.fields) fields._hasTypeInHeaderFields = _hasTypeInFields(entry.header.fields);
 				if(entry.parameter && entry.parameter.fields) fields._hasTypeInParameterFields = _hasTypeInFields(entry.parameter.fields);
 				if(entry.error && entry.error.fields) fields._hasTypeInErrorFields = _hasTypeInFields(entry.error.fields);
 				if(entry.success && entry.success.fields) fields._hasTypeInSuccessFields = _hasTypeInFields(entry.success.fields);
 				if(entry.info && entry.info.fields) fields._hasTypeInInfoFields = _hasTypeInFields(entry.info.fields);
+
+				// TODO: make groupDescription compareable with older versions (not important for the moment).
+				if (entry.groupDescription) description = entry.groupDescription;
 
 				articles.push({
 					article: templateArticle(fields),
@@ -259,6 +276,7 @@ require([
 		var fields = {
 			group: groupEntry,
 			title: groupEntry,
+			description: description,
 			articles: articles
 		};
 		$("#sections").append( templateSections(fields) );
@@ -273,7 +291,7 @@ require([
 	$(".sidenav").find("a").on("click", function(e) {
 		e.preventDefault();
 		var id = $(this).attr("href");
-		$('html,body').animate({ scrollTop: parseInt($(id).offset().top) - 18 }, 400);
+		$('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 400);
 		window.location.hash = $(this).attr("href");
 	});
 
@@ -281,7 +299,7 @@ require([
 	if(window.location.hash)
 	{
 		var id = window.location.hash;
-		$('html,body').animate({ scrollTop: parseInt($(id).offset().top) - 18 }, 0);
+		$('html,body').animate({ scrollTop: parseInt($(id).offset().top) }, 0);
 	}
 
 	/**

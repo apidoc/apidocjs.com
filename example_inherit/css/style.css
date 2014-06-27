@@ -210,18 +210,15 @@ pre code {
 	white-space: pre;
 }
 
-/* Alternative
-pre {
-	background-color: #efefef;
-	padding: 6px 8px 6px 10px;
-	border: none;
-	border-left: 6px solid #999999;
-	border-radius: 0;
+/*
+pre.language-json {
+	background: #f5f5f5;
+	border: #e0e0e0 1px solid;
 }
 
-pre .pln,
-pre .pun {
-	color: #000000;
+pre.language-json .pln,
+pre.language-json .pun {
+	color: #3a3a3a;
 }
 */
 
@@ -283,4 +280,57 @@ pre .pun {
 
 .sidenav > li.is-new a {
 	border-left: #e5e5e5 4px solid;
+}
+
+/* ------------------------------------------------------------------------------------------
+ * Compare
+ * ------------------------------------------------------------------------------------------ */
+
+ins {
+	background: #60d060;
+	text-decoration: none;
+	color: #000000;
+}
+
+del {
+	background: #f05050;
+	color: #000000;
+}
+
+.label-ins {
+  background-color: #60d060;
+}
+
+.label-del {
+  background-color: #f05050;
+  text-decoration: line-through;
+}
+
+pre.ins {
+  background-color: #60d060;
+}
+
+pre.del {
+  background-color: #f05050;
+  text-decoration: line-through;
+}
+
+table.ins th,
+table.ins td {
+  background-color: #60d060;
+}
+
+table.del th,
+table.del td {
+  background-color: #f05050;
+  text-decoration: line-through;
+}
+
+tr.ins td {
+  background-color: #60d060;
+}
+
+tr.del td {
+  background-color: #f05050;
+  text-decoration: line-through;
 }

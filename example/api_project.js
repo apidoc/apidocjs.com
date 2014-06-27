@@ -2,9 +2,14 @@ define({
   "name": "apidoc-example",
   "version": "0.3.0",
   "description": "apidoc example project",
-  "apidoc": "<h1 id=\"example-text-from-api-md\">Example text from API.md</h1>\n<h2 id=\"general\">General</h2>\n<p>This Text is optionally and not needed to create the documentation.</p>\n<h2 id=\"howto-include\">HowTo include</h2>\n<p>This text is from file &quot;API.md&quot;.</p>\n<p>In your projects &quot;package.json&quot; you can set &quot;apidoc&quot; with a description text or &quot;apidocFilename&quot; with the filename to include into your documentation.</p>\n<p>This example attempts to integrate &quot;API.md&quot;. If not available, then the &quot;apidoc&quot; string is used.</p>\n<pre><code>{\n  &quot;name&quot;: &quot;example&quot;,\n  &quot;version&quot;: &quot;0.3.0&quot;,\n  &quot;description&quot;: &quot;apidoc example project.&quot;,\n  &quot;apidoc&quot;: &quot;This is a description, it will be ignored if parameter apidocFilename exist.&quot;,\n  &quot;apidocFilename&quot;: &quot;API.md&quot;\n}\n</code></pre>",
+  "header": {
+    "content": "<h2 id=\"welcome-to-apidoc\">Welcome to apiDoc</h2>\n<p>Please visit <a href=\"http://apidocjs.com\">apidocjs.com</a> with the full documentation.</p>\n"
+  },
+  "footer": {
+    "content": "<h2 id=\"epilogue\">Epilogue</h2>\n<p>Suggestions, contact, support and error reporting on <a href=\"https://github.com/apidoc/apidoc/issues\">GitHub</a></p>\n"
+  },
   "generator": {
-    "version": "0.4.0",
-    "time": "2014-03-05T12:23:29.821Z"
+    "version": "0.5.0",
+    "time": "2014-06-27T14:36:57.993Z"
   }
 });
