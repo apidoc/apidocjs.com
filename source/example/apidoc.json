@@ -1,0 +1,11 @@
+{
+  "name": "apidoc-example",
+  "version": "0.3.0",
+  "description": "apiDoc example project",
+  "header": {
+    "filename": "header.md"
+  },
+  "footer": {
+    "filename": "footer.md"
+  }
+}
