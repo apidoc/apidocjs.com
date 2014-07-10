@@ -348,13 +348,13 @@ This is a comment.
   "name": "example",
   "version": "0.1.0",
   "description": "apiDoc basic example",
-  "apicdoc": {
+  "apidoc": {
     "title": "Custom apiDoc browser title",
     "url" : "https://api.github.com/v1",
   }
 }</code></pre>
 
-<h3 id="configuration-settings">Settings for apidoc.json</h3>
+    <h3 id="configuration-settings">Settings for apidoc.json</h3>
     <table>
       <thead>
       <tr>
@@ -384,20 +384,53 @@ This is a comment.
         <td>Prefix for api path (endpoints), e.g. <code>https://api.github.com/v1<code></td>
       </tr>
       <tr>
-        <td class="code">header.title</td>
+        <td class="code" colspan="2">header</td>
+      </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;title</td>
         <td>Navigation text for the included header.md file.<br>(watch <a href="#headerfooter">Header / Footer</a>)</td>
       </tr>
       <tr>
-        <td class="code">header.filename</td>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;filename</td>
         <td>Filename (markdown-file) for the included header.md file.</td>
       </tr>
       <tr>
-        <td class="code">footer.title</td>
+        <td class="code" colspan="2">footer</td>
+      </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;title</td>
         <td>Navigation text for the included footer.md file.</td>
       </tr>
       <tr>
-        <td class="code">footer.filename</td>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;filename</td>
         <td>Filename (markdown-file) for the included footer.md file.</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h3 id="configuration-template-settings">Template specific settings</h3>
+    <p>The following settings are specific for the default template of apiDoc.</p>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code" colspan="3">template</td>
+      </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;withCompare</td>
+        <td class="code">Boolean</td>
+        <td>Enable comparison with older api versions. Default: <code>true</code></td>
+      </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;withGenerator</td>
+        <td class="code">Boolean</td>
+        <td>Output the generator information at the footer. Default: <code>true</code></td>
       </tr>
       </tbody>
     </table>

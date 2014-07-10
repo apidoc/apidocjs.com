@@ -7,5 +7,9 @@
   },
   "footer": {
     "filename": "footer.md"
+  },
+  "template": {
+  	"withCompare": true,
+  	"withGenerator": true
   }
 }
