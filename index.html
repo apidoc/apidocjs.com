@@ -33,6 +33,7 @@
 				<li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
 				<li title="CoffeeScript">CoffeeScript</li>
 				<li title="Erlang">Erlang</li>
+				<li title="Perl">Perl</li>
 				<li title="Python">Python</li>
 				<li title="Ruby">Ruby</li>
 			</ul> 
@@ -78,7 +79,21 @@
 % @apiSuccess {String} lastname  Lastname of the User.
 %}</code></pre>
 				</div>
-				
+
+        <!-- Tab Perl -->
+        <div>
+          <pre class="example"><code>#**
+# @api {get} /user/:id Request User information
+# @apiName GetUser
+# @apiGroup User
+#
+# @apiParam {Number} id Users unique ID.
+#
+# @apiSuccess {String} firstname Firstname of the User.
+# @apiSuccess {String} lastname  Lastname of the User.
+#*</code></pre>
+        </div>
+
 				<!-- Tab Python -->
 				<div>
 					<pre class="example"><code>"""
@@ -92,7 +107,7 @@
 @apiSuccess {String} lastname  Lastname of the User.
 """</code></pre>
 				</div>
-				
+
 				<!-- Tab Ruby -->
 				<div>
 					<pre class="example"><code>=begin
@@ -128,10 +143,11 @@
 				<li role="listitem"><a href="#preface">Preface</a></li>
 				<li role="listitem"><a href="#install">Install</a></li>
 				<li role="listitem"><a href="#run">Run</a></li>
-				<li role="listitem"><a href="#configure">Configure</a></li>
+				<li role="listitem"><a href="#CLI">CLI</a></li>
 				<li role="listitem"><a href="#grunt-module">GRUNT Module</a></li>
 				<li role="listitem"><a href="#template">Template</a></li>
 				<li role="listitem"><a href="#extend">Extend</a></li>
+        <li role="listitem"><a href="#configuration">Configuration (apidoc.json)</a></li>
         <li role="listitem"><a href="#headerfooter">Header / Footer</a></li>
 				<li role="listitem" class="nav-header"><a href="#examples">Examples</a></li>
 				<li role="listitem"><a href="#example-basic">Basic</a></li>
@@ -199,6 +215,11 @@ This is a comment.
 % This is a comment.
 %}</code></pre>
 
+    <p>Perl (Doxygen)</p>
+    <pre class="example"><code>#**
+# This is a comment.
+#*</code></pre>
+
 		<p>Python</p>
 		<pre class="example"><code>"""
 This is a comment.
@@ -222,8 +243,8 @@ This is a comment.
 		<p>Without any parameter, apiDoc generate a documentation from all <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code> files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
 	</article>
 
-	<article id="configure">
-		<h2>Configure</h2>
+	<article id="CLI">
+		<h2>Command Line Interface</h2>
 		<p>Show command line parameters:</p>
 		<pre><code>apidoc -h</code></pre>
 
@@ -310,29 +331,93 @@ This is a comment.
 		<p><strong>Or <a href="https://github.com/apidoc/apidoc">fork</a> the whole project and create a pull request to make apiDoc better.</strong></p>
 	</article>
 
-  <article id="headerfooter">
-    <h2>Header / Footer</h2>
-    <p>In your projects <code>package.json</code> you can add an <code>apidoc</code> section with header an footer.</p>
-    <p>The title will be visible in the navigation. The filename should be a markdown textfile.</p>
-    <p><a href="source/example_full/package.json">package.json</a></p>
+  <article id="configuration">
+    <h2>Configuration (apidoc.json)</h2>
+    <p>The optional <code>apidoc.json</code> in your projects root dir includes common information about your project like title, short description, version and configuration options like <a href="#headerfooter">header / footer</a> settings or template specific options.</p>
+    <p><a href="source/example_full/apidoc.json">apidoc.json</a></p>
     <pre><code>{
   "name": "example",
   "version": "0.1.0",
-  "description": "A basic apiDoc example",
-  "apidoc": {
+  "description": "apiDoc basic example",
+  "title": "Custom apiDoc browser title",
+  "url" : "https://api.github.com/v1",
+}</code></pre>
+    <p>If you use a <code>package.json</code> (e.g. in a node.js project), all <code>apidoc.json</code> settings can be done in <code>package.json</code> too, just add them under the <code>"apidoc": { }</code> parameter.</p>
+    <p>package.json</p>
+    <pre><code>{
+  "name": "example",
+  "version": "0.1.0",
+  "description": "apiDoc basic example",
+  "apicdoc": {
     "title": "Custom apiDoc browser title",
     "url" : "https://api.github.com/v1",
-    "header": {
-      "title": "My own header title",
-      "filename": "header.md"
-    },
-    "footer": {
-      "title": "My own footer title",
-      "filename": "footer.md"
-    }
   }
 }</code></pre>
 
+<h3 id="configuration-settings">Settings for apidoc.json</h3>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">name</td>
+        <td>Name of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+      </tr>
+      <tr>
+        <td class="code">version</td>
+        <td>Version of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+      </tr>
+      <tr>
+        <td class="code">description</td>
+        <td>Introduction of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+      </tr>
+      <tr>
+        <td class="code">title</td>
+        <td>Browser title text.</td>
+      </tr>
+      <tr>
+        <td class="code">url</td>
+        <td>Prefix for api path (endpoints), e.g. <code>https://api.github.com/v1<code></td>
+      </tr>
+      <tr>
+        <td class="code">header.title</td>
+        <td>Navigation text for the included header.md file.<br>(watch <a href="#headerfooter">Header / Footer</a>)</td>
+      </tr>
+      <tr>
+        <td class="code">header.filename</td>
+        <td>Filename (markdown-file) for the included header.md file.</td>
+      </tr>
+      <tr>
+        <td class="code">footer.title</td>
+        <td>Navigation text for the included footer.md file.</td>
+      </tr>
+      <tr>
+        <td class="code">footer.filename</td>
+        <td>Filename (markdown-file) for the included footer.md file.</td>
+      </tr>
+      </tbody>
+    </table>
+  </article>
+
+  <article id="headerfooter">
+    <h2>Header / Footer</h2>
+    <p>In your projects <code>apidoc.json</code> you can add a header and footer.</p>
+    <p>The title will be visible in the navigation. The filename should be a markdown textfile.</p>
+    <p><a href="source/example_full/apidoc.json">apidoc.json</a></p>
+    <pre><code>{
+  "header": {
+    "title": "My own header title",
+    "filename": "header.md"
+  },
+  "footer": {
+    "title": "My own footer title",
+    "filename": "footer.md"
+  }
+}</code></pre>
   </article>
 </section>
 
@@ -348,17 +433,17 @@ This is a comment.
 
 	<article id="example-basic">
 		<h2>Basic</h2>
-		<p>In this basic example we have a small project file and a package.json.</p>
+		<p>In this basic example we have a small project file and an apidoc.json.</p>
 		<p><a href="example_basic/">View example output</a></p>
 		<p><br></p>
 
-		<p><a href="source/example_basic/package.json">package.json</a></p>
+		<p><a href="source/example_basic/apidoc.json">apidoc.json</a></p>
 		<pre><code>{
   "name": "example",
   "version": "0.1.0",
   "description": "A basic apiDoc example"
 }</code></pre>
-		<p>From <code>package.json</code> apiDoc get the name, version and description of your project.<br>
+		<p>From <code>apidoc.json</code> apiDoc get the name, version and description of your project.<br>
 		The file is <code>optional</code> (it depend on your template if the data is required).</p>
 		<p><br></p>
 
@@ -406,11 +491,11 @@ This is a comment.
 		<p><a href="example_inherit/">View example output</a></p>
 		<p><br></p>
 		
-		<p><a href="source/example_inherit/package.json">package.json</a></p>
+		<p><a href="source/example_inherit/apidoc.json">apidoc.json</a></p>
 		<pre><code>{
   "name": "example-inherit",
   "version": "0.1.0",
-  "description": "A apiDoc inherit example"
+  "description": "apiDoc inherit example"
 }</code></pre>
 		<p><br></p>
 
@@ -490,11 +575,11 @@ This is a comment.
 		<p>You can change the main version (top right) to a previous version and compare older methods with their predecessor.</p>	
 		<p><br></p>
 		
-		<p><a href="source/example_inherit/package.json">package.json</a></p>
+		<p><a href="source/example_inherit/apidoc.json">apidoc.json</a></p>
 		<pre><code>{
   "name": "example-versioning",
   "version": "0.2.0",
-  "description": "A apiDoc versioning example"
+  "description": "apiDoc versioning example"
 }</code></pre>
 		<p><br></p>
 
@@ -572,7 +657,7 @@ This is a comment.
 			<li role="listitem"><a href="source/example_full/_apidoc.js">_apidoc.js</a></li>
 			<li role="listitem"><a href="source/example_full/API.md">API.md</a></li>
 			<li role="listitem"><a href="source/example_full/example.js">example.js</a></li>
-			<li role="listitem"><a href="source/example_full/package.json">package.json</a></li>
+			<li role="listitem"><a href="source/example_full/apidoc.json">apidoc.json</a></li>
 		</ul>
 	</article>
 </section>
