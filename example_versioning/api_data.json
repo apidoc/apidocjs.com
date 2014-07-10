@@ -14,7 +14,7 @@
             "type": "Number",
             "field": "id",
             "optional": false,
-            "description": "Users unique ID."
+            "description": "<p>Users unique ID.</p>"
           }
         ]
       }
@@ -27,21 +27,21 @@
             "type": "String",
             "field": "firstname",
             "optional": false,
-            "description": "Firstname of the User."
+            "description": "<p>Firstname of the User.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "lastname",
             "optional": false,
-            "description": "Lastname of the User."
+            "description": "<p>Lastname of the User.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "field": "registered",
             "optional": false,
-            "description": "Date of Registration."
+            "description": "<p>Date of Registration.</p>"
           }
         ]
       },
@@ -59,7 +59,7 @@
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The <code>id</code> of the User was not found."
+            "description": "<p>The <code>id</code> of the User was not found.</p>"
           }
         ]
       },
@@ -87,7 +87,7 @@
             "type": "Number",
             "field": "id",
             "optional": false,
-            "description": "Users unique ID."
+            "description": "<p>Users unique ID.</p>"
           }
         ]
       }
@@ -100,14 +100,14 @@
             "type": "String",
             "field": "firstname",
             "optional": false,
-            "description": "Firstname of the User."
+            "description": "<p>Firstname of the User.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "lastname",
             "optional": false,
-            "description": "Lastname of the User."
+            "description": "<p>Lastname of the User.</p>"
           }
         ]
       },
@@ -125,7 +125,7 @@
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The <code>id</code> of the User was not found."
+            "description": "<p>The <code>id</code> of the User was not found.</p>"
           }
         ]
       },

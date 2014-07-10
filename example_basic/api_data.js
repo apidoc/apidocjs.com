@@ -13,7 +13,7 @@ define({ api: [
             "type": "Number",
             "field": "id",
             "optional": false,
-            "description": "Users unique ID."
+            "description": "<p>Users unique ID.</p>"
           }
         ]
       }
@@ -26,14 +26,14 @@ define({ api: [
             "type": "String",
             "field": "firstname",
             "optional": false,
-            "description": "Firstname of the User."
+            "description": "<p>Firstname of the User.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "lastname",
             "optional": false,
-            "description": "Lastname of the User."
+            "description": "<p>Lastname of the User.</p>"
           }
         ]
       },
@@ -51,7 +51,7 @@ define({ api: [
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The <code>id</code> of the User was not found."
+            "description": "<p>The <code>id</code> of the User was not found.</p>"
           }
         ]
       },

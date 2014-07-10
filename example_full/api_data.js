@@ -11,7 +11,7 @@ define({ api: [
       "title": "Admin access rights needed. ",
       "description": "Optionally you can write here further Informations about the permission.\n\nAn \"apiDefinePermission\"-block can have an \"apiVersion\", so you can attach the block to a specific version.\n"
     },
-    "description": "Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.",
+    "description": "<p>Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -20,7 +20,7 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           }
         ]
       }
@@ -39,70 +39,70 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "field": "registered",
             "optional": false,
-            "description": "Registration Date."
+            "description": "<p>Registration Date.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "field": "name",
             "optional": false,
-            "description": "Fullname of the User."
+            "description": "<p>Fullname of the User.</p>"
           },
           {
             "group": "Success 200",
             "type": "String[]",
             "field": "nicknames",
             "optional": false,
-            "description": "List of Users nicknames (Array of Strings)."
+            "description": "<p>List of Users nicknames (Array of Strings).</p>"
           },
           {
             "group": "Success 200",
             "type": "Object",
             "field": "profile",
             "optional": false,
-            "description": "Profile data (example for an Object)"
+            "description": "<p>Profile data (example for an Object)</p>"
           },
           {
             "group": "Success 200",
             "type": "Number",
             "field": "profile.age",
             "optional": false,
-            "description": "Users age."
+            "description": "<p>Users age.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "profile.image",
             "optional": false,
-            "description": "Avatar-Image."
+            "description": "<p>Avatar-Image.</p>"
           },
           {
             "group": "Success 200",
             "type": "Object[]",
             "field": "options",
             "optional": false,
-            "description": "List of Users options (Array of Objects)."
+            "description": "<p>List of Users options (Array of Objects).</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "options.name",
             "optional": false,
-            "description": "Option Name."
+            "description": "<p>Option Name.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "field": "options.value",
             "optional": false,
-            "description": "Option Value."
+            "description": "<p>Option Value.</p>"
           }
         ]
       }
@@ -114,13 +114,13 @@ define({ api: [
             "group": "Error 4xx",
             "field": "NoAccessRight",
             "optional": false,
-            "description": "Only authenticated Admins can access the data."
+            "description": "<p>Only authenticated Admins can access the data.</p>"
           },
           {
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The <code>id</code> of the User was not found."
+            "description": "<p>The <code>id</code> of the User was not found.</p>"
           }
         ]
       },
@@ -145,7 +145,7 @@ define({ api: [
       "title": "This title is visible in version 0.1.0 and 0.2.0",
       "description": ""
     },
-    "description": "Here you can describe the function.\nMultilines are possible.",
+    "description": "<p>Here you can describe the function.Multilines are possible.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -154,7 +154,7 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           }
         ]
       }
@@ -167,14 +167,14 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "field": "name",
             "optional": false,
-            "description": "Fullname of the User."
+            "description": "<p>Fullname of the User.</p>"
           }
         ]
       }
@@ -186,7 +186,7 @@ define({ api: [
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The <code>id</code> of the User was not found."
+            "description": "<p>The <code>id</code> of the User was not found.</p>"
           }
         ]
       }
@@ -205,7 +205,7 @@ define({ api: [
       "title": "This title is visible in version 0.1.0 and 0.2.0",
       "description": ""
     },
-    "description": "Here you can describe the function.\nMultilines are possible.",
+    "description": "<p>Here you can describe the function.Multilines are possible.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -214,7 +214,7 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           }
         ]
       }
@@ -227,14 +227,14 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           },
           {
             "group": "Success 200",
             "type": "Date",
             "field": "name",
             "optional": false,
-            "description": "Fullname of the User."
+            "description": "<p>Fullname of the User.</p>"
           }
         ]
       }
@@ -246,7 +246,7 @@ define({ api: [
             "group": "Error 4xx",
             "field": "UserNotFound",
             "optional": false,
-            "description": "The error description text in version 0.1.0."
+            "description": "<p>The error description text in version 0.1.0.</p>"
           }
         ]
       }
@@ -261,7 +261,7 @@ define({ api: [
     "name": "PostUser",
     "group": "User",
     "permission": "none",
-    "description": "In this case \"apiErrorStructure\" is defined and used.\nDefine blocks with params that will be used in several functions, so you dont have to rewrite them.",
+    "description": "<p>In this case &quot;apiErrorStructure&quot; is defined and used.Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -270,7 +270,7 @@ define({ api: [
             "type": "String",
             "field": "name",
             "optional": false,
-            "description": "Name of the User."
+            "description": "<p>Name of the User.</p>"
           }
         ]
       }
@@ -283,7 +283,7 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The new Users-ID."
+            "description": "<p>The new Users-ID.</p>"
           }
         ]
       }
@@ -295,13 +295,13 @@ define({ api: [
             "group": "Error 4xx",
             "field": "NoAccessRight",
             "optional": false,
-            "description": "Only authenticated Admins can access the data."
+            "description": "<p>Only authenticated Admins can access the data.</p>"
           },
           {
             "group": "Error 4xx",
             "field": "UserNameTooShort",
             "optional": false,
-            "description": "Minimum of 5 characters required."
+            "description": "<p>Minimum of 5 characters required.</p>"
           }
         ]
       },
@@ -322,7 +322,7 @@ define({ api: [
     "name": "PostUser",
     "group": "User",
     "permission": "none",
-    "description": "In this case \"apiErrorStructure\" is defined and used.\nDefine blocks with params that will be used in several functions, so you dont have to rewrite them.",
+    "description": "<p>In this case &quot;apiErrorStructure&quot; is defined and used.Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -331,7 +331,7 @@ define({ api: [
             "type": "String",
             "field": "name",
             "optional": false,
-            "description": "Name of the User."
+            "description": "<p>Name of the User.</p>"
           }
         ]
       }
@@ -344,7 +344,7 @@ define({ api: [
             "type": "String",
             "field": "id",
             "optional": false,
-            "description": "The Users-ID."
+            "description": "<p>The Users-ID.</p>"
           }
         ]
       }
@@ -356,13 +356,13 @@ define({ api: [
             "group": "Error 4xx",
             "field": "NoAccessRight",
             "optional": false,
-            "description": "Only authenticated Admins can access the data."
+            "description": "<p>Only authenticated Admins can access the data.</p>"
           },
           {
             "group": "Error 4xx",
             "field": "UserNameTooShort",
             "optional": false,
-            "description": "Minimum of 5 characters required."
+            "description": "<p>Minimum of 5 characters required.</p>"
           }
         ]
       },
@@ -383,7 +383,7 @@ define({ api: [
     "name": "PutUser",
     "group": "User",
     "permission": "none",
-    "description": "This function has same errors like POST /user, but errors not defined again, they were included with \"apiErrorStructure\"",
+    "description": "<p>This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiErrorStructure&quot;</p>",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -392,7 +392,7 @@ define({ api: [
             "type": "String",
             "field": "name",
             "optional": false,
-            "description": "Name of the User."
+            "description": "<p>Name of the User.</p>"
           }
         ]
       }
@@ -404,13 +404,13 @@ define({ api: [
             "group": "Error 4xx",
             "field": "NoAccessRight",
             "optional": false,
-            "description": "Only authenticated Admins can access the data."
+            "description": "<p>Only authenticated Admins can access the data.</p>"
           },
           {
             "group": "Error 4xx",
             "field": "UserNameTooShort",
             "optional": false,
-            "description": "Minimum of 5 characters required."
+            "description": "<p>Minimum of 5 characters required.</p>"
           }
         ]
       },
@@ -439,13 +439,13 @@ define({ api: [
             "group": "Error 4xx",
             "field": "NoAccessRight",
             "optional": false,
-            "description": "Only authenticated Admins can access the data."
+            "description": "<p>Only authenticated Admins can access the data.</p>"
           },
           {
             "group": "Error 4xx",
             "field": "UserNameTooShort",
             "optional": false,
-            "description": "Minimum of 5 characters required."
+            "description": "<p>Minimum of 5 characters required.</p>"
           }
         ]
       },

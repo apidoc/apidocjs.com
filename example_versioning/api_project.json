@@ -1,9 +1,9 @@
 {
   "name": "example-versioning",
   "version": "0.2.0",
-  "description": "A apiDoc versioning example",
+  "description": "apiDoc versioning example",
   "generator": {
-    "version": "0.5.0",
-    "time": "2014-06-27T14:28:45.562Z"
+    "version": "0.6.0",
+    "time": "2014-07-10T15:39:48.493Z"
   }
 }

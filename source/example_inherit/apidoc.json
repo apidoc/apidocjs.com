@@ -1,5 +1,8 @@
 {
   "name": "example-inherit",
   "version": "0.1.0",
-  "description": "apiDoc inherit example"
+  "description": "apiDoc inherit example",
+  "template": {
+    "withCompare": false
+  }
 }

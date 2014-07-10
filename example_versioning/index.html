@@ -7,8 +7,9 @@
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,600,700" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="vendor/prettify.css" rel="stylesheet" media="screen">
-  <link href="css/style.css" rel="stylesheet" media="screen">
+  <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+  <script src="vendor/polyfill.js"></script>
 </head>
 <body>
 
@@ -33,6 +34,7 @@
     <h1>{{name}}</h1>
     {{#if description}}<h2>{{{nl2br description}}}</h2>{{/if}}
   </div>
+  {{#if template.withCompare}}
   <div class="pull-right">
     <div class="btn-group">
       <button id="version" class="btn btn-large dropdown-toggle" data-toggle="dropdown">
@@ -48,6 +50,7 @@
       </ul>
     </div>
   </div>
+  {{/if}}
   <div class="clearfix"></div>
 </script>
 
@@ -64,8 +67,12 @@
 </script>
 
 <script id="template-generator" type="text/x-handlebars-template">
-  {{#if generator}}
-    {{__ "Generated with"}} <a href="http://apidocjs.com">apiDoc</a> {{{generator.version}}} - {{{generator.time}}}
+  {{#if template.withGenerator}}
+    {{#if generator}}
+      <div class="content">
+        {{__ "Generated with"}} <a href="http://apidocjs.com">apiDoc</a> {{{generator.version}}} - {{{generator.time}}}
+      </div>
+    {{/if}}
   {{/if}}
 </script>
 
@@ -88,6 +95,7 @@
     <div class="pull-left">
       <h1>{{underscoreToSpace article.group}} - {{article.title}}</h1>
     </div>
+    {{#if template.withCompare}}
     <div class="pull-right">
       <div class="btn-group">
         <button class="version btn dropdown-toggle" data-toggle="dropdown">
@@ -101,6 +109,7 @@
         </ul>
       </div>
     </div>
+    {{/if}}
     <div class="clearfix"></div>
 
     {{#if article.description}}
@@ -125,7 +134,7 @@
     {{/if}}
 
     {{#each article.examples}}
-      <strong>{{title}}</strong>
+      <h3>{{title}}</h3>
       <pre class="prettyprint language-json" data-type="json"><code>{{{content}}}</code></pre>
     {{/each}}
 
@@ -164,7 +173,7 @@
       </table>
     {{/each}}
     {{#each params.examples}}
-      <strong>{{title}}</strong>
+      <h3>{{title}}</h3>
       <pre class="prettyprint language-json" data-type="json"><code>{{{content}}}</code></pre>
     {{/each}}
   {{/if}}
@@ -210,17 +219,17 @@
     {{#each_compare_title article.examples compare.examples}}
 
       {{#if typeSame}}
-      <strong>{{{showDiff source.title compare.title}}}</strong>
+      <h3>{{{showDiff source.title compare.title}}}</h3>
       <pre class="prettyprint language-json" data-type="json"><code>{{{showDiff source.content compare.content}}}</code></pre>
       {{/if}}
 
       {{#if typeIns}}
-      <strong><ins>{{{source.title}}}</ins></strong>
+      <h3><ins>{{{source.title}}}</ins></h3>
       <pre class="ins prettyprint language-json" data-type="json"><code>{{{source.content}}}</code></pre>
       {{/if}}
 
       {{#if typeDel}}
-      <strong><del>{{{compare.title}}}</del></strong>
+      <h3><del>{{{compare.title}}}</del></h3>
       <pre class="del prettyprint language-json" data-type="json"><code>{{{compare.content}}}</code></pre>
       {{/if}}
 
@@ -360,17 +369,17 @@
     {{#each_compare_title source.examples compare.examples}}
 
       {{#if typeSame}}
-      <strong>{{{showDiff source.title compare.title}}}</strong>
+      <h3>{{{showDiff source.title compare.title}}}</h3>
       <pre class="prettyprint language-json" data-type="json"><code>{{{showDiff source.content compare.content}}}</code></pre>
       {{/if}}
 
       {{#if typeIns}}
-      <strong><ins>{{{source.title}}}</ins></strong>
+      <h3><ins>{{{source.title}}}</ins></h3>
       <pre class="ins prettyprint language-json" data-type="json"><code>{{{source.content}}}</code></pre>
       {{/if}}
 
       {{#if typeDel}}
-      <strong><del>{{{compare.title}}}</del></strong>
+      <h3><del>{{{compare.title}}}</del></h3>
       <pre class="del prettyprint language-json" data-type="json"><code>{{{compare.content}}}</code></pre>
       {{/if}}
 
@@ -460,9 +469,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
-      <div id="sidenav"></div>
-    </div>
+    <div id="sidenav" class="span2"></div>
     <div id="content">
       <div id="project"></div>
       <div id="header"></div>
@@ -470,6 +477,21 @@
       <div id="footer"></div>
       <div id="generator"></div>
     </div>
+  </div>
+</div>
+
+<div id="loader">
+  <div class="spinner">
+	  <div class="spinner-container container1">
+	    <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
+	  </div>
+	  <div class="spinner-container container2">
+	    <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
+	  </div>
+	  <div class="spinner-container container3">
+	    <div class="circle1"></div><div class="circle2"></div><div class="circle3"></div><div class="circle4"></div>
+    </div>
+    <p>Loading...</p>
   </div>
 </div>
 
