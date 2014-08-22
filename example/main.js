@@ -7,7 +7,8 @@ require.config({
 		jquery: "./vendor/jquery.min",
 		locales: "./locales/locale",
 		lodash: "./vendor/lodash.min",
-		prettify: "./vendor/prettify/prettify"
+		prettify: "./vendor/prettify/prettify",
+		utilsSampleRequest: "utils/send_sample_request"
 	},
 	shim: {
 		bootstrap: {
@@ -28,7 +29,7 @@ require.config({
 		}
 	},
 	urlArgs: "v=" + (new Date()).getTime(),
-	waitSeconds: 1
+	waitSeconds: 15
 });
 
 require([
@@ -39,8 +40,14 @@ require([
 	"./api_project.js",
 	"./api_data.js",
 	"prettify",
+	"utilsSampleRequest",
 	"bootstrap"
-], function($, _, locale, Handlebars, apiProject, apiData, prettyPrint) {
+], function($, _, locale, Handlebars, apiProject, apiData, prettyPrint, sampleRequest) {
+
+	/**
+	 * Load google web fonts.
+	 */
+  loadGoogleFontCss($);
 
 	var api = apiData.api;
 
@@ -89,7 +96,7 @@ require([
 		var titles = {};
 		$.each(groupEntries, function(index, entries) {
 			var title = entries[0].title;
-			if(title)
+			if(title !== undefined)
 			{
 				title.toLowerCase().replace(/[äöüß]/g, function($0) { return umlauts[$0]; });
 				titles[title + " #~#" + index] = 1;
@@ -267,6 +274,9 @@ require([
 					};
 				}
 
+				// Add prefix URL for endpoint
+				if(apiProject.url) fields.article.url = apiProject.url + fields.article.url; 
+
 				addArticleSettings(fields, entry);
 
 				// TODO: make groupDescription compareable with older versions (not important for the moment).
@@ -294,7 +304,9 @@ require([
 	/**
 	 * Bootstrap Scrollspy.
 	 */
-	$("body").scrollspy({ offset: 25 });
+	$('[data-spy="scroll"]').each(function () {
+  		$(this).scrollspy('refresh');
+	}); 
 
 	// Content-Scroll on Navigation click.
 	$(".sidenav").find("a").on("click", function(e) {
@@ -358,6 +370,11 @@ require([
 				}
 			});
 		}
+		
+	    /**
+	     * Init Modules
+	     */
+	    sampleRequest.initDynamic();
 	} // initDynamic
 	initDynamic();
 
@@ -365,7 +382,7 @@ require([
 	 * Pre- / Code-Format.
 	 */
 	prettyPrint();
-
+	
 	/**
 	 * HTML-Template specific jQuery-Functions
 	 */
@@ -541,9 +558,6 @@ require([
 		if(entry.success && entry.success.fields)     fields._hasTypeInSuccessFields = _hasTypeInFields(entry.success.fields);
 		if(entry.info && entry.info.fields)           fields._hasTypeInInfoFields = _hasTypeInFields(entry.info.fields);
 
-		// Add prefix URL for endpoint
-		if(apiProject.url) fields.article.url = apiProject.url + fields.article.url; 
-
 		// Add template settings
 		fields.template = apiProject.template;
 	} // addArticleSettings
@@ -586,4 +600,20 @@ require([
 		$root.remove(); 
 		return;
 	} // resetArticle
+	
+
+	function loadGoogleFontCss($){
+	    var host = document.location.hostname.toLowerCase();
+	    var protocol = document.location.protocol.toLowerCase();
+	    var googleCss = '//fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,600,700';
+	    if (host == "localhost" || !host.length || protocol === 'file:'){
+	        googleCss = 'http:' + googleCss;
+	    }
+	    $("<link/>", {
+	        rel: "stylesheet",
+	        type: "text/css",
+	        href: googleCss
+	    }).appendTo("head");
+	} // loadGoogleFontCss
+
 });

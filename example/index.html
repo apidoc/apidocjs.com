@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>apiDoc</title>
+  <title>Loading...</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,600,700" rel="stylesheet" type="text/css">
   <link href="vendor/bootstrap.min.css" rel="stylesheet" media="screen">
   <link href="vendor/prettify.css" rel="stylesheet" media="screen">
   <link href="css/style.css" rel="stylesheet" media="screen, print">
   <link href="img/favicon.ico" rel="icon" type="image/x-icon">
   <script src="vendor/polyfill.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#scrollingNav" data-offset="25">
 
 <script id="template-sidenav" type="text/x-handlebars-template">
+<nav id="scrollingNav">
   <ul class="sidenav nav nav-list">
   {{#each nav}}
-    {{#if isHeader}}
-      {{#if isFixed}}
-        <li class="nav-fixed nav-header" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+    {{#if title}}
+      {{#if isHeader}}
+        {{#if isFixed}}
+          <li class="nav-fixed nav-header" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+        {{else}}
+          <li class="nav-header" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+        {{/if}}
       {{else}}
-        <li class="nav-header" data-group="{{group}}"><a href="#api-{{group}}">{{underscoreToSpace title}}</a></li>
+        <li {{#if hidden}}class="hide" {{/if}}data-group="{{group}}" data-name="{{name}}" data-version="{{version}}">
+          <a href="#api-{{group}}-{{name}}">{{title}}</a>
+        </li>
       {{/if}}
-    {{else}}
-      <li {{#if hidden}}class="hide" {{/if}}data-group="{{group}}" data-name="{{name}}" data-version="{{version}}"><a href="#api-{{group}}-{{name}}">{{title}}</a></li>
     {{/if}}
   {{/each}}
   </ul>
+</nav>
 </script>
 
 <script id="template-project" type="text/x-handlebars-template">
@@ -40,7 +45,7 @@
       <button id="version" class="btn btn-large dropdown-toggle" data-toggle="dropdown">
         <strong>{{version}}</strong> <span class="caret"></span>
       </button>
-      <ul id="versions" class="dropdown-menu">
+      <ul id="versions" class="dropdown-menu open-left">
           <li><a id="compareAllWithPredecessor" href="#">{{__ "Compare all with predecessor"}}</a></li>
           <li class="divider"></li>
           <li class="disabled"><a href="#">{{__ "show up to version:"}}</a></li>
@@ -93,7 +98,7 @@
 <script id="template-article" type="text/x-handlebars-template">
   <article id="api-{{article.group}}-{{article.name}}-{{article.version}}" {{#if hidden}}class="hide"{{/if}} data-group="{{article.group}}" data-name="{{article.name}}" data-version="{{article.version}}">
     <div class="pull-left">
-      <h1>{{underscoreToSpace article.group}} - {{article.title}}</h1>
+      <h1>{{underscoreToSpace article.group}}{{#if article.title}} - {{article.title}}{{/if}}</h1>
     </div>
     {{#if template.withCompare}}
     <div class="pull-right">
@@ -101,7 +106,7 @@
         <button class="version btn dropdown-toggle" data-toggle="dropdown">
           <strong>{{article.version}}</strong> <span class="caret"></span>
         </button>
-        <ul class="versions dropdown-menu">
+        <ul class="versions dropdown-menu open-left">
           <li class="disabled"><a href="#">{{__ "compare changes to:"}}</a></li>
   {{#each versions}}
           <li class="version"><a href="#">{{this}}</a></li>
@@ -135,7 +140,7 @@
 
     {{#each article.examples}}
       <h3>{{title}}</h3>
-      <pre class="prettyprint language-json" data-type="json"><code>{{{content}}}</code></pre>
+      <pre class="prettyprint language-json" data-type="json"><code>{{content}}</code></pre>
     {{/each}}
 
     {{subTemplate "article-param-block" params=article.header _hasType=_hasTypeInHeaderFields}}
@@ -143,6 +148,9 @@
     {{subTemplate "article-param-block" params=article.success _hasType=_hasTypeInSuccessFields}}
     {{subTemplate "article-param-block" params=article.info _hasType=_hasTypeInInfoFields}}
     {{subTemplate "article-param-block" params=article.error _col1="Name" _hasType=_hasTypeInErrorFields}}
+
+    {{subTemplate "article-sample-request" article=article}}
+
   </article>
 </script>
 
@@ -172,11 +180,55 @@
         </tbody>
       </table>
     {{/each}}
+
     {{#each params.examples}}
       <h3>{{title}}</h3>
-      <pre class="prettyprint language-json" data-type="json"><code>{{{content}}}</code></pre>
+      <pre class="prettyprint language-json" data-type="json"><code>{{content}}</code></pre>
     {{/each}}
+
   {{/if}}
+</script>
+
+<script id="template-article-sample-request" type="text/x-handlebars-template">
+    {{#if article.sampleRequest}}
+      <h2>{{__ "Send a Sample Request"}}</h2>
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+              <div class="input-prepend">>
+                <span class="add-on">{{__ "url"}}</span>
+                <input type="text" class="sample-request-url" value="{{article.sampleRequest.0.url}}" />
+              </div>
+            </div>
+          </div>
+ 
+      {{#each article.parameter.fields.Parameter}}
+          <div class="control-group">
+            <label class="control-label" for="sample-request-field-{{field}}">{{field}}</label>
+            <div class="controls">
+              <input type="text" placeholder="{{field}} ({{type}})" class="sample-request-param" data-name="{{field}}">
+            </div>
+          </div>
+      {{/each}}
+
+          <div class="control-group">
+            <div class="controls">
+              <button class="btn btn-default sample-request-send" data-sample-request-type="{{article.type}}">{{__ "Send"}}</button>
+            </div>
+          </div>
+
+          <div class="sample-request-response" style="display: none;">
+            <h3>
+              {{__ "Response"}}
+              <button class="btn btn-small btn-default pull-right sample-request-clear">X</button>
+            </h3>
+            <pre class="prettyprint language-json" data-type="json"><code class="sample-request-response-json"></code></pre>
+          </div>
+
+        </fieldset>
+      </form>
+    {{/if}}    
 </script>
 
 <script id="template-compare-article" type="text/x-handlebars-template">
@@ -193,7 +245,7 @@
         <button class="version btn btn-danger dropdown-toggle" data-toggle="dropdown">
           <strong>{{compare.version}}</strong> <span class="caret"></span>
         </button>
-        <ul class="versions dropdown-menu">
+        <ul class="versions dropdown-menu open-left">
           <li class="disabled"><a href="#">{{__ "compare changes to:"}}</a></li>
           <li class="divider"></li>
   {{#each versions}}
@@ -239,6 +291,9 @@
     {{subTemplate "article-compare-param-block" source=article.success compare=compare.success _hasType=_hasTypeInSuccessFields}}
     {{subTemplate "article-compare-param-block" source=article.info compare=compare.info _hasType=_hasTypeInInfoFields}}
     {{subTemplate "article-compare-param-block" source=article.error compare=compare.error _col1="Name" _hasType=_hasTypeInErrorFields}}
+
+    {{subTemplate "article-sample-request" article=article}}
+
   </article>
 </script>
 

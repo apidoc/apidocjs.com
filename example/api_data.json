@@ -11,6 +11,11 @@
       "title": "Admin access rights needed. ",
       "description": "Optionally you can write here further Informations about the permission.\n\nAn \"apiDefinePermission\"-block can have an \"apiVersion\", so you can attach the block to a specific version.\n"
     },
+    "sampleRequest": [
+      {
+        "url": "http://apidocjs.com/example/api_project.json"
+      }
+    ],
     "description": "<p>Compare Verison 0.3.0 with 0.2.0 and you will see the green markers with new items in version 0.3.0 and red markers with removed items since 0.2.0.</p>",
     "parameter": {
       "fields": {
@@ -425,7 +430,7 @@
   },
   {
     "version": "0.3.0",
-    "group": "_apidoc.js",
+    "group": "_apidoc_js",
     "type": "",
     "url": "",
     "filename": "source/example/_apidoc.js"
@@ -456,14 +461,14 @@
         }
       ]
     },
-    "group": "_apidoc.js",
+    "group": "_apidoc_js",
     "type": "",
     "url": "",
     "filename": "source/example/_apidoc.js"
   },
   {
     "version": "0.1.0",
-    "group": "_apidoc.js",
+    "group": "_apidoc_js",
     "type": "",
     "url": "",
     "filename": "source/example/_apidoc.js"
