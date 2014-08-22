@@ -82,16 +82,16 @@
 
         <!-- Tab Perl -->
         <div>
-          <pre class="example"><code>#**
-# @api {get} /user/:id Request User information
-# @apiName GetUser
-# @apiGroup User
-#
-# @apiParam {Number} id Users unique ID.
-#
-# @apiSuccess {String} firstname Firstname of the User.
-# @apiSuccess {String} lastname  Lastname of the User.
-#*</code></pre>
+          <pre class="example"><code>=pod
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+=cut</code></pre>
         </div>
 
 				<!-- Tab Python -->
@@ -1353,8 +1353,7 @@ Example without @apiErrorTitle:
     <pre class="example"><code>/**
  * @api {get} /user/:id
  * @apiHeader {String} access-key Users unique access-key.
- */
- </code></pre>
+ */</code></pre>
   </article>
 
 <!-- ============================================================ -->
@@ -2050,20 +2049,14 @@ Example without @apiErrorTitle:
 	</article>
 </section>
 
+<footer class="contentinfo">
+  development is supported by <a href="http://www.inveris.de">inveris</a> &bull;
+  hosted on <a href="https://github.com/apidoc/apidoc">GitHub</a> &bull;
+  distributed over <a href="https://npmjs.org/package/apidoc">npm</a>
+</footer>
+
 	</div><!-- /#content -->
 </div><!-- /#main -->
-
-<footer class="contentinfo">
-	<div class="pull-left">
-		<a href="http://www.inveris.de"><img src="img/logo_inveris.png" width="145" height="27" alt="inveris OHG" title="apiDoc development supported by inveris & Mashape"></a>
-		<a href="http://www.mashape.com"><img src="img/logo_mashape.png" width="189" height="46" alt="Mashape, Inc." title="apiDoc development supported inveris & Mashape"></a>
-	</div>
-	<div class="pull-right">
-    <a href="https://github.com/apidoc/apidoc"><img src="img/logo_github.png" width="126" height="34" alt="GitHub" title="apiDoc hosted on GitHub"></a>
-    <a href="http://nodejs.org"><img src="img/logo_node.png" width="135" height="37" alt="Node.js" title="Build with Node.js"></a>
-    <a href="https://npmjs.org/package/apidoc"><img src="img/logo_npm.png" width="110" height="45" alt="npm" title="apiDoc on Node Packaged Modules"></a>
-	</div>
-</footer>
 
 </div><!-- /.container -->
 
@@ -2075,8 +2068,7 @@ $(document).ready(function() {
 	var headerSize = 70;
 	// Anchor scroll
 	$("a").each(function() {
-		if($(this).attr("href").substr(0, 1) === "#")
-		{
+		if($(this).attr("href").substr(0, 1) === "#") {
 			$(this).on("click", function(e) {
 				e.preventDefault();
 				var id = $(this).attr("href");
@@ -2085,8 +2077,7 @@ $(document).ready(function() {
 			}); // each
 		}
 	});
-	if(window.location.hash)
-	{
+	if(window.location.hash) {
 		var id = window.location.hash;
 		$("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 0);
 	}
@@ -2106,8 +2097,7 @@ $(document).ready(function() {
 		else $nav.css({ marginTop: 0 });
 	} // moveNav
 	// Enable if screen is heigh enough
-	if($doc.height() >= height)
-	{
+	if($doc.height() >= height) {
 		moveNav();
 	  $doc.scroll(function() { moveNav(); });
 	}
