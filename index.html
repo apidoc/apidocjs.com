@@ -177,6 +177,7 @@
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
 				<li role="listitem"><a href="#param-api-param-title">@apiParamTitle</a></li>
 				<li role="listitem"><a href="#param-api-permission">@apiPermission</a></li>
+				<li role="listitem"><a href="#param-api-sample-request">@apiSampleRequest</a></li>
 				<li role="listitem"><a href="#param-api-structure">@apiStructure</a></li>
 				<li role="listitem"><a href="#param-api-success">@apiSuccess</a></li>
 				<li role="listitem"><a href="#param-api-success-title">@apiSuccessTitle</a></li>
@@ -382,6 +383,10 @@ This is a comment.
       <tr>
         <td class="code">url</td>
         <td>Prefix for api path (endpoints), e.g. <code>https://api.github.com/v1<code></td>
+      </tr>
+      <tr>
+        <td class="code" id="configuration-settings-sample-url">sampleUrl</td>
+        <td>If set, a form to test an api method (send a request) will be visible. See <a href="#param-api-sample-request">@apiSampleRequest</a> for more details.</td>
       </tr>
       <tr>
         <td class="code" colspan="2">header</td>
@@ -1666,6 +1671,85 @@ Example without @apiErrorTitle:
  * @apiPermission none
  */</code></pre>
 	</article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-sample-request">
+    <h2>@apiSampleRequest</h2>
+    <pre><code>@apiSampleRequest url</code></pre>
+    <p>Use this parameter in conjunction with the apidoc.json configuration parameter <a href="#configuration-settings-sample-url">sampleUrl</a>.</p>
+    <p>If <code>sampleUrl</code> is set, all methods will have the api test form (the endpoint from <a href="#param-api">@api</a> will be appended).<br>Without sampleUrl only methods with <code>@apiSampleRequest</code> will have a form.</p>
+    <p>if <code>@apiSampleRequest url</code> is set in a method block, this url will be used for the request (it overrides sampleUrl when it starts with http).</p>
+    <p>If <code>sampleUrl</code> is set and you don't want a method with a test form, then add <code>@apiSampleRequest off</code> to the documentation block.
+    <p>Usage: <code>@apiSampleRequest http://test.github.com</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">url</td>
+        <td>
+          Url to your test api server.<br>
+          <br>
+          
+          Overwrite the configuration parameter sampleUrl and append <a href="#param-api">@api</a> url:<br>
+          <code>@apiSampleRequest http://www.example.com</code><br>
+          <br>
+
+          Prefix the <a href="#param-api">@api</a> url:<br>
+          <code>@apiSampleRequest /my_test_path</code><br>
+          <br>
+          
+          Disable api test if configuration parameter sampleUrl is set:<br>
+          <code>@apiSampleRequest off</code> 
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Examples:</p>
+    <p>This will send the api request to <strong>http://api.github.com/user/:id</strong></p>
+    <pre class="example"><code>Configuration parameter sampleUrl: "http://api.github.com"
+/**
+ * @api {get} /user/:id
+ */</code></pre>
+
+    <p>This will send the api request to <strong>http://test.github.com/some_path/user/:id</strong><br>
+    It overwrites sampleUrl.</p>
+    <pre class="example"><code>Configuration parameter sampleUrl: "http://api.github.com"
+/**
+ * @api {get} /user/:id
+ * @apiSampleRequest http://test.github.com/some_path/
+ */</code></pre>
+
+     <p>This will send the api request to <strong>http://api.github.com/test/user/:id</strong></p>
+    It extends sampleUrl.</p>
+    <pre class="example"><code>Configuration parameter sampleUrl: "http://api.github.com"
+/**
+ * @api {get} /user/:id
+ * @apiSampleRequest /test
+ */</code></pre>
+ 
+     <p>This will disable the api request for this api-method.</p>
+    <pre class="example"><code>Configuration parameter sampleUrl: "http://api.github.com"
+/**
+ * @api {get} /user/:id
+ * @apiSampleRequest off
+ */</code></pre>
+ 
+    <p>This will send the api request to <strong>http://api.github.com/some_path/user/:id</strong><br>
+    It activates the request for this method only, because sampleUrl is not set.</p>
+    <pre class="example"><code>Configuration parameter sampleUrl is not set
+/**
+ * @api {get} /user/:id
+ * @apiSampleRequest http://api.github.com/some_path/
+ */</code></pre>
+  </article>
 
 <!-- ============================================================ -->
 
