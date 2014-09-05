@@ -1113,10 +1113,10 @@ Example without @apiErrorTitle:
 
 	<article id="param-api-error-example">
 		<h2>@apiErrorExample</h2>
-		<pre><code>@apiErrorExample [title]
+		<pre><code>@apiErrorExample [{type}] [title]
                  example</code></pre>
 		<p>Example of an error return message, output as a pre-formatted code.</p>
-		<p>Usage: <code>@apiErrorExample Error-Response:<br>                 This is an example.</code></p>
+		<p>Usage: <code>@apiErrorExample {json} Error-Response:<br>                 This is an example.</code></p>
 
 		<table>
 			<thead>
@@ -1126,6 +1126,12 @@ Example without @apiErrorTitle:
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">type<span class="label label-optional">optional</span></td>
+				<td>
+					Response language.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">title<span class="label label-optional">optional</span></td>
 				<td>
@@ -1144,7 +1150,7 @@ Example without @apiErrorTitle:
 		<p>Example:</p>
 		<pre class="example"><code>/**
  * @api {get} /user/:id
- * @apiErrorExample Error-Response:
+ * @apiErrorExample {json} Error-Response:
  *     HTTP/1.1 404 Not Found
  *     {
  *       "error": "UserNotFound"
@@ -1188,10 +1194,10 @@ Example without @apiErrorTitle:
 
 	<article id="param-api-example">
 		<h2>@apiExample</h2>
-		<pre><code>@apiExample [title]
+		<pre><code>@apiExample [{type}] [title]
             example</code></pre>
 		<p>Example for usage of an API method. Output as a pre-formatted code.</p>
-		<p>Usage: <code>@apiExample Example usage:<br>            This is an example.</code></p>
+		<p>Usage: <code>@apiExample {js} Example usage:<br>            This is an example.</code></p>
 
 		<table>
 			<thead>
@@ -1201,6 +1207,12 @@ Example without @apiErrorTitle:
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">type<span class="label label-optional">optional</span></td>
+				<td>
+					Code language.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">title<span class="label label-optional">optional</span></td>
 				<td>
@@ -1219,7 +1231,7 @@ Example without @apiErrorTitle:
 		<p>Example:</p>
 		<pre class="example"><code>/**
  * @api {get} /user/:id
- * @apiExample Example usage:
+ * @apiExample {curl} Example usage:
  *     curl -i http://localhost/user/4711
  */</code></pre>
 	</article>
@@ -1921,10 +1933,10 @@ Example without @apiErrorTitle:
 
 	<article id="param-api-success-example">
 		<h2>@apiSuccessExample</h2>
-		<pre><code>@apiSuccessExample [title]
+		<pre><code>@apiSuccessExample [{type}] [title]
                    example</code></pre>
 		<p>Example of a success return message, output as a pre-formatted code.</p>
-		<p>Usage: <code>@apiSuccessExample Success-Response:<br>                   This is an example.</code></p>
+		<p>Usage: <code>@apiSuccessExample {json} Success-Response:<br>                   This is an example.</code></p>
 
 		<table>
 			<thead>
@@ -1934,6 +1946,12 @@ Example without @apiErrorTitle:
 			</tr>
 			</thead>
 			<tbody>
+			<tr>
+				<td class="code">type<span class="label label-optional">optional</span></td>
+				<td>
+					Response language.
+				</td>
+			</tr>
 			<tr>
 				<td class="code">title<span class="label label-optional">optional</span></td>
 				<td>
@@ -1952,7 +1970,7 @@ Example without @apiErrorTitle:
 		<p>Example:</p>
 		<pre class="example"><code>/**
  * @api {get} /user/:id
- * @apiSuccessExample Success-Response:
+ * @apiSuccessExample {json} Success-Response:
  *     HTTP/1.1 200 OK
  *     {
  *       "firstname": "John",
