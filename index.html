@@ -27,8 +27,8 @@
 	<h2>Inline Documentation for RESTful web APIs</h2>
 	<p>apiDoc creates a documentation from API descriptions in your source code.</p>
 	<div class="pull-left span8">
-	
-		<div id="exampleTab">          
+
+		<div id="exampleTab">
 			<ul class="resp-tabs-list">
 				<li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
 				<li title="CoffeeScript">CoffeeScript</li>
@@ -36,9 +36,9 @@
 				<li title="Perl">Perl</li>
 				<li title="Python">Python</li>
 				<li title="Ruby">Ruby</li>
-			</ul> 
+			</ul>
 			<div class="resp-tabs-container">
-				<!-- Tab 1 -->                                                        
+				<!-- Tab 1 -->
 				<div>
 					<pre class="example"><code>/**
  * @api {get} /user/:id Request User information
@@ -52,7 +52,7 @@
  */</code></pre>
 				</div>
 
-				<!-- Tab CoffeeScript -->                                                        
+				<!-- Tab CoffeeScript -->
 				<div>
 					<pre class="example"><code>###
 @api {get} /user/:id Request User information
@@ -122,7 +122,7 @@
 =end</code></pre>
 				</div>
 			</div>
-		</div>  
+		</div>
 
 		<p>Highlight is an API history, with that various API version levels can be compared. So you, or a frontend developer, can retrace what changed in the API since the last version.</p>
 	</div>
@@ -172,7 +172,7 @@
         <li role="listitem"><a href="#param-api-header">@apiHeader</a></li>
         <li role="listitem"><a href="#param-api-header-structure">@apiHeaderStructure</a></li>
         <li role="listitem"><a href="#param-api-header-title">@apiHeaderTitle</a></li>
-				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>				
+				<li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>
 				<li role="listitem"><a href="#param-api-name">@apiName</a></li>
 				<li role="listitem"><a href="#param-api-param">@apiParam</a></li>
 				<li role="listitem"><a href="#param-api-param-title">@apiParamTitle</a></li>
@@ -316,9 +316,9 @@ This is a comment.
 		<p>By default the generated apiDoc use a complex Template, which support</p>
 		<ul role="list">
 			<li role="listitem">versioning: view different versions of your API</li>
-			<li role="listitem">compare: view changes between two versions of your API</li>    
+			<li role="listitem">compare: view changes between two versions of your API</li>
 		</ul>
-		<p><a href="example/">view default demo</a></p> 
+		<p><a href="example/">view default demo</a></p>
 
 		<h3>Create your own</h3>
 		<p>You can create your own template and use the apiDoc generated files <code>api_data.js</code>, <code>api_project.js</code>, or json only files <code>api_data.json</code>, <code>api_project.json</code>.</p>
@@ -437,6 +437,11 @@ This is a comment.
         <td class="code">Boolean</td>
         <td>Output the generator information at the footer. Default: <code>true</code></td>
       </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;jQueryAjaxSetup</td>
+        <td class="code">Object</td>
+        <td>Set <a href="http://api.jquery.com/jquery.ajaxsetup/">default values</a> for Ajax requests.</td>
+      </tr>
       </tbody>
     </table>
   </article>
@@ -466,7 +471,7 @@ This is a comment.
 -->
 <section id="examples">
 	<h1>Examples</h1>
-	
+
 	<p>An introduction Presentation with a small example can be found at <a href="https://speakerdeck.com/rottmann/api-documentation" target="_blank" title="Introduction with a small example">speakerdeck.com</a>.</p>
 
 	<article id="example-basic">
@@ -516,7 +521,7 @@ This is a comment.
 		<p>This example describes a <code>GET</code> Method to request the User Information by the users <code>id</code>.</p>
 		<p><code>@api {get} /user/:id Request User information</code> is required, without <code>@api</code> apiDoc ignores a documentation block.</p>
 		<p><code>@apiName</code> is a <code>unique</code> name and should always be used.<br>
-		Format: <i>method</i> + <i>path</i> (e.g. Get + User)</p> 
+		Format: <i>method</i> + <i>path</i> (e.g. Get + User)</p>
 		<p><code>@apiGroup</code> should always be used, under that name will this method be grouped.</p>
 		<p>All other fields are optional, look at their description under <a href="#params">apiDoc-Params</a>.</p>
 	</article>
@@ -528,7 +533,7 @@ This is a comment.
 		<p>Inherit mean, that you can define parts of your documentation that shall be used many times.</p>
 		<p><a href="example_inherit/">View example output</a></p>
 		<p><br></p>
-		
+
 		<p><a href="source/example_inherit/apidoc.json">apidoc.json</a></p>
 		<pre><code>{
   "name": "example-inherit",
@@ -610,9 +615,9 @@ This is a comment.
 			<li role="listitem">Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
 			<li role="listitem">Red marks contents that were removed.</li>
 		</ul>
-		<p>You can change the main version (top right) to a previous version and compare older methods with their predecessor.</p>	
+		<p>You can change the main version (top right) to a previous version and compare older methods with their predecessor.</p>
 		<p><br></p>
-		
+
 		<p><a href="source/example_inherit/apidoc.json">apidoc.json</a></p>
 		<pre><code>{
   "name": "example-versioning",
@@ -756,7 +761,7 @@ This is a comment.
  * @api {get} /user/:id
  */</code></pre>
 	</article>
-	
+
 <!-- ============================================================ -->
 
 	<article id="param-api-define-error-structure">
@@ -879,7 +884,7 @@ This is a comment.
 
 		<p>Example:</p>
 		<pre class="example"><code>/**
- * @apiDefinePermission admin Admin access rights needed. 
+ * @apiDefinePermission admin Admin access rights needed.
  * Optionally you can write here further Informations about the permission.
  */
 
@@ -1256,7 +1261,7 @@ Example without @apiErrorTitle:
 			<tr>
 				<td class="code">name</td>
 				<td>
-					Name of the group. Also used as navigation title. 
+					Name of the group. Also used as navigation title.
 				</td>
 			</tr>
 			</tbody>
@@ -1472,7 +1477,7 @@ Example without @apiErrorTitle:
 			<tr>
 				<td class="code">hint<span class="label label-optional">optional</span></td>
 				<td>
-					Short information why this block should be ignored. 
+					Short information why this block should be ignored.
 				</td>
 			</tr>
 			</tbody>
@@ -1707,7 +1712,7 @@ Example without @apiErrorTitle:
         <td>
           Url to your test api server.<br>
           <br>
-          
+
           Overwrite the configuration parameter sampleUrl and append <a href="#param-api">@api</a> url:<br>
           <code>@apiSampleRequest http://www.example.com</code><br>
           <br>
@@ -1715,9 +1720,9 @@ Example without @apiErrorTitle:
           Prefix the <a href="#param-api">@api</a> url:<br>
           <code>@apiSampleRequest /my_test_path</code><br>
           <br>
-          
+
           Disable api test if configuration parameter sampleUrl is set:<br>
-          <code>@apiSampleRequest off</code> 
+          <code>@apiSampleRequest off</code>
         </td>
       </tr>
       </tbody>
@@ -1745,14 +1750,14 @@ Example without @apiErrorTitle:
  * @api {get} /user/:id
  * @apiSampleRequest /test
  */</code></pre>
- 
+
      <p>This will disable the api request for this api-method.</p>
     <pre class="example"><code>Configuration parameter sampleUrl: "http://api.github.com"
 /**
  * @api {get} /user/:id
  * @apiSampleRequest off
  */</code></pre>
- 
+
     <p>This will send the api request to <strong>http://api.github.com/some_path/user/:id</strong><br>
     It activates the request for this method only, because sampleUrl is not set.</p>
     <pre class="example"><code>Configuration parameter sampleUrl is not set
@@ -1856,7 +1861,7 @@ Example without @apiErrorTitle:
 		<p>Example with Object:</p>
 		<pre class="example"><code>/**
  * @api {get} /user/:id
- * @apiSuccess {Boolean} active        Specify if the account is active. 
+ * @apiSuccess {Boolean} active        Specify if the account is active.
  * @apiSuccess {Object}  profile       User profile information.
  * @apiSuccess {Number}  profile.age   Users age.
  * @apiSuccess {String}  profile.image Avatar-Image.
@@ -2062,7 +2067,7 @@ Example without @apiErrorTitle:
 			Author Peter Rottmann
 		</p>
 		<p><br></p>
-		
+
 		<p>Contact, support and error reporting on GitHub: <a href="https://github.com/apidoc/grunt-apidoc/issues">github.com/apidoc/apidoc/issues</a></p>
 	</article>
 </section>
