@@ -162,7 +162,6 @@
                 <li role="listitem"><a href="#param-api-error-example">@apiErrorExample</a></li>
                 <li role="listitem"><a href="#param-api-example">@apiExample</a></li>
                 <li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
-                <li role="listitem"><a href="#param-api-group-description">@apiGroupDescription</a></li>
                 <li role="listitem"><a href="#param-api-header">@apiHeader</a></li>
                 <li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>
                 <li role="listitem"><a href="#param-api-name">@apiName</a></li>
@@ -179,14 +178,15 @@
                 <li role="listitem" class="deprecated"><a href="#param-api-define-permission">@apiDefinePermission</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-define-structure">@apiDefineStructure</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
-                <li role="listitem" class="deprecated"><a href="#param-api-error-title">@apiErrorTitle</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-error-title">@apiErrorTitle</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-group-description">@apiGroupDescription</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-header-structure">@apiHeaderStructure</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-header-title">@apiHeaderTitle</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-param-title">@apiParamTitle</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-structure">@apiStructure</a></li>
-                <li role="listitem" class="deprecated"><a href="#param-api-success-title">@apiSuccessTitle</a></li>
                 <li role="listitem" class="deprecated"><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-success-title">@apiSuccessTitle</a></li>
             </ul>
         </nav>
     </aside>
@@ -1044,40 +1044,6 @@ This is a comment.
 
 <!-- ============================================================ -->
 
-    <article id="param-api-group-description">
-        <h2>@apiGroupDescription</h2>
-        <pre><code>@apiGroupDescription text</code></pre>
-        <p><strong>Singleton usage at the moment. Use the tag only once for a group.</strong></p>
-        <p>Detailed description of the Group, it will be in the documentation at the beginning of a group.</p>
-        <p>Usage: <code>@apiGroupDescription Some information about the group</code></p>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="code">text</td>
-                <td>
-                    Multiline description text.
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <p>Example:</p>
-        <pre class="example"><code>/**
- * @api {get} /user/:id
- * @apiGroup User
- * @apiGroupDescription The User-Group description.
- */</code></pre>
-    </article>
-
-<!-- ============================================================ -->
-
   <article id="param-api-header">
     <h2>@apiHeader</h2>
     <pre><code>@apiHeader [(group)] [{type}] [field=defaultValue] [description]</code></pre>
@@ -1858,6 +1824,39 @@ This is a comment.
 
 <!-- ============================================================ -->
 
+    <article id="param-api-error-structure">
+        <h2>@apiErrorStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-use">@apiUse</a></p>
+        <pre><code>@apiErrorStructure name</code></pre>
+        <p>Include a with <code>@apiDefineErrorStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+        <p>Usage: <code>@apiErrorStructure MyError</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Name of the defined error block.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiErrorStructure MyError
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
     <article id="param-api-error-title">
         <h2>@apiErrorTitle</h2>
         <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-define">@apiDefine</a></p>
@@ -1914,12 +1913,13 @@ Example without @apiErrorTitle:
 
 <!-- ============================================================ -->
 
-    <article id="param-api-error-structure">
-        <h2>@apiErrorStructure</h2>
-        <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-use">@apiUse</a></p>
-        <pre><code>@apiErrorStructure name</code></pre>
-        <p>Include a with <code>@apiDefineErrorStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
-        <p>Usage: <code>@apiErrorStructure MyError</code></p>
+    <article id="param-api-group-description">
+        <h2>@apiGroupDescription</h2>
+    <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-use">@apiDefine</a></p>
+        <pre><code>@apiGroupDescription text</code></pre>
+        <p><strong>Singleton usage at the moment. Use the tag only once for a group.</strong></p>
+        <p>Detailed description of the Group, it will be in the documentation at the beginning of a group.</p>
+        <p>Usage: <code>@apiGroupDescription Some information about the group</code></p>
 
         <table>
             <thead>
@@ -1930,9 +1930,9 @@ Example without @apiErrorTitle:
             </thead>
             <tbody>
             <tr>
-                <td class="code">name</td>
+                <td class="code">text</td>
                 <td>
-                    Name of the defined error block.
+                    Multiline description text.
                 </td>
             </tr>
             </tbody>
@@ -1941,7 +1941,8 @@ Example without @apiErrorTitle:
         <p>Example:</p>
         <pre class="example"><code>/**
  * @api {get} /user/:id
- * @apiErrorStructure MyError
+ * @apiGroup User
+ * @apiGroupDescription The User-Group description.
  */</code></pre>
     </article>
 
@@ -2122,6 +2123,39 @@ Example without @apiErrorTitle:
 
 <!-- ============================================================ -->
 
+    <article id="param-api-success-structure">
+        <h2>@apiSuccessStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-use">@apiUse</a></p>
+        <pre><code>@apiSuccessStructure name</code></pre>
+        <p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+        <p>Usage: <code>@apiSuccessStructure MySuccess</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Name of the defined success block.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccessStructure MySuccess
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
     <article id="param-api-success-title">
         <h2>@apiSuccessTitle</h2>
         <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-define">@apiDefine</a></p>
@@ -2177,39 +2211,6 @@ Example without @apiErrorTitle:
  * @apiSuccess (Data for LoggedIn users:) email E-Mail address of a user.
  */
  </code></pre>
-    </article>
-
-<!-- ============================================================ -->
-
-    <article id="param-api-success-structure">
-        <h2>@apiSuccessStructure</h2>
-        <p><span class="deprecated">Deprecated !</span> Use <a href="#param-api-use">@apiUse</a></p>
-        <pre><code>@apiSuccessStructure name</code></pre>
-        <p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
-        <p>Usage: <code>@apiSuccessStructure MySuccess</code></p>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td class="code">name</td>
-                <td>
-                    Name of the defined success block.
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <p>Example:</p>
-        <pre class="example"><code>/**
- * @api {get} /user/:id
- * @apiSuccessStructure MySuccess
- */</code></pre>
     </article>
 
 <!-- ============================================================ -->
