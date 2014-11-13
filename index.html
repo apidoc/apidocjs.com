@@ -163,6 +163,7 @@
                 <li role="listitem"><a href="#param-api-example">@apiExample</a></li>
                 <li role="listitem"><a href="#param-api-group">@apiGroup</a></li>
                 <li role="listitem"><a href="#param-api-header">@apiHeader</a></li>
+                <li role="listitem"><a href="#param-api-header-example">@apiHeaderExample</a></li>
                 <li role="listitem"><a href="#param-api-ignore">@apiIgnore</a></li>
                 <li role="listitem"><a href="#param-api-name">@apiName</a></li>
                 <li role="listitem"><a href="#param-api-param">@apiParam</a></li>
@@ -970,6 +971,7 @@ This is a comment.
         <pre><code>@apiExample [{type}] [title]
             example</code></pre>
         <p>Example for usage of an API method. Output as a pre-formatted code.</p>
+        <p>Use it for a complete example at the beginning of the description of an endpoint.</p>
         <p>Usage: <code>@apiExample {js} Example usage:<br>            This is an example.</code></p>
 
         <table>
@@ -1106,6 +1108,54 @@ This is a comment.
  * @apiHeader {String} access-key Users unique access-key.
  */</code></pre>
   </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-header-example">
+        <h2>@apiHeaderExample</h2>
+        <pre><code>@apiHeaderExample [{type}] [title]
+                   example</code></pre>
+        <p>Parameter request example.</p>
+        <p>Usage: <code>@apiHeaderExample {json} Request-Example:<br>                 { "content": "This is an example content" }</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">type<span class="label label-optional">optional</span></td>
+                <td>
+                    Request format.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">title<span class="label label-optional">optional</span></td>
+                <td>
+                    Short title for the example.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">example</td>
+                <td>
+                    Detailed example, multilines capable.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiHeaderExample {json} Header-Example:
+ *     {
+ *       "Accept-Encoding": "Accept-Encoding: gzip, deflate"
+ *     }
+ */</code></pre>
+    </article>
 
 <!-- ============================================================ -->
 
