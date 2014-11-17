@@ -17,7 +17,8 @@ define({
     "content": "<h1 id=\"example-text-from-footer-md\">Example text from footer.md</h1>\n<p>This text is from file &quot;footer.md&quot;.</p>\n<h2 id=\"howto-include\">HowTo include</h2>\n<p>Watch header.md for further information.</p>\n"
   },
   "generator": {
-    "version": "0.6.0",
-    "time": "2014-07-10T15:39:21.661Z"
-  }
+    "version": "0.8.0",
+    "time": "2014-11-17T17:01:12.443Z"
+  },
+  "apidoc": "0.2.0"
 });

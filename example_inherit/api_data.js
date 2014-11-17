@@ -11,9 +11,9 @@ define({ api: [
           {
             "group": "Parameter",
             "type": "Number",
-            "field": "id",
             "optional": false,
-            "description": "<p>Users unique ID.</p>"
+            "field": "id",
+            "description": "<p>Users unique ID.</p> "
           }
         ]
       }
@@ -24,46 +24,49 @@ define({ api: [
           {
             "group": "Success 200",
             "type": "String",
-            "field": "firstname",
             "optional": false,
-            "description": "<p>Firstname of the User.</p>"
+            "field": "firstname",
+            "description": "<p>Firstname of the User.</p> "
           },
           {
             "group": "Success 200",
             "type": "String",
-            "field": "lastname",
             "optional": false,
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p> "
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Doe\"\n   }\n"
+          "content": "   HTTP/1.1 200 OK\n   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Doe\"\n   }\n",
+          "type": "json"
         }
       ]
     },
+    "version": "0.0.0",
+    "filename": "source/example_inherit/example.js",
     "error": {
       "fields": {
         "Error 4xx": [
           {
             "group": "Error 4xx",
-            "field": "UserNotFound",
             "optional": false,
-            "description": "<p>The <code>id</code> of the User was not found.</p>"
+            "field": "UserNotFound",
+            "description": "<p>The <code>id</code> of the User was not found.</p> "
           }
         ]
       },
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n"
+          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n",
+          "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
-    "filename": "source/example_inherit/example.js"
+    "groupTitle": "User"
   },
   {
     "type": "put",
@@ -77,23 +80,23 @@ define({ api: [
           {
             "group": "Parameter",
             "type": "Number",
-            "field": "id",
             "optional": false,
-            "description": "<p>Users unique ID.</p>"
+            "field": "id",
+            "description": "<p>Users unique ID.</p> "
           },
           {
             "group": "Parameter",
             "type": "String",
+            "optional": true,
             "field": "firstname",
-            "optional": true,
-            "description": "<p>Firstname of the User.</p>"
+            "description": "<p>Firstname of the User.</p> "
           },
           {
             "group": "Parameter",
             "type": "String",
-            "field": "lastname",
             "optional": true,
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>Lastname of the User.</p> "
           }
         ]
       }
@@ -102,54 +105,32 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n"
+          "content": "   HTTP/1.1 200 OK\n",
+          "type": "json"
         }
       ]
     },
+    "version": "0.0.0",
+    "filename": "source/example_inherit/example.js",
     "error": {
       "fields": {
         "Error 4xx": [
           {
             "group": "Error 4xx",
-            "field": "UserNotFound",
             "optional": false,
-            "description": "<p>The <code>id</code> of the User was not found.</p>"
+            "field": "UserNotFound",
+            "description": "<p>The <code>id</code> of the User was not found.</p> "
           }
         ]
       },
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n"
+          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n",
+          "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
-    "filename": "source/example_inherit/example.js"
-  },
-  {
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "field": "UserNotFound",
-            "optional": false,
-            "description": "<p>The <code>id</code> of the User was not found.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n"
-        }
-      ]
-    },
-    "group": "example.js",
-    "type": "",
-    "url": "",
-    "version": "0.0.0",
-    "filename": "source/example_inherit/example.js"
+    "groupTitle": "User"
   }
 ] });

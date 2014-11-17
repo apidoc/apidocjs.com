@@ -13,7 +13,8 @@ define({
     "content": "<h2 id=\"epilogue\">Epilogue</h2>\n<p>Suggestions, contact, support and error reporting on <a href=\"https://github.com/apidoc/apidoc/issues\">GitHub</a></p>\n"
   },
   "generator": {
-    "version": "0.7.0",
-    "time": "2014-08-22T16:15:45.522Z"
-  }
+    "version": "0.8.0",
+    "time": "2014-11-17T17:00:36.196Z"
+  },
+  "apidoc": "0.2.0"
 });

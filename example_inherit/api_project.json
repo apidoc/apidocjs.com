@@ -6,7 +6,8 @@
     "withCompare": false
   },
   "generator": {
-    "version": "0.6.0",
-    "time": "2014-07-10T15:43:56.246Z"
-  }
+    "version": "0.8.0",
+    "time": "2014-11-17T17:04:43.209Z"
+  },
+  "apidoc": "0.2.0"
 }
