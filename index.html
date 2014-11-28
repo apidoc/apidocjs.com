@@ -392,6 +392,7 @@ This is a comment.
         <td class="code" id="configuration-settings-sample-url">sampleUrl</td>
         <td>If set, a form to test an api method (send a request) will be visible. See <a href="#param-api-sample-request">@apiSampleRequest</a> for more details.</td>
       </tr>
+
       <tr>
         <td class="code" colspan="2">header</td>
       </tr>
@@ -403,6 +404,7 @@ This is a comment.
         <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;filename</td>
         <td>Filename (markdown-file) for the included header.md file.</td>
       </tr>
+
       <tr>
         <td class="code" colspan="2">footer</td>
       </tr>
@@ -413,6 +415,18 @@ This is a comment.
       <tr>
         <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;filename</td>
         <td>Filename (markdown-file) for the included footer.md file.</td>
+      </tr>
+
+      <tr>
+        <td class="code">order</td>
+        <td>A list of api-names / group-names for ordering the output. Not defined names are automatically displayd last.<br>
+<pre><code>"order": [
+  "Error",
+  "Define",
+  "PostTitleAndError",
+  "PostError"
+]</code></pre>
+        </td>
       </tr>
       </tbody>
     </table>
