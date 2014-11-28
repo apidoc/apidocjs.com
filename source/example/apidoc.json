@@ -8,6 +8,10 @@
   "footer": {
     "filename": "footer.md"
   },
+  "order": [
+    "GetUser",
+    "PostUser"
+  ],
   "template": {
   	"withCompare": true,
   	"withGenerator": true

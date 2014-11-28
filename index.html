@@ -562,7 +562,7 @@ This is a comment.
 
         <p><a href="source/example_inherit/example.js">example.js</a></p>
         <pre><code>/**
- * <code class="important">@apiDefineErrorStructure UserNotFoundError</code>
+ * <code class="important">@apiDefine UserNotFoundError</code>
  *
  * @apiError UserNotFound The <code>id</code> of the User was not found.
  *
@@ -590,7 +590,7 @@ This is a comment.
  *       "lastname": "Doe"
  *     }
  *
- * <code class="important">@apiErrorStructure UserNotFoundError</code>
+ * <code class="important">@apiUse UserNotFoundError</code>
  */
 
 /**
@@ -605,19 +605,20 @@ This is a comment.
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *
- * <code class="important">@apiErrorStructure UserNotFoundError</code>
+ * <code class="important">@apiUse UserNotFoundError</code>
  */</code></pre>
         <p>
-            In this case a block named <code>UserNotFoundError</code> is defined with <code>@apiDefineErrorStructure</code>.<br>
-            That block could be used many times with <code>@apiErrorStructure UserNotFoundError</code>.
+            In this case a block named <code>UserNotFoundError</code> is defined with <code>@apiDefine</code>.<br>
+            That block could be used many times with <code>@apiUse UserNotFoundError</code>.
         </p>
         <p>In the generated output, both methods <code>GET and PUT</code> will have the complete UserNotFoundError documentation.</p>
         <p><br></p>
         <p>
-            Inherit define commands are <code>apiDefineErrorStructure</code>, <code>apiDefinePermission</code>, <code>apiDefineStructure</code> and <code>apiDefineSuccessStructure</code>.<br>
-            Use names are <code>apiErrorStructure</code>, <code>apiPermission</code>, <code>apiStructure</code> and <code>apiSuccessStructure</code>.
+            Inherit define commands is <code>apiDefine</code>.<br>
+            Use name is <code>apiUse</code>.
+            <code>apiGroup</code> and <code>apiPermission</code> are use commands to, but in their context the not inherit parameters, only title and description (in combination with apiVersion).
         </p>
-        <p>At the moment inherit use only 1 parent, more levels would make the inline code unreadable and changes really complex.</p>
+        <p><strong>Inheritation only works with 1 parent</strong>, more levels would make the inline code unreadable and changes really complex.</p>
     </article>
 
 <!-- ============================================================ -->

@@ -6,8 +6,8 @@ define({
     "withCompare": false
   },
   "generator": {
-    "version": "0.8.0",
-    "time": "2014-11-17T17:01:02.286Z"
+    "version": "0.9.0",
+    "time": "2014-11-28T14:54:55.224Z"
   },
   "apidoc": "0.2.0"
 });

@@ -12,6 +12,10 @@
     "title": "My own footer title",
     "filename": "footer.md"
   },
+  "order": [
+    "GetUser",
+    "PostUser"
+  ],
   "template": {
   	"withCompare": true,
   	"withGenerator": true

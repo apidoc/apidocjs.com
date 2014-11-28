@@ -1,4 +1,4 @@
-define({ api: [
+define({ "api": [
   {
     "type": "get",
     "url": "/user/:id",
@@ -48,7 +48,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Doe\"\n   }\n",
+          "content": "    HTTP/1.1 200 OK\n    {\n      \"firstname\": \"John\",\n      \"lastname\": \"Doe\"\n    }",
           "type": "json"
         }
       ]
@@ -67,7 +67,7 @@ define({ api: [
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n",
+          "content": "    HTTP/1.1 404 Not Found\n    {\n      \"error\": \"UserNotFound\"\n    }",
           "type": "json"
         }
       ]
@@ -117,7 +117,7 @@ define({ api: [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n   {\n     \"firstname\": \"John\",\n     \"lastname\": \"Doe\"\n   }\n",
+          "content": "    HTTP/1.1 200 OK\n    {\n      \"firstname\": \"John\",\n      \"lastname\": \"Doe\"\n    }",
           "type": "json"
         }
       ]
@@ -136,7 +136,7 @@ define({ api: [
       "examples": [
         {
           "title": "Error-Response:",
-          "content": "   HTTP/1.1 404 Not Found\n   {\n     \"error\": \"UserNotFound\"\n   }\n",
+          "content": "    HTTP/1.1 404 Not Found\n    {\n      \"error\": \"UserNotFound\"\n    }",
           "type": "json"
         }
       ]

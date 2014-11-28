@@ -16,9 +16,13 @@ define({
     "title": "My own footer title",
     "content": "<h1 id=\"example-text-from-footer-md\">Example text from footer.md</h1>\n<p>This text is from file &quot;footer.md&quot;.</p>\n<h2 id=\"howto-include\">HowTo include</h2>\n<p>Watch header.md for further information.</p>\n"
   },
+  "order": [
+    "GetUser",
+    "PostUser"
+  ],
   "generator": {
-    "version": "0.8.0",
-    "time": "2014-11-17T17:01:12.443Z"
+    "version": "0.9.0",
+    "time": "2014-11-28T14:54:41.801Z"
   },
   "apidoc": "0.2.0"
 });

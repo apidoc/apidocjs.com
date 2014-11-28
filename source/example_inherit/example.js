@@ -3,15 +3,15 @@
  *
  * This is an inherit example for apiDoc.
  * Define parts of your documentation that shall be used many times.
- * 
- * In this case a block named "UserNotFoundError" is defined with "@apiDefineErrorStructure".
- * That block could be used many times with "@apiErrorStructure UserNotFoundError".
- * 
+ *
+ * In this case a block named "UserNotFoundError" is defined with "@apiDefine".
+ * That block could be used many times with "@apiUse UserNotFoundError".
+ *
  * Documentation blocks without @api (like this block) will be ignored.
  */
 
 /**
- * @apiDefineErrorStructure UserNotFoundError
+ * @apiDefine UserNotFoundError
  *
  * @apiError UserNotFound The <code>id</code> of the User was not found.
  *
@@ -39,7 +39,7 @@
  *       "lastname": "Doe"
  *     }
  *
- * @apiErrorStructure UserNotFoundError
+ * @apiUse UserNotFoundError
  */
 
 /**
@@ -54,5 +54,5 @@
  * @apiSuccessExample Success-Response:
  *     HTTP/1.1 200 OK
  *
- * @apiErrorStructure UserNotFoundError
+ * @apiUse UserNotFoundError
  */

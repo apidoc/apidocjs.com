@@ -1,4 +1,4 @@
-define({ api: [
+define({ "api": [
   {
     "type": "get",
     "url": "/user/:id",
@@ -9,8 +9,8 @@ define({ api: [
     "permission": [
       {
         "name": "admin",
-        "title": "Admin access rights needed. ",
-        "description": "<p>Optionally you can write here further Informations about the permission.</p> <p>An &quot;apiDefinePermission&quot;-block can have an &quot;apiVersion&quot;, so you can attach the block to a specific version.</p> "
+        "title": "Admin access rights needed.",
+        "description": "<p>Optionally you can write here further Informations about the permission.</p> <p>An &quot;apiDefine&quot;-block can have an &quot;apiVersion&quot;, so you can attach the block to a specific version.</p> "
       }
     ],
     "sampleRequest": [
@@ -35,7 +35,7 @@ define({ api: [
     "examples": [
       {
         "title": "Example usage:",
-        "content": "curl -i http://localhost/user/4711\n",
+        "content": "curl -i http://localhost/user/4711",
         "type": "json"
       }
     ],
@@ -135,7 +135,7 @@ define({ api: [
       "examples": [
         {
           "title": "Response (example):",
-          "content": "   HTTP/1.1 401 Not Authenticated\n   {\n     \"error\": \"NoAccessRight\"\n   }\n",
+          "content": "    HTTP/1.1 401 Not Authenticated\n    {\n      \"error\": \"NoAccessRight\"\n    }",
           "type": "json"
         }
       ]
@@ -281,7 +281,7 @@ define({ api: [
         "name": "none"
       }
     ],
-    "description": "<p>In this case &quot;apiErrorStructure&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p> ",
+    "description": "<p>In this case &quot;apiUse&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p> ",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -309,6 +309,7 @@ define({ api: [
       }
     },
     "filename": "source/example/example.js",
+    "groupTitle": "User",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -328,13 +329,12 @@ define({ api: [
       },
       "examples": [
         {
-          "title": " Response (example):",
-          "content": "   HTTP/1.1 400 Bad Request\n   {\n     \"error\": \"UserNameTooShort\"\n   }\n",
+          "title": "Response (example):",
+          "content": "    HTTP/1.1 400 Bad Request\n    {\n      \"error\": \"UserNameTooShort\"\n    }",
           "type": "json"
         }
       ]
-    },
-    "groupTitle": "User"
+    }
   },
   {
     "type": "post",
@@ -348,7 +348,7 @@ define({ api: [
         "name": "none"
       }
     ],
-    "description": "<p>In this case &quot;apiErrorStructure&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p> ",
+    "description": "<p>In this case &quot;apiUse&quot; is defined and used. Define blocks with params that will be used in several functions, so you dont have to rewrite them.</p> ",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -376,6 +376,7 @@ define({ api: [
       }
     },
     "filename": "source/example/_apidoc.js",
+    "groupTitle": "User",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -395,13 +396,12 @@ define({ api: [
       },
       "examples": [
         {
-          "title": " Response (example):",
-          "content": "   HTTP/1.1 400 Bad Request\n   {\n     \"error\": \"UserNameTooShort\"\n   }\n",
+          "title": "Response (example):",
+          "content": "    HTTP/1.1 400 Bad Request\n    {\n      \"error\": \"UserNameTooShort\"\n    }",
           "type": "json"
         }
       ]
-    },
-    "groupTitle": "User"
+    }
   },
   {
     "type": "put",
@@ -415,7 +415,7 @@ define({ api: [
         "name": "none"
       }
     ],
-    "description": "<p>This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiErrorStructure&quot;</p> ",
+    "description": "<p>This function has same errors like POST /user, but errors not defined again, they were included with &quot;apiUse&quot;</p> ",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -430,6 +430,7 @@ define({ api: [
       }
     },
     "filename": "source/example/example.js",
+    "groupTitle": "User",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -449,12 +450,11 @@ define({ api: [
       },
       "examples": [
         {
-          "title": " Response (example):",
-          "content": "   HTTP/1.1 400 Bad Request\n   {\n     \"error\": \"UserNameTooShort\"\n   }\n",
+          "title": "Response (example):",
+          "content": "    HTTP/1.1 400 Bad Request\n    {\n      \"error\": \"UserNameTooShort\"\n    }",
           "type": "json"
         }
       ]
-    },
-    "groupTitle": "User"
+    }
   }
 ] });
