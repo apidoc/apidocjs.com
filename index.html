@@ -1266,7 +1266,28 @@ This is a comment.
             <tr>
                 <td class="code">{type}<span class="label label-optional">optional</span></td>
                 <td>
-                    Parameter type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                </td>
+            </tr>
+            <tr>
+                <td class="code">{type{size}}<span class="label label-optional">optional</span></td>
+                <td>
+                    Information about the size of the variable.<br>
+                    <code>{string{..5}}</code> a string that has max 5 chars.<br>
+                    <code>{string{2..5}}</code> a string that has min. 2 chars and max 5 chars.<br>
+                    <code>{number{100-999}}</code> a number between 100 and 999.<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">{type=allowedValues}<span class="label label-optional">optional</span></td>
+                <td>
+                    Information about allowed values of the variable.<br>
+                    <code>{string="small"}</code> a string that can only contain the word "small" (a constant).<br>
+                    <code>{string="small","huge"}</code> a string that can contain the words "small" or "huge".<br>
+                    <code>{number=1,2,3,99}</code> a number with allowed values of 1, 2, 3 and 99.<br>
+                    <br>
+                    Can be combined with size:<br>
+                    <code>{string {..5}="small","huge"}</code> a string that has max 5 chars and only contain the words "small" or "huge".<br>
                 </td>
             </tr>
             <tr>
@@ -1307,7 +1328,7 @@ This is a comment.
  * @apiParam {String} [firstname]  Optional Firstname of the User.
  * @apiParam {String} lastname     Mandatory Lastname.
  * @apiParam {String} country="DE" Mandatory with default value "DE".
- * @apiParam {String} [age=18]     Optional Age with default 18.
+ * @apiParam {Number} [age=18]     Optional Age with default 18.
  *
  * @apiParam (Login) {String} pass Only logged in users can post this.
  *                                 In generated documentation a separate
