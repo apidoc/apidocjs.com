@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>apiDoc - Deprecated apiDoc params</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+    <link href="css/easy-responsive-tabs.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href="img/favicon.ico" rel="icon" type="image/x-icon">
+</head>
+<body>
+
+<nav class="nav-top">
+    <a id="forkme" href="https://github.com/apidoc/apidoc"><img src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <ul role="list">
+        <li role="listitem"><a href="index.html">Home</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+
+<header role="banner">
+    <div class="pull-left span9">
+        <h1>APIDOC</h1>
+        <h2>Inline Documentation for RESTful web APIs</h2>
+        <h3>apiDoc creates a documentation from API annotations in your source code.</h3>
+    </div>
+    <div class="pull-right" style="padding-top: 32px;">
+        <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=apidocjscom" id="_carbonads_js"></script>
+    </div>
+</header>
+
+<div id="main">
+    <aside>
+        <nav class="nav-main" role="navigation">
+            <ul role="list">
+                <li role="listitem" id="nav-main-params" class="nav-header"><a href="#params">Deprecated<br>apiDoc-Params</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-define-error-structure">@apiDefineErrorStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-define-header-structure">@apiDefineHeaderStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-define-permission">@apiDefinePermission</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-define-structure">@apiDefineStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-define-success-structure">@apiDefineSuccessStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-error-structure">@apiErrorStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-error-title">@apiErrorTitle</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-group-description">@apiGroupDescription</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-header-structure">@apiHeaderStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-header-title">@apiHeaderTitle</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-param-title">@apiParamTitle</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-structure">@apiStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-success-structure">@apiSuccessStructure</a></li>
+                <li role="listitem" class="deprecated"><a href="#param-api-success-title">@apiSuccessTitle</a></li>
+                <li role="listitem" class="nav-header"><a href="index.html#params">Back to current version</a></li>
+            </ul>
+        </nav>
+    </aside>
+    <div id="content" role="main">
+
+<!--
+ /* ============================================================
+  * Params
+  * ============================================================ */
+-->
+<section id="params">
+    <h1>Deprecated apiDoc-Params</h1>
+    <p>Please use only <a href="index.html#params">current params</a>.</p>
+
+    <article id="param-api-define-error-structure">
+        <h2>@apiDefineErrorStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiDefineErrorStructure name</code></pre>
+        <p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+        <p>Should be used to define Error Parameters, like <code>@apiError</code>, <code>@apiErrorExample</code>.</p>
+        <p>Usage: <code>@apiDefineErrorStructure MyError</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Unique name for the block.<br>
+                    Same name with different <code>@apiVersion</code> can be defined.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @apiDefineErrorStructure MyError
+ * @apiError UserNotFound The &lt;code&gt;id&lt;/code&gt; of the User was not found.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiErrorStructure MyError
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-define-header-structure">
+    <h2>@apiDefineHeaderStructure</h2>
+    <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+    <pre><code>@apiDefineHeaderStructure name</code></pre>
+    <p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+    <p>Should be used to define Header Parameters, like <code>@apiHeader</code>, <code>@apiHeaderExample</code>.</p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-define-structure">@apiDefineStructure</a>.</p>
+    <p>Usage: <code>@apiDefineHeaderStructure MyHeader</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">name</td>
+        <td>
+          Unique name for the block.<br>
+          Same name with different <code>@apiVersion</code> can be defined.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Example:</p>
+    <pre class="example"><code>/**
+ * @apiDefineHeaderStructure MyHeader
+ * @apiHeader {String} firstname Firstname of the User.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiHeaderStructure MyHeader
+ */</code></pre>
+  </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-define-permission">
+        <h2>@apiDefinePermission</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiDefinePermission name [title]
+                     [description]</code></pre>
+        <p>Defines a permission as a draft to be used in normal <code>@api</code> blocks.</p>
+        <p>Usage: <code>@apiDefinePermission admin</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Unique name for the Permission.<br>
+                    Same name with different <code>@apiVersion</code> can be defined.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">title <span class="label label-optional">optional</span></td>
+                <td>
+                    A short title.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">description <span class="label label-optional">optional</span></td>
+                <td>
+                    Detailed Description start at the next line, multiple lines can be used.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @apiDefinePermission admin Admin access rights needed.
+ * Optionally you can write here further Informations about the permission.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiPermission admin
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-define-structure">
+        <h2>@apiDefineStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiDefineStructure name</code></pre>
+        <p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+        <p>Should be used to define normal Parameters, like <code>@apiParam</code>, <code>@apiExample</code></p>
+        <p>Usage: <code>@apiDefineStructure MyName</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Unique name for the block.<br>
+                    Same name with different <code>@apiVersion</code> can be defined.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @apiDefineStructure MyName
+ * @apiParam {Number} id Users unique ID.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiStructure MyName
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-define-success-structure">
+        <h2>@apiDefineSuccessStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiDefineSuccessStructure name</code></pre>
+        <p>Defines a documentation block as a draft to be used in normal <code>@api</code> blocks.</p>
+        <p>Should be used to define Success Parameters, like <code>@apiSuccess</code>, <code>@apiSuccessExample</code>.</p>
+        <p>Usage: <code>@apiDefineSuccessStructure MySuccess</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Unique name for the block.<br>
+                    Same name with different <code>@apiVersion</code> can be defined.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @apiDefineSuccessStructure MySuccess
+ * @apiSuccess {String} firstname Firstname of the User.
+ */
+
+/**
+ * @api {get} /user/:id
+ * @apiSuccessStructure MySuccess
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-error-structure">
+        <h2>@apiErrorStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-use">@apiUse</a></p>
+        <pre><code>@apiErrorStructure name</code></pre>
+        <p>Include a with <code>@apiDefineErrorStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+        <p>Usage: <code>@apiErrorStructure MyError</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Name of the defined error block.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiErrorStructure MyError
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-error-title">
+        <h2>@apiErrorTitle</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiErrorTitle (group) description</code></pre>
+        <p>Replace the short group-name with a description</p>
+        <p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+        <p>Usage: <code>@apiErrorTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">(group)</td>
+                <td>
+                    All errors will be grouped by this name.<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">description</td>
+                <td>
+                    In documentation the short group-name will be replaced with the description.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Examples:</p>
+        <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiErrorTitle (401) 401 Unauthorized
+ * @apiError (401) notAuthorizedError User not found.
+ *
+ * @apiErrorTitle (404) 404 Not Found
+ * @apiError (404) notFoundError Data not found.
+ *
+ * @apiError (500) serverError apiErrorTitle is not needed.
+ */
+
+Example without @apiErrorTitle:
+/**
+ * @api {post} /user/
+ * @apiError (401 Unauthorized) notAuthorizedError User not found.
+ * @apiError (404 Not Found) notFoundError Data not found.
+ * @apiError (500) serverError apiErrorTitle is not needed.
+ */
+ </code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-group-description">
+        <h2>@apiGroupDescription</h2>
+    <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-use">@apiDefine</a></p>
+        <pre><code>@apiGroupDescription text</code></pre>
+        <p><strong>Singleton usage at the moment. Use the tag only once for a group.</strong></p>
+        <p>Detailed description of the Group, it will be in the documentation at the beginning of a group.</p>
+        <p>Usage: <code>@apiGroupDescription Some information about the group</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">text</td>
+                <td>
+                    Multiline description text.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiGroup User
+ * @apiGroupDescription The User-Group description.
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-header-structure">
+    <h2>@apiHeaderStructure</h2>
+    <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-use">@apiUse</a></p>
+    <pre><code>@apiHeaderStructure name</code></pre>
+    <p>Include a with <code>@apiDefineHeaderStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-structure">@apiStructure</a>.</p>
+    <p>Usage: <code>@apiHeaderStructure MyHeader</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">name</td>
+        <td>
+          Name of the defined header block.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Example:</p>
+    <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiHeaderStructure MyHeader
+ */</code></pre>
+  </article>
+
+<!-- ============================================================ -->
+
+  <article id="param-api-header-title">
+    <h2>@apiHeaderTitle</h2>
+    <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+    <pre><code>@apiHeaderTitle (group) description</code></pre>
+    <p>Replace the short group-name with a description</p>
+    <p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+    <p class="similar-operation">Similar operation as <a href="#param-api-param-title">@apiParamTitle</a>.</p>
+    <p>Usage: <code>@apiHeaderTitle (MyHeaderGroup) This are the Parameters for MyHeaderGroup:</code></p>
+
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="code">(group)</td>
+        <td>
+          All parameters will be grouped by this name.<br>
+        </td>
+      </tr>
+      <tr>
+        <td class="code">description</td>
+        <td>
+          In documentation the short group-name will be replaced with the description.
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <p>Examples:</p>
+    <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiHeaderTitle (Auth) Parameters only for loggedin users:
+ * @apiHeader (Auth) {String} key Users unique access-key.
+ * @apiHeader (Auth) {String} system-key Access-key from external system.
+ */</code></pre>
+
+    <p>Example without @apiHeaderTitle:</p>
+    <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiHeader (Parameters only for loggedin users:) {String} key Users unique access-key.
+ * @apiHeader (Parameters only for loggedin users:) {String} system-key Access-key from external system.
+ */</code></pre>
+  </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-param-title">
+        <h2>@apiParamTitle</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiParamTitle (group) description</code></pre>
+        <p>Replace the short group-name with a description</p>
+        <p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+        <p>Usage: <code>@apiParamTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">(group)</td>
+                <td>
+                    All parameters will be grouped by this name.<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">description</td>
+                <td>
+                    In documentation the short group-name will be replaced with the description.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Examples:</p>
+        <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiParamTitle (Login) Parameters only for loggedin users:
+ * @apiParam (Login) {String} newPassword New password.
+ *
+ * @apiParamTitle (Admin) Parameters only for admin users:
+ * @apiParam (Admin) {String} newPassword New password.
+ * @apiParam (Admin) {String} userId Change password of that user.
+ */</code></pre>
+
+    <p>Example without @apiParamTitle:</p>
+    <pre class="example"><code>/**
+ * @api {post} /user/
+ *
+ * @apiParam (Parameters only for loggedin users:) {String} newPassword New password.
+ *
+ * @apiParam (Parameters only for admin users:) {String} newPassword New password.
+ * @apiParam (Parameters only for admin users:) {String} userId Change password of that user.
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-structure">
+        <h2>@apiStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-use">@apiUse</a></p>
+        <pre><code>@apiStructure name</code></pre>
+        <p>Include a with <code>@apiDefineStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+        <p>Usage: <code>@apiStructure MyStructure</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Name of the defined block.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiStructure MyStructure
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-success-structure">
+        <h2>@apiSuccessStructure</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-use">@apiUse</a></p>
+        <pre><code>@apiSuccessStructure name</code></pre>
+        <p>Include a with <code>@apiDefineSuccessStructure</code> defined block. If used with <code>@apiVersion</code> the same or nearest predecessor will be included.</p>
+        <p>Usage: <code>@apiSuccessStructure MySuccess</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">name</td>
+                <td>
+                    Name of the defined success block.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiSuccessStructure MySuccess
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-success-title">
+        <h2>@apiSuccessTitle</h2>
+        <p><span class="deprecated">Deprecated !</span> Use <a href="index.html#param-api-define">@apiDefine</a></p>
+        <pre><code>@apiSuccessTitle (group) description</code></pre>
+        <p>Replace the short group-name with a description</p>
+        <p><strong>Global usage, use it once, no versioning. Optional.</strong></p>
+        <p>Usage: <code>@apiSuccessTitle (MyGroup) This are the Parameters for MyGroup:</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">(group)</td>
+                <td>
+                    All success messages will be grouped by this name.<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">description</td>
+                <td>
+                    In documentation the short group-name will be replaced with the description.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Examples:</p>
+        <pre class="example"><code>/**
+ * @api {post} /user/
+ * @apiSuccessTitle (All) 200 - Data for all users:
+ * @apiSuccess (All) id   The ID of a user.
+ * @apiSuccess (All) name The name of a user.
+ *
+ * @apiSuccessTitle (LoggedIn) Data for LoggedIn users:
+ * @apiSuccess (LoggedIn) id    The ID of a user.
+ * @apiSuccess (LoggedIn) name  The name of a user.
+ * @apiSuccess (LoggedIn) email E-Mail address of a user.
+ */
+
+Example without @apiErrorTitle:
+/**
+ * @api {post} /user/
+ * @apiSuccess (200 - Data for all users:) id   The ID of a user.
+ * @apiSuccess (200 - Data for all users:) name The name of a user.
+ *
+ * @apiSuccess (Data for LoggedIn users:) id    The ID of a user.
+ * @apiSuccess (Data for LoggedIn users:) name  The name of a user.
+ * @apiSuccess (Data for LoggedIn users:) email E-Mail address of a user.
+ */
+ </code></pre>
+    </article>
+
+<!-- ============================================================ -->
+</section>
+
+<!--
+ /* ============================================================
+  * License
+  * ============================================================ */
+-->
+<section id="license">
+    <article>
+        <h1>MIT License</h1>
+        <p>
+            <a href="https://github.com/apidoc/apidoc/blob/master/LICENSE">github.com/apidoc/apidoc/blob/master/LICENSE</a><br>
+            Copyright (c) 2013-2015 inveris OHG<br>
+            Author Peter Rottmann
+        </p>
+        <p><br></p>
+
+        <p>Contact, support and error reporting on GitHub: <a href="https://github.com/apidoc/grunt-apidoc/issues">github.com/apidoc/apidoc/issues</a></p>
+    </article>
+</section>
+
+<footer class="contentinfo">
+  development is supported by <a href="http://www.inveris.de">inveris</a> &bull;
+  hosted on <a href="https://github.com/apidoc/apidoc">GitHub</a> &bull;
+  distributed over <a href="https://npmjs.org/package/apidoc">npm</a>
+</footer>
+
+    </div><!-- /#content -->
+</div><!-- /#main -->
+
+</div><!-- /.container -->
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>!function(a,p,i,d,o,c){a.GoogleAnalyticsObject=i;a[i]||(a[i]=function(){(a[i].q=a[i].q||[]).push(arguments)});a[i].l=+new Date;o=p.createElement(d);c=p.getElementsByTagName(d)[0];o.src='//www.google-analytics.com/analytics.js';c.parentNode.insertBefore(o,c)}(window,document,'ga','script'); ga('create', 'UA-40027356-1', 'apidocjs.com'); ga('send', 'pageview');</script>
+<script>
+$(document).ready(function() {
+    var headerSize = 70;
+    // Anchor scroll
+    $("a").each(function() {
+        if($(this).attr("href").substr(0, 1) === "#") {
+            $(this).on("click", function(e) {
+                e.preventDefault();
+                var id = $(this).attr("href");
+                $("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 200);
+                window.location.hash = $(this).attr("href");
+            });
+        }
+    });
+    if(window.location.hash) {
+        var id = window.location.hash;
+        setTimeout(function() {
+            $("html,body").animate({ scrollTop: parseInt($(id).offset().top) - headerSize }, 0);
+        }, 1);
+    }
+
+    // Simple fix nav-main Scrollposition (no-resize)
+    var $doc = $(document);
+    var $nav = $(".nav-main");
+    var $params = $("#nav-main-params");
+    var maxMove = 270; // $params.offset().top - headerSize;
+    var height = $nav.height() - ($params.position().top - $nav.position().top) + headerSize;
+    function moveNav() {
+        if($doc.scrollTop() > maxMove) $nav.css({ marginTop: $doc.scrollTop() - maxMove });
+        else $nav.css({ marginTop: 0 });
+    }
+    // Enable if screen is heigh enough
+    if($doc.height() >= height) {
+        moveNav();
+      $doc.scroll(function() { moveNav(); });
+    }
+});
+</script>
+</body>
+</html>
