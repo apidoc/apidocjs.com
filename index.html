@@ -335,9 +335,9 @@ This is a comment.
 
     <article id="extend">
         <h2>Extend</h2>
-        <p>apiDoc can be extended with your own parameters (if something is not available that you need). Look at <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/parsers">lib/parsers/</a>, 
-            <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/workers">lib/workers/</a>, and <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/parsers">lib/parsers/</a> 
-            directories in the <a href="https://github.com/apidoc/apidoc-core">apidoc/apidoc-core</a> project for examples. 
+        <p>apiDoc can be extended with your own parameters (if something is not available that you need). Look at <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/parsers">lib/parsers/</a>,
+            <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/workers">lib/workers/</a>, and <a href="https://github.com/apidoc/apidoc-core/tree/master/lib/parsers">lib/parsers/</a>
+            directories in the <a href="https://github.com/apidoc/apidoc-core">apidoc/apidoc-core</a> project for examples.
             <code>parser</code> split the parameter data, <code>worker</code> processes additional functions with all found data and <code>filter</code> reduce the data to needed things.
         </p>
         <p>Example usage: <code>apidoc --parse-filters myFilter=pathToMyFilter/myFilter.js</code></p>
@@ -452,6 +452,14 @@ This is a comment.
       <tbody>
       <tr>
         <td class="code" colspan="3">template</td>
+      </tr>
+      <tr>
+        <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;forceLanguage</td>
+        <td class="code">String</td>
+        <td>Disable browser language auto-detection and set a specific locale.<br>
+            Example: <code>de</code>, <code>en</code>.<br>
+            View available locales <a href="https://github.com/apidoc/apidoc/tree/master/template/locales" target="_blank">here</a>.
+        </td>
       </tr>
       <tr>
         <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;withCompare</td>
