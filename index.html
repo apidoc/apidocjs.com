@@ -33,6 +33,7 @@
             <ul class="resp-tabs-list">
                 <li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
                 <li title="CoffeeScript">CoffeeScript</li>
+                <li title="Elixir">Elixir</li>
                 <li title="Erlang">Erlang</li>
                 <li title="Perl">Perl</li>
                 <li title="Python">Python</li>
@@ -66,6 +67,21 @@
 @apiSuccess {String} lastname  Lastname of the User.
 ###</code></pre>
                 </div>
+
+                <!-- Tab Elixir -->
+                <div>
+                    <pre class="example"><code>@apidoc """
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+"""</code></pre>
+                </div>
+
 
                 <!-- Tab Erlang -->
                 <div>
@@ -1727,7 +1743,7 @@ This is a comment.
 -->
 <section id="license">
     <h1>MIT License</h1>
-    
+
     <article>
         <p>
             <a href="https://github.com/apidoc/apidoc/blob/master/LICENSE">github.com/apidoc/apidoc/blob/master/LICENSE</a><br>
