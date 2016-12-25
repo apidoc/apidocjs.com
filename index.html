@@ -580,11 +580,11 @@ This is a comment.
  */</code></pre>
 
         <p>A documentation block starts with <code>/**</code> and end with <code>*/</code>.</p>
-        <p>This example describes a <code>GET</code> Method to request the User Information by the users <code>id</code>.</p>
-        <p><code>@api {get} /user/:id Request User information</code> is required, without <code>@api</code> apiDoc ignores a documentation block.</p>
-        <p><code>@apiName</code> is a <code>unique</code> name and should always be used.<br>
+        <p>This example describes a <code>GET</code> Method to request the User Information by the user's <code>id</code>.</p>
+        <p><code>@api {get} /user/:id Request User information</code> is mandatory, without <code>@api</code> apiDoc ignores a documentation block.</p>
+        <p><code>@apiName</code> must be a unique name and should always be used.<br>
         Format: <i>method</i> + <i>path</i> (e.g. Get + User)</p>
-        <p><code>@apiGroup</code> should always be used, under that name will this method be grouped.</p>
+        <p><code>@apiGroup</code> should always be used, and is used to group related APIs together.</p>
         <p>All other fields are optional, look at their description under <a href="#params">apiDoc-Params</a>.</p>
     </article>
 
@@ -592,7 +592,7 @@ This is a comment.
 
     <article id="example-inherit">
         <h2>Inherit</h2>
-        <p>Inherit mean, that you can define parts of your documentation that shall be used many times.</p>
+        <p>Using inherit, you can define reusable snippets of your documentation.</p>
         <p><a href="example_inherit/">View example output</a></p>
         <p><br></p>
 
@@ -652,14 +652,14 @@ This is a comment.
  * <code class="important">@apiUse UserNotFoundError</code>
  */</code></pre>
         <p>
-            In this case a block named <code>UserNotFoundError</code> is defined with <code>@apiDefine</code>.<br>
+            In this example, a block named <code>UserNotFoundError</code> is defined with <code>@apiDefine</code>.<br>
             That block could be used many times with <code>@apiUse UserNotFoundError</code>.
         </p>
-        <p>In the generated output, both methods <code>GET and PUT</code> will have the complete UserNotFoundError documentation.</p>
+        <p>In the generated output, both methods <code>GET</code> and <code>PUT</code> will have the complete <code>UserNotFoundError</code> documentation.</p>
         <p><br></p>
         <p>
-            Inherit define commands is <code>apiDefine</code>.<br>
-            Use name is <code>apiUse</code>.
+            To define an inherit block, use <code>apiDefine</code>.<br>
+            to reference a block, use <code>apiUse</code>.
             <code>apiGroup</code> and <code>apiPermission</code> are use commands to, but in their context the not inherit parameters, only title and description (in combination with apiVersion).
         </p>
         <p><strong>Inheritation only works with 1 parent</strong>, more levels would make the inline code unreadable and changes really complex.</p>
@@ -669,12 +669,12 @@ This is a comment.
 
     <article id="example-versioning">
         <h2>Versioning</h2>
-        <p>Nice feature is the keeping of previous defined documentation blocks. That makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and modify their code.</p>
+        <p>A useful feature provided by apiDoc is the ability to maintain the documentation for all previous versions and the latest version of the API. This makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and update their code accordingly.</p>
         <p><a href="example_versioning/">View example output</a></p>
         <p>In the example, click top right on select box (the main version) and select <code>Compare all with predecessor</code>.</p>
         <ul>
             <li>The main navigation mark all changed methods with a green bar.</li>
-            <li>Each method show the difference to its predecessor.</li>
+            <li>Each method show the actual difference compare to its predecessor.</li>
             <li>Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
             <li>Red marks contents that were removed.</li>
         </ul>
@@ -689,7 +689,7 @@ This is a comment.
 }</code></pre>
         <p><br></p>
 
-        <p>So that your code not blow out with documentation blocks, i prefer to use a separate history file named <code>_apidoc.js</code>. Before you change your documentation block, copy the old block to to this file, that's all.</p>
+        <p>In order to avoid code bloat when API documentation changes over time, it is recommended to use a separate history file named <code>_apidoc.js</code>. Before you change your documentation block, copy the old documentation to to this file, apiDoc will include the historical information automatically.</p>
         <p><a href="source/example_versioning/_apidoc.js">_apidoc.js</a></p>
         <pre><code>/**
  * @api {get} /user/:id Get User information
@@ -754,7 +754,7 @@ This is a comment.
 <!-- ============================================================ -->
 
     <article id="example-full">
-        <h2>Full example (all together)</h2>
+        <h2>Full example</h2>
         <p>This is a complex example with <code>inherit</code>, <code>versioning</code> file and history file <code>_apidoc.js</code>, explanation is within code and generated documentation.</p>
         <p><a href="example/">View example output</a></p>
         <p><br></p>
@@ -778,7 +778,7 @@ This is a comment.
     <ul>
         <li><code>@apiDefine</code></li>
     </ul>
-    <p>is used to define a documentation block as a draft. This drafts can be included in normal api documentation blocks. With drafts you can separate complex or recurrent blocks.</p>
+    <p>is used to define a reusable documentation block. This block can be included in normal api documentation blocks. Using <code>@apiDefine</code> allows you to better organize complex documentation and avoid duplicating recurrent blocks.</p>
     <p>A defined block can have all params (like <code>@apiParam</code>), <strong>except other defined blocks</strong>.</p>
 
     <article id="param-api">
@@ -786,7 +786,7 @@ This is a comment.
         <pre><code>@api {method} path [title]</code></pre>
         <p><strong>Required!</strong></p>
         <p>Without that indicator, apiDoc parser ignore the documentation block.</p>
-        <p>Except definition blocks like <code>@apiDefine</code>, they not need <code>@api</code>.</p>
+        <p>The only exception are documentation blocks defined by  <code>@apiDefine</code>, they not required <code>@api</code>.</p>
         <p>Usage: <code>@api {get} /user/:id Users unique ID.</code></p>
 
         <table>
@@ -827,9 +827,9 @@ This is a comment.
         <h2>@apiDefine</h2>
         <pre><code>@apiDefine name [title]
                      [description]</code></pre>
-        <p>Defines a permission as a draft to be used in <code>@api</code> blocks or in an api function like <code>@apiPermission</code>.</p>
+        <p>Defines a documentation block to be embedded within <code>@api</code> blocks or in an api function like <code>@apiPermission</code>.</p>
         <p><code>@apiDefine</code> can only be used once per block</p>
-        <p>With <code>@apiUse</code> a defined block will be imported, or with the name the title and description will be used.</p>
+        <p>By using <code>@apiUse</code> a defined block will be imported, or with the name the title and description will be used.</p>
         <p>Usage: <code>@apiDefine MyError</code></p>
 
         <table>
@@ -882,7 +882,7 @@ This is a comment.
  * @api {get} /user/:id
  * @apiPermission admin
  */</code></pre>
-        <p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+        <p>For more details, see <a href="#example-inherit">inherit example</a>.</p>
     </article>
 
 <!-- ============================================================ -->
