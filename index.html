@@ -179,6 +179,7 @@
                 <li id="nav-main-params" class="nav-header"><a href="#params">apiDoc-Params</a></li>
                 <li><a href="#param-api">@api</a></li>
                 <li><a href="#param-api-define">@apiDefine</a></li>
+                <li><a href="#param-api-deprecated">@apiDeprecated</a></li>
                 <li><a href="#param-api-description">@apiDescription</a></li>
                 <li><a href="#param-api-error">@apiError</a></li>
                 <li><a href="#param-api-error-example">@apiErrorExample</a></li>
@@ -883,6 +884,43 @@ This is a comment.
  * @apiPermission admin
  */</code></pre>
         <p>For more watch <a href="#example-inherit">inherit example</a>.</p>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-deprecated">
+        <h2>@apiDeprecated</h2>
+        <pre><code>@apiDeprecated [text]</code></pre>
+        <p>Mark an API Methdod as deprecated</p>
+        <p>Usage: <code>@apiDeprecated use now (#Group:Name).</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">text</td>
+                <td>Multiline text.</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @apiDeprecated
+ */
+
+/**
+ * @apiDeprecated use now (#Group:Name).
+ *
+ * Example: to set a link to the GetDetails method of your group User
+ * write (#User:GetDetails)
+ */
+</code></pre>
     </article>
 
 <!-- ============================================================ -->
@@ -1747,7 +1785,7 @@ This is a comment.
 -->
 <section id="license">
     <h1>MIT License</h1>
-    
+
     <article>
         <p>
             <a href="https://github.com/apidoc/apidoc/blob/master/LICENSE">github.com/apidoc/apidoc/blob/master/LICENSE</a><br>
