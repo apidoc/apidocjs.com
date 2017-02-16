@@ -192,6 +192,7 @@
                 <li><a href="#param-api-param">@apiParam</a></li>
                 <li><a href="#param-api-param-example">@apiParamExample</a></li>
                 <li><a href="#param-api-permission">@apiPermission</a></li>
+                <li><a href="#param-api-private">@apiPrivate</a></li>
                 <li><a href="#param-api-sample-request">@apiSampleRequest</a></li>
                 <li><a href="#param-api-success">@apiSuccess</a></li>
                 <li><a href="#param-api-success-example">@apiSuccessExample</a></li>
@@ -1494,6 +1495,22 @@ This is a comment.
         <pre class="example"><code>/**
  * @api {get} /user/:id
  * @apiPermission none
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
+    <article id="param-api-private">
+        <h2>@apiPrivate</h2>
+        <pre><code>@apiPrivate</code></pre>
+        <p>Defines an API as being private to allow the creation of two API specification documents: one that excludes the private APIs and one that includes them.</p>
+        <p>Usage: <code>@apiPrivate</code></p>
+        <p>Command line usage to exclude/include private APIs: <code>--private false|true</code></p>
+
+        <p>Example:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiPrivate
  */</code></pre>
     </article>
 
