@@ -38,6 +38,7 @@
                 <li title="Perl">Perl</li>
                 <li title="Python">Python</li>
                 <li title="Ruby">Ruby</li>
+                <li title="Lua">Lua</li>
             </ul>
             <div class="resp-tabs-container">
                 <!-- Tab 1 -->
@@ -136,6 +137,20 @@
 @apiSuccess {String} firstname Firstname of the User.
 @apiSuccess {String} lastname  Lastname of the User.
 =end</code></pre>
+                </div>
+            
+                <!-- Tab Lua -->
+                <div>
+                    <pre class="example"><code>--[[
+@api {get} /user/:id Request User information
+@apiName GetUser
+@apiGroup User
+
+@apiParam {Number} id Users unique ID.
+
+@apiSuccess {String} firstname Firstname of the User.
+@apiSuccess {String} lastname  Lastname of the User.
+--]]</code></pre>
                 </div>
             </div>
         </div>
@@ -267,6 +282,12 @@ This is a comment.
         <pre class="example"><code>=begin
 This is a comment.
 =end</code></pre>
+
+        <p>Lua</p>
+        <pre class="example"><code>--[[
+This is a comment.
+--]]</code></pre>
+
     </article>
 
     <article id="install">
