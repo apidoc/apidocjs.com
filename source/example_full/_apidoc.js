@@ -29,10 +29,10 @@
 // Current Permissions.
 // ------------------------------------------------------------------------------------------
 /**
- * @apiDefinePermission admin Admin access rights needed.
+ * @apiDefine admin Admin access rights needed.
  * Optionally you can write here further Informations about the permission.
  *
- * An "apiDefinePermission"-block can have an "apiVersion", so you can attach the block to a specific version.
+ * An "apiDefine"-block can have an "apiVersion", so you can attach the block to a specific version.
  *
  * @apiVersion 0.3.0
  */
@@ -42,7 +42,7 @@
 // History.
 // ------------------------------------------------------------------------------------------
 /**
- * @apiDefinePermission admin This title is visible in version 0.1.0 and 0.2.0
+ * @apiDefine admin This title is visible in version 0.1.0 and 0.2.0
  * @apiVersion 0.1.0
  */
 
