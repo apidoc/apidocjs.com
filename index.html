@@ -1350,6 +1350,8 @@ This is a comment.
         <p>Describe a parameter passed to you API-Method.</p>
         <p>Usage: <code>@apiParam (MyGroup) {Number} id Users unique ID.</code></p>
 
+        <p>For nested parameters, use square bracket notation (<code>[]</code>).</p>
+
         <table>
             <thead>
             <tr>
@@ -1396,13 +1398,19 @@ This is a comment.
             <tr>
                 <td class="code">field</td>
                 <td>
-                    Variablename.
+                    Fieldname.
                 </td>
             </tr>
             <tr>
                 <td class="code">[field]</td>
                 <td>
                     Fieldname with brackets define the Variable as optional.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">field[nestedField]</td>
+                <td>
+                    Mandatory nested field.
                 </td>
             </tr>
             <tr>
@@ -1428,14 +1436,19 @@ This is a comment.
 
 /**
  * @api {post} /user/
- * @apiParam {String} [firstname]  Optional Firstname of the User.
- * @apiParam {String} lastname     Mandatory Lastname.
- * @apiParam {String} country="DE" Mandatory with default value "DE".
- * @apiParam {Number} [age=18]     Optional Age with default 18.
+ * @apiParam {String} [firstname]       Optional Firstname of the User.
+ * @apiParam {String} lastname          Mandatory Lastname.
+ * @apiParam {String} country="DE"      Mandatory with default value "DE".
+ * @apiParam {Number} [age=18]          Optional Age with default 18.
  *
- * @apiParam (Login) {String} pass Only logged in users can post this.
- *                                 In generated documentation a separate
- *                                 "Login" Block will be generated.
+ * @apiParam (Login) {String} pass      Only logged in users can post this.
+ *                                      In generated documentation a separate
+ *                                      "Login" Block will be generated.
+ *
+ * @apiParam {Object} [address]         Optional nested address object.
+ * @apiParam {String} [address[street]] Optional street and number.
+ * @apiParam {String} [address[zip]]    Optional zip code.
+ * @apiParam {String} [address[city]]   Optional city.
  */</code></pre>
     </article>
 
