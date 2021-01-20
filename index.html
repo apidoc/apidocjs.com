@@ -75,9 +75,9 @@
 # @api {get} /user/:id Request User information
 # @apiName GetUser
 # @apiGroup User
-# 
+#
 # @apiParam {Number} id Users unique ID.
-# 
+#
 # @apiSuccess {String} firstname Firstname of the User.
 # @apiSuccess {String} lastname  Lastname of the User.
 # }</code></pre>
@@ -852,6 +852,106 @@ This is a comment.
 
 <!-- ============================================================ -->
 
+    <article id="param-api-body">
+        <h2>@apiBody</h2>
+        <pre><code>@apiBody [{type}] [field=defaultValue] [description]</code></pre>
+        <p>Describe the request body passed to your API-Method.</p>
+        <p>Usage: <code>@apiBody {type} {key: value}</code></p>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="code">{type}<span class="label label-optional">optional</span></td>
+                <td>
+                    Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                </td>
+            </tr>
+            <tr>
+                <td class="code">{type{size}}<span class="label label-optional">optional</span></td>
+                <td>
+                    Information about the size of the variable.<br>
+                    <code>{string{..5}}</code> a string that has max 5 chars.<br>
+                    <code>{string{2..5}}</code> a string that has min. 2 chars and max 5 chars.<br>
+                    <code>{number{100-999}}</code> a number between 100 and 999.<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">{type=allowedValues}<span class="label label-optional">optional</span></td>
+                <td>
+                    Information about allowed values of the variable.<br>
+                    <code>{string="small"}</code> a string that can only contain the word "small" (a constant).<br>
+                    <code>{string="small","huge"}</code> a string that can contain the words "small" or "huge".<br>
+                    <code>{number=1,2,3,99}</code> a number with allowed values of 1, 2, 3 and 99.<br>
+                    <br>
+                    Can be combined with size:<br>
+                    <code>{string {..5}="small","huge"}</code> a string that has max 5 chars and only contain the words "small" or "huge".<br>
+                </td>
+            </tr>
+            <tr>
+                <td class="code">field</td>
+                <td>
+                    Fieldname.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">[field]</td>
+                <td>
+                    Fieldname with brackets define the Variable as optional.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">field[nestedField]</td>
+                <td>
+                    Mandatory nested field.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">=defaultValue<span class="label label-optional">optional</span></td>
+                <td>
+                    The parameters default value.
+                </td>
+            </tr>
+            <tr>
+                <td class="code">description<span class="label label-optional">optional</span></td>
+                <td>
+                    Description of the field.
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <p>Examples:</p>
+        <pre class="example"><code>/**
+ * @api {get} /user/:id
+ * @apiParam {Number} id Users unique ID.
+ */
+
+/**
+ * @api {post} /user/
+ * @apiParam {String} [firstname]       Optional Firstname of the User.
+ * @apiParam {String} lastname          Mandatory Lastname.
+ * @apiParam {String} country="DE"      Mandatory with default value "DE".
+ * @apiParam {Number} [age=18]          Optional Age with default 18.
+ *
+ * @apiParam (Login) {String} pass      Only logged in users can post this.
+ *                                      In generated documentation a separate
+ *                                      "Login" Block will be generated.
+ *
+ * @apiParam {Object} [address]         Optional nested address object.
+ * @apiParam {String} [address[street]] Optional street and number.
+ * @apiParam {String} [address[zip]]    Optional zip code.
+ * @apiParam {String} [address[city]]   Optional city.
+ */</code></pre>
+    </article>
+
+<!-- ============================================================ -->
+
     <article id="param-api-define">
         <h2>@apiDefine</h2>
         <pre><code>@apiDefine name [title]
@@ -1553,6 +1653,89 @@ This is a comment.
  * @apiPrivate
  */</code></pre>
     </article>
+
+<!-- ============================================================ -->
+
+        <article id="param-api-query">
+            <h2>@apiBody</h2>
+            <pre><code>@apiQuery [{type}] [field=defaultValue] [description]</code></pre>
+            <p>Describe a query parameter passed to your API-Method.</p>
+            <p>Usage: <code>@apiQuery {Number} id Users unique ID.</code></p>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="code">{type}<span class="label label-optional">optional</span></td>
+                    <td>
+                        Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">{type{size}}<span class="label label-optional">optional</span></td>
+                    <td>
+                        Information about the size of the variable.<br>
+                        <code>{string{..5}}</code> a string that has max 5 chars.<br>
+                        <code>{string{2..5}}</code> a string that has min. 2 chars and max 5 chars.<br>
+                        <code>{number{100-999}}</code> a number between 100 and 999.<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">{type=allowedValues}<span class="label label-optional">optional</span></td>
+                    <td>
+                        Information about allowed values of the variable.<br>
+                        <code>{string="small"}</code> a string that can only contain the word "small" (a constant).<br>
+                        <code>{string="small","huge"}</code> a string that can contain the words "small" or "huge".<br>
+                        <code>{number=1,2,3,99}</code> a number with allowed values of 1, 2, 3 and 99.<br>
+                        <br>
+                        Can be combined with size:<br>
+                        <code>{string {..5}="small","huge"}</code> a string that has max 5 chars and only contain the words "small" or "huge".<br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">field</td>
+                    <td>
+                        Fieldname.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">[field]</td>
+                    <td>
+                        Fieldname with brackets define the Variable as optional.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">field[nestedField]</td>
+                    <td>
+                        Mandatory nested field.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">=defaultValue<span class="label label-optional">optional</span></td>
+                    <td>
+                        The parameters default value.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="code">description<span class="label label-optional">optional</span></td>
+                    <td>
+                        Description of the field.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>Examples:</p>
+            <pre class="example"><code>/**
+    * @api {get} /user/:id
+    * @apiQuery admin
+    */</code></pre>
+        </article>
 
 <!-- ============================================================ -->
 
