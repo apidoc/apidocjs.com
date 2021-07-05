@@ -305,6 +305,27 @@ This is a comment.
             </tr>
             </thead>
             <tbody>
+
+            <tr>
+                <td class="code">-c, --config</td>
+                <td>
+                    Specify the path to the config file to use. (default: apidoc.json or apidoc.js in input dir)<br>
+                    <br>
+                    Example:<br>
+                    <code>apidoc -c path/to/apidoc.json</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="code">-e, --exclude-filters</td>
+                <td>
+                    RegEx-Filter to select files / dirs that should not be parsed (many -e can be used). (default: [])<br>
+                    <br>
+                    Example:<br>
+                    <code>apidoc -e node_modules</code>
+                </td>
+            </tr>
+
             <tr>
                 <td class="code nowrap">-f, --file-filters</td>
                 <td>
@@ -342,15 +363,6 @@ This is a comment.
                     <br>
                     Example:<br>
                     <code>apidoc -t mytemplate/</code>
-                </td>
-            </tr>
-            <tr>
-                <td class="code">-e, --exclude-filters</td>
-                <td>
-                    RegEx-Filter to select files / dirs that should not be parsed (many -e can be used). (default: [])<br>
-                    <br>
-                    Example:<br>
-                    <code>apidoc -e node_modules</code>
                 </td>
             </tr>
             </tbody>
