@@ -870,7 +870,7 @@ This is a comment.
         <h2>@apiBody</h2>
         <pre><code>@apiBody [{type}] [field=defaultValue] [description]</code></pre>
         <p>Describe the request body passed to your API-Method.</p>
-        <p>Usage: <code>@apiBody {type} {key: value}</code></p>
+        <p>Usage: <code>@apiBody {String} lastname User lastname.</code></p>
 
         <table>
             <thead>
@@ -940,27 +940,22 @@ This is a comment.
             </tbody>
         </table>
 
-        <p>Examples:</p>
+        <p>Example:</p>
         <pre class="example"><code>/**
- * @api {get} /user/:id
- * @apiParam {Number} id Users unique ID.
- */
-
-/**
  * @api {post} /user/
- * @apiParam {String} [firstname]       Optional Firstname of the User.
- * @apiParam {String} lastname          Mandatory Lastname.
- * @apiParam {String} country="DE"      Mandatory with default value "DE".
- * @apiParam {Number} [age=18]          Optional Age with default 18.
+ * @apiBody {String} [firstname]       Optional Firstname of the User.
+ * @apiBody {String} lastname          Mandatory Lastname.
+ * @apiBody {String} country="DE"      Mandatory with default value "DE".
+ * @apiBody {Number} [age=18]          Optional Age with default 18.
  *
- * @apiParam (Login) {String} pass      Only logged in users can post this.
- *                                      In generated documentation a separate
- *                                      "Login" Block will be generated.
+ * @apiBody (Login) {String} pass      Only logged in users can post this.
+ *                                     In generated documentation a separate
+ *                                     "Login" Block will be generated.
  *
- * @apiParam {Object} [address]         Optional nested address object.
- * @apiParam {String} [address[street]] Optional street and number.
- * @apiParam {String} [address[zip]]    Optional zip code.
- * @apiParam {String} [address[city]]   Optional city.
+ * @apiBody {Object} [address]         Optional nested address object.
+ * @apiBody {String} [address[street]] Optional street and number.
+ * @apiBody {String} [address[zip]]    Optional zip code.
+ * @apiBody {String} [address[city]]   Optional city.
  */</code></pre>
     </article>
 
