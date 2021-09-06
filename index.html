@@ -291,8 +291,8 @@ This is a comment.
 
     <article id="run">
         <h2>Run</h2>
-        <pre><code>apidoc -i myapp/ -o apidoc/ -t mytemplate/</code></pre>
-        <p>Creates an apiDoc of all files within dir <code>myapp/</code>, uses template from dir <code>mytemplate/</code> and put all output to dir <code>apidoc/</code>.</p>
+        <pre><code>apidoc -i src -o apidoc</code></pre>
+        <p>Creates an apiDoc of all files within dir <code>src</code>, using the default template and put all output to <code>apidoc</code> directory.</p>
         <p>Without any parameter, apiDoc generate a documentation from all <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code> files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
     </article>
 
@@ -579,14 +579,14 @@ This is a comment.
 -->
 <section id="examples">
     <h1>Examples</h1>
-
-    <p>An introduction Presentation with a small example can be found at <a href="https://speakerdeck.com/rottmann/api-documentation" target="_blank" title="Introduction with a small example">speakerdeck.com</a>.</p>
+    <h3>
+      <a href="example/" class="button" title="demo">Go to live demo</a>
+      <a href="https://speakerdeck.com/rottmann/api-documentation" target="_blank" title="Introduction with a small example" class="button">See presentation</a>
+    </h3>
 
     <article id="example-basic">
         <h2>Basic</h2>
         <p>In this basic example we have a small project file and an apidoc.json.</p>
-        <p><a href="example_basic/">View example output</a></p>
-        <p><br></p>
 
         <p><a href="source/example_basic/apidoc.json">apidoc.json</a></p>
         <pre><code>{
@@ -639,7 +639,6 @@ This is a comment.
     <article id="example-inherit">
         <h2>Inherit</h2>
         <p>Using inherit, you can define reusable snippets of your documentation.</p>
-        <p><a href="example_inherit/">View example output</a></p>
         <p><br></p>
 
         <p><a href="source/example_inherit/apidoc.json">apidoc.json</a></p>
@@ -716,7 +715,6 @@ This is a comment.
     <article id="example-versioning">
         <h2>Versioning</h2>
         <p>A useful feature provided by apiDoc is the ability to maintain the documentation for all previous versions and the latest version of the API. This makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and update their code accordingly.</p>
-        <p><a href="example_versioning/">View example output</a></p>
         <p>In the example, click top right on select box (the main version) and select <code>Compare all with predecessor</code>.</p>
         <ul>
             <li>The main navigation mark all changed methods with a green bar.</li>
@@ -800,16 +798,11 @@ This is a comment.
 <!-- ============================================================ -->
 
     <article id="example-full">
-        <h2>Full example</h2>
-        <p>This is a complex example with <code>inherit</code>, <code>versioning</code> file and history file <code>_apidoc.js</code>, explanation is within code and generated documentation.</p>
-        <p><a href="example/">View example output</a></p>
-        <p><br></p>
-        <p>Files:</p>
-        <ul>
-            <li><a href="source/example_full/_apidoc.js">_apidoc.js</a></li>
-            <li><a href="source/example_full/example.js">example.js</a></li>
-            <li><a href="source/example_full/apidoc.json">apidoc.json</a></li>
-        </ul>
+      <h2>Full example</h2>
+      <p>This is a complex example with <code>inherit</code>, <code>versioning</code> file and history file <code>_apidoc.js</code>, explanation is within code and generated documentation.</p>
+      <p><a href="example/">View example output</a></p>
+      <p><br></p>
+      <p>All files used for this example can be found <a href='https://github.com/apidoc/apidoc/tree/master/example'>in the example folder</a></p>
     </article>
 </section>
 
