@@ -462,12 +462,8 @@ This is a comment.
         <td>Prefix for api path (endpoints), e.g. <code>https://api.github.com/v1</code></td>
       </tr>
       <tr>
-        <td class="code">useHostUrlAsSampleUrl</td>
-        <td>If set to true, the hosting URL is used as <code>sampleUrl</code>. By default, the value is false.</td>
-      </tr>
-      <tr>
         <td class="code" id="configuration-settings-sample-url">sampleUrl</td>
-        <td>If set (overrides <code>useHostUrlAsSampleUrl</code>), a form to test an api method (send a request) will be visible. See <a href="#param-api-sample-request">@apiSampleRequest</a> for more details.</td>
+        <td>If set to an URL, a form to test an api method (send a request) will be visible. If set to <code>true</code>, the form will be visible and the same URL as the current document will be used. If set to <code>false</code> or not defined, no form will be generated. See <a href="#param-api-sample-request">@apiSampleRequest</a> for finer control of where this form is generated and how.</td>
       </tr>
 
       <tr>
