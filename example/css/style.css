@@ -2,8 +2,7 @@
  * Content
  * ------------------------------------------------------------------------------------------ */
 body {
-  min-width: 980px;
-  max-width: 1280px;
+  max-width: 90%;
 }
 
 body, p, a, div, th, td {
@@ -12,9 +11,18 @@ body, p, a, div, th, td {
   font-size: 16px;
 }
 
+@media (min-width: 1200px) {
+  body.container-fluid {
+    padding-right: 0px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+}
+
 td.code {
   font-size: 14px;
-  font-family: "Source Code Pro";
+  font-family: "Source Code Pro", monospace;
   font-style: normal;
   font-weight: 400;
 }
@@ -22,7 +30,7 @@ td.code {
 #content {
   padding-top: 16px;
   z-Index: -1;
-  margin-left: 270px;
+  margin-left: 18%;
 }
 
 p {
@@ -57,7 +65,6 @@ section h1 {
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
-  padding-bottom: 14px;
   margin: 0 0 20px 0;
   padding: 0;
 }
@@ -114,7 +121,7 @@ th {
 
 td {
   vertical-align: top;
-  padding: 2px 8px;
+  padding: 10px 8px 0 8px;
   border: #e0e0e0 1px solid;
 }
 
@@ -126,6 +133,9 @@ td {
 
 .label-optional {
   float: right;
+  background-color: grey;
+  margin-top: 4px;
+  user-select: none;
 }
 
 .open-left {
@@ -147,7 +157,6 @@ td {
   font-weight: 700;
   font-size: 32px;
   line-height: 40px;
-  padding-bottom: 14px;
   margin: 0 0 20px 0;
   padding: 0;
 }
@@ -161,107 +170,56 @@ td {
 }
 
 /* ------------------------------------------------------------------------------------------
- * pre / code
+ * Request type
  * ------------------------------------------------------------------------------------------ */
-pre {
-  background-color: #292b36;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 6px;
-  position: relative;
-  margin: 10px 0 20px 0;
-}
-
-pre.language-json {
-  overflow: auto;
-}
-
-pre.language-html {
-  margin: 40px 0 20px 0;
-}
-
-pre.language-html:before {
-  content: attr(data-type);
-  position: absolute;
-  top: -30px;
-  left: 0;
+.type {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 15px;
   display: inline-block;
-  padding: 2px 5px;
+  margin: 0 0 5px 0;
+  padding: 4px 5px;
   border-radius: 6px;
   text-transform: uppercase;
   background-color: #3387CC;
   color: #ffffff;
 }
 
-pre.language-html[data-type="get"]:before {
+.type__get {
   background-color: green;
 }
 
-pre.language-html[data-type="put"]:before {
+.type__put {
   background-color: #e5c500;
 }
 
-pre.language-html[data-type="post"]:before {
+.type__post {
   background-color: #4070ec;
 }
 
-pre.language-html[data-type="delete"]:before {
+.type__delete {
   background-color: #ed0039;
 }
-
-pre.language-api .str {
-  color: #ffffff;
-}
-
-pre.language-api .pln,
-pre.language-api .pun {
-  color: #65B042;
-}
-
-pre code {
-  display: block;
-  font-size: 14px;
-  font-family: "Source Code Pro";
-  font-style: normal;
-  font-weight: 400;
-  word-wrap: normal;
-  white-space: pre;
-}
-
-/*
-pre.language-json {
-  background: #f5f5f5;
-  border: #e0e0e0 1px solid;
-}
-
-pre.language-json .pln,
-pre.language-json .pun {
-  color: #3a3a3a;
-}
-*/
 
 /* ------------------------------------------------------------------------------------------
  * Sidenav
  * ------------------------------------------------------------------------------------------ */
 .sidenav {
-  width: 228px;
+  width: 15%;
   margin: 0;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   position: fixed;
-  top: 0;
+  top: 50px;
   left: 0;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
   background-color: #f5f5f5;
+  z-index: 10;
 }
 
 .sidenav > li > a {
   display: block;
-  width: 192px;
   margin: 0;
   padding: 2px 11px;
   border: 0;
@@ -270,6 +228,11 @@ pre.language-json .pun {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
   font-size: 14px;
+}
+
+.sidenav > li.nav-header {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .sidenav > li.nav-header > a {
@@ -282,17 +245,11 @@ pre.language-json .pun {
   background-color: #ffffff;
 }
 
-.sidenav > li.nav-header.active > a {
-  background-color: #0088cc;
-}
-
-.sidenav > .active > a {
-  position: relative;
-  z-index: 2;
-}
-
-.sidenav > li > a:hover {
-  background-color: #ffffff;
+.sidenav > li.active > a {
+    position: relative;
+    z-index: 2;
+    background-color: #0088cc;
+    color: #ffffff;
 }
 
 .sidenav > li.has-modifications a {
@@ -301,6 +258,34 @@ pre.language-json .pun {
 
 .sidenav > li.is-new a {
   border-left: #e5e5e5 4px solid;
+}
+
+/* ------------------------------------------------------------------------------------------
+ * Side nav search
+ * ------------------------------------------------------------------------------------------ */
+.sidenav-search {
+  width: 15%;
+  left: 0px;
+  position: fixed;
+  padding: 16px 20px 10px 20px;
+  background-color: #F5F5F5;
+  z-index: 11;
+}
+
+.sidenav-search .search {
+  height: 26px;
+}
+
+.search-reset {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  right: 28px;
+  top: 17px;
+  background-color: #fff;
 }
 
 /* ------------------------------------------------------------------------------------------
@@ -487,6 +472,12 @@ tr.del td {
  * ------------------------------------------------------------------------------------------ */
 ul.nav-tabs {
   margin: 0;
+}
+
+p.deprecated span{
+  color: #ff0000;
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 /* ------------------------------------------------------------------------------------------

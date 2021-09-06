@@ -1,31 +1,47 @@
 define([
-    './locales/de.js'
-], function() {
-    var locales = {};
-    for(index in arguments)
-    {
-        for(property in arguments[index])
-        {
-            locales[property] = arguments[index][property];
-        } // for
-    } // for
+  './locales/ca.js',
+  './locales/cs.js',
+  './locales/de.js',
+  './locales/es.js',
+  './locales/fr.js',
+  './locales/it.js',
+  './locales/nl.js',
+  './locales/pl.js',
+  './locales/pt_br.js',
+  './locales/ro.js',
+  './locales/ru.js',
+  './locales/tr.js',
+  './locales/vi.js',
+  './locales/zh.js',
+  './locales/zh_cn.js',
+], function () {
+  const langId = (navigator.language || navigator.userLanguage).toLowerCase().replace('-', '_');
+  let language = langId.substr(0, 2);
+  const locales = {};
 
-    var language = ((navigator.language) ? navigator.language : navigator.userLanguage).substr(0, 2).toLowerCase();
-    if( ! locales['en']) locales['en'] = {};
-    if( ! locales[language]) language = 'en';
+  for (const index in arguments) {
+    for (const property in arguments[index]) { locales[property] = arguments[index][property]; }
+  }
+  if (!locales.en) { locales.en = {}; }
 
-    var locale = locales[language];
+  if (!locales[langId] && !locales[language]) { language = 'en'; }
 
-    var __ = function(text)
-    {
-        var index = locale[text];
-        if(index === undefined) return text;
-        return index;
-    }; // __
+  let locale = locales[langId] ? locales[langId] : locales[language];
 
-    return {
-        __: __,
-        locales: locales,
-        locale: locale
-    };
+  function __ (text) {
+    const index = locale[text];
+    if (index === undefined) { return text; }
+    return index;
+  }
+
+  function setLanguage (language) {
+    locale = locales[language];
+  }
+
+  return {
+    __: __,
+    locales: locales,
+    locale: locale,
+    setLanguage: setLanguage,
+  };
 });
