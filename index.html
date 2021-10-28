@@ -813,10 +813,10 @@ This is a comment.
 
     <article id="param-api">
         <h2>@api</h2>
-        <pre><code>@api {method} path [title]</code></pre>
+        <pre><code>@api {method} path title</code></pre>
         <p><strong>Required!</strong></p>
         <p>Without that indicator, apiDoc parser ignore the documentation block.</p>
-        <p>The only exception are documentation blocks defined by  <code>@apiDefine</code>, they not required <code>@api</code>.</p>
+        <p>The only exception are documentation blocks defined by  <code>@apiDefine</code>, they do not require <code>@api</code>.</p>
         <p>Usage: <code>@api {get} /user/:id Users unique ID.</code></p>
 
         <table>
@@ -839,7 +839,7 @@ This is a comment.
                 <td>Request Path.</td>
             </tr>
             <tr>
-                <td class="code">title <span class="label label-optional">optional</span></td>
+                <td class="code">title</td>
                 <td>A short title. (used for navigation and article header)</td>
             </tr>
             </tbody>
@@ -847,7 +847,7 @@ This is a comment.
 
         <p>Example:</p>
         <pre class="example"><code>/**
- * @api {get} /user/:id
+ * @api {get} /user/:id Get user info
  */</code></pre>
     </article>
 
