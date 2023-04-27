@@ -31,7 +31,7 @@
 
         <div id="exampleTab">
             <ul class="resp-tabs-list">
-                <li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, ...</li>
+                <li title="C#, Go, Dart, Java, JavaScript, PHP, TypeScript (all DocStyle capable languages)">Java, JavaScript, PHP, …</li>
                 <li title="CoffeeScript">CoffeeScript</li>
                 <li title="Elixir">Elixir</li>
                 <li title="Erlang">Erlang</li>
@@ -155,7 +155,7 @@
             </div>
         </div>
 
-        <p>apiDoc gives you the ability to attach a version number to an API so you can easily track changes between versions.</p>
+        <p>apiDoc gives you the ability to attach a version number to an API, so that you can easily track changes between versions.</p>
     </div>
 </header>
 
@@ -292,8 +292,8 @@ This is a comment.
     <article id="run">
         <h2>Run</h2>
         <pre><code>apidoc -i src -o apidoc</code></pre>
-        <p>Creates an apiDoc of all files within dir <code>src</code>, using the default template and put all output to <code>apidoc</code> directory.</p>
-        <p>Without any parameter, apiDoc generate a documentation from all <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code> files in current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
+        <p>Creates an apiDoc of all files within dir <code>src</code>, using the default template, and puts all output to <code>apidoc</code> directory.</p>
+        <p>Without any parameter, apiDoc generates a documentation from all <code>.cs</code> <code>.dart</code> <code>.erl</code> <code>.go</code> <code>.java</code> <code>.js</code> <code>.php</code> <code>.py</code> <code>.rb</code> <code>.ts</code> files in the current dir (incl. subdirs) and writes the output to <code>./doc/</code>.</p>
     </article>
 
     <article id="CLI">
@@ -410,7 +410,7 @@ This is a comment.
 
   <article id="configuration">
     <h2>Configuration (apidoc.json)</h2>
-    <p>The optional <code>apidoc.json</code> in your projects root dir includes common information about your project like title, short description, version and configuration options like <a href="#headerfooter">header / footer</a> settings or template specific options.</p>
+    <p>The optional <code>apidoc.json</code> in your projects root dir includes common information about your project like title, short description, version, and configuration options like <a href="#headerfooter">header / footer</a> settings or template specific options.</p>
     <p><a href="source/example_full/apidoc.json">apidoc.json</a></p>
     <pre><code>{
   "name": "example",
@@ -419,7 +419,7 @@ This is a comment.
   "title": "Custom apiDoc browser title",
   "url" : "https://api.github.com/v1"
 }</code></pre>
-    <p>If you use a <code>package.json</code> (e.g. in a node.js project), all <code>apidoc.json</code> settings can be done in <code>package.json</code> too, just add them under the <code>"apidoc": { }</code> parameter.</p>
+    <p>If you use a <code>package.json</code> (e.g., in a node.js project), all <code>apidoc.json</code> settings can be done in <code>package.json</code> too, just add them under the <code>"apidoc": { }</code> parameter.</p>
     <p>package.json</p>
     <pre><code>{
   "name": "example",
@@ -442,15 +442,15 @@ This is a comment.
       <tbody>
       <tr>
         <td class="code">name</td>
-        <td>Name of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+        <td>Name of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc tries to determine the value from <code>package.json</code>.</td>
       </tr>
       <tr>
         <td class="code">version</td>
-        <td>Version of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+        <td>Version of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc tries to determine the value from <code>package.json</code>.</td>
       </tr>
       <tr>
         <td class="code">description</td>
-        <td>Introduction of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc try to determine the the value from <code>package.json</code>.</td>
+        <td>Introduction of your project.<br>If no <code>apidoc.json</code> with the field exists, then apiDoc tries to determine the value from <code>package.json</code>.</td>
       </tr>
       <tr>
         <td class="code">title</td>
@@ -458,11 +458,11 @@ This is a comment.
       </tr>
       <tr>
         <td class="code">url</td>
-        <td>Prefix for api path (endpoints), e.g. <code>https://api.github.com/v1</code></td>
+        <td>Prefix for api path (endpoints), e.g., <code>https://api.github.com/v1</code></td>
       </tr>
       <tr>
         <td class="code" id="configuration-settings-sample-url">sampleUrl</td>
-        <td>If set to an URL, a form to test an api method (send a request) will be visible. If set to <code>true</code>, the form will be visible and the same URL as the current document will be used. If set to <code>false</code> or not defined, no form will be generated. See <a href="#param-api-sample-request">@apiSampleRequest</a> for finer control of where this form is generated and how.</td>
+        <td>If set to a URL, a form to test an api method (send a request) will be visible. If set to <code>true</code>, the form will be visible and the same URL as the current document will be used. If set to <code>false</code> or not defined, no form will be generated. See <a href="#param-api-sample-request">@apiSampleRequest</a> for finer control of where this form is generated and how.</td>
       </tr>
 
       <tr>
@@ -543,7 +543,7 @@ This is a comment.
       <tr>
         <td class="code">&nbsp;&nbsp;&nbsp;&nbsp;showRequiredLabels</td>
         <td class="code">Boolean</td>
-        <td>Display "required" labels for non optional parameters. Default: <code>false</code></td>
+        <td>Display "required" labels for non-optional parameters. Default: <code>false</code></td>
       </tr>
       </tbody>
     </table>
@@ -620,11 +620,11 @@ This is a comment.
  *     }
  */</code></pre>
 
-        <p>A documentation block starts with <code>/**</code> and end with <code>*/</code>.</p>
-        <p>This example describes a <code>GET</code> Method to request the User Information by the user's <code>id</code>.</p>
+        <p>A documentation block starts with <code>/**</code> and ends with <code>*/</code>.</p>
+        <p>This example describes a <code>GET</code> method to request the User information by the user's <code>id</code>.</p>
         <p><code>@api {get} /user/:id Request User information</code> is mandatory, without <code>@api</code> apiDoc ignores a documentation block.</p>
         <p><code>@apiName</code> must be a unique name and should always be used.<br>
-        Format: <i>method</i> + <i>path</i> (e.g. Get + User)</p>
+        Format: <i>method</i> + <i>path</i> (e.g., Get + User)</p>
         <p><code>@apiGroup</code> should always be used, and is used to group related APIs together.</p>
         <p>All other fields are optional, look at their description under <a href="#params">apiDoc-Params</a>.</p>
     </article>
@@ -692,28 +692,31 @@ This is a comment.
  * <code class="important">@apiUse UserNotFoundError</code>
  */</code></pre>
         <p>
-            In this example, a block named <code>UserNotFoundError</code> is defined with <code>@apiDefine</code>.<br>
-            That block could be used many times with <code>@apiUse UserNotFoundError</code>.
+            In this example, <code>@apiDefine</code> is used to define a block named <code>UserNotFoundError</code>,
+            which can be referenced repeatedly using <code>@apiUse UserNotFoundError</code>.
         </p>
-        <p>In the generated output, both methods <code>GET</code> and <code>PUT</code> will have the complete <code>UserNotFoundError</code> documentation.</p>
-        <p><br></p>
         <p>
-            To define an inherit block, use <code>apiDefine</code>.<br>
-            to reference a block, use <code>apiUse</code>.
-            <code>apiGroup</code> and <code>apiPermission</code> are use commands to, but in their context the not inherit parameters, only title and description (in combination with apiVersion).
+            The complete documentation of <code>UserNotFoundError</code> will be included in both <code>GET</code> and <code>PUT</code> methods in the generated output.
         </p>
-        <p><strong>Inheritation only works with 1 parent</strong>, more levels would make the inline code unreadable and changes really complex.</p>
+        <p>
+            To create an inheritable block, use <code>apiDefine</code>.<br>
+            To reference a block, use <code>apiUse</code>.
+            The <code>apiGroup</code> and <code>apiPermission</code> use similar syntax, but they do not inherit any parameters except for the title and description (in combination with <code>apiVersion</code>).
+        </p>
+        <p>
+            <strong>Inheritance only works with one parent</strong>, using multiple levels would make the inline code unreadable and changes very complex.
+        </p>
     </article>
 
 <!-- ============================================================ -->
 
     <article id="example-versioning">
         <h2>Versioning</h2>
-        <p>A useful feature provided by apiDoc is the ability to maintain the documentation for all previous versions and the latest version of the API. This makes it possible to compare a methods version with its predecessor. Frontend Developer can thus simply see what have changed and update their code accordingly.</p>
-        <p>In the example, click top right on select box (the main version) and select <code>Compare all with predecessor</code>.</p>
+        <p>A useful feature provided by apiDoc is the ability to maintain the documentation for all previous versions and the latest version of the API. This makes it possible to compare a methods' version with its predecessor. Frontend Developer can thus simply see what have changed and update their code accordingly.</p>
+        <p>In the example, click on the dropdown box in the top right (the main version) and select <code>Compare all with predecessor</code>.</p>
         <ul>
             <li>The main navigation mark all changed methods with a green bar.</li>
-            <li>Each method show the actual difference compare to its predecessor.</li>
+            <li>Each method shows the actual difference compare to its predecessor.</li>
             <li>Green marks contents that were added (in this case title text changed and field <code>registered</code> was added).</li>
             <li>Red marks contents that were removed.</li>
         </ul>
@@ -728,7 +731,7 @@ This is a comment.
 }</code></pre>
         <p><br></p>
 
-        <p>In order to avoid code bloat when API documentation changes over time, it is recommended to use a separate history file named <code>_apidoc.js</code>. Before you change your documentation block, copy the old documentation to to this file, apiDoc will include the historical information automatically.</p>
+        <p>In order to avoid code bloat when API documentation changes over time, it is recommended to use a separate history file named <code>_apidoc.js</code>. Before you change your documentation block, copy the old documentation to this file, apiDoc will include the historical information automatically.</p>
         <p><a href="source/example_versioning/_apidoc.js">_apidoc.js</a></p>
         <pre><code>/**
  * @api {get} /user/:id Get User information
@@ -759,7 +762,7 @@ This is a comment.
 
         <p><a href="source/example_versioning/example.js">example.js</a> (your current project file)</p>
         <pre><code>/**
- * @api {get} /user/:id Get User information and Date of Registration.
+ * @api {get} /user/:id Get User information and date of registration.
  * <code class="important">@apiVersion 0.2.0</code>
  * @apiName GetUser
  * @apiGroup User
@@ -785,9 +788,9 @@ This is a comment.
  *       "error": "UserNotFound"
  *     }
  */</code></pre>
-        <p>Important is to set the version with <code>@apiVersion</code> on every documentation block.</p>
+        <p>It is important to set the version with <code>@apiVersion</code> on every documentation block.</p>
         <p><br></p>
-        <p>The version can be used on every block, also on inherit blocks. You don't have to change the version on an inherit block, the parser check automatically for the nearest predecessor.</p>
+        <p>The version can be used on every block, including inherit-blocks. You don't have to change the version on an inherit-block, the parser automatically checks for the nearest predecessor.</p>
     </article>
 
 <!-- ============================================================ -->
@@ -819,8 +822,8 @@ This is a comment.
         <h2>@api</h2>
         <pre><code>@api {method} path title</code></pre>
         <p><strong>Required!</strong></p>
-        <p>Without that indicator, apiDoc parser ignore the documentation block.</p>
-        <p>The only exception are documentation blocks defined by  <code>@apiDefine</code>, they do not require <code>@api</code>.</p>
+        <p>Without that indicator, the apiDoc parser ignores the documentation block.</p>
+        <p>The only exception are documentation blocks defined by <code>@apiDefine</code>, they do not require <code>@api</code>.</p>
         <p>Usage: <code>@api {get} /user/:id Users unique ID.</code></p>
 
         <table>
@@ -834,8 +837,8 @@ This is a comment.
             <tr>
                 <td class="code">method</td>
                 <td>
-                    Request method name: <code>DELETE</code>, <code>GET</code>, <code>POST</code>, <code>PUT</code>, ...<br>
-                    More info <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">Wikipedia HTTP-Request_methods</a>
+                    Request method name: <code>DELETE</code>, <code>GET</code>, <code>POST</code>, <code>PUT</code>, …<br>
+                    More info <a href="http://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods">Wikipedia HTTP-Request methods</a>
                 </td>
             </tr>
             <tr>
@@ -874,7 +877,7 @@ This is a comment.
             <tr>
                 <td class="code">{type}<span class="label label-optional">optional</span></td>
                 <td>
-                    Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    Parameter type, e.g., <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
                 </td>
             </tr>
             <tr>
@@ -907,7 +910,7 @@ This is a comment.
             <tr>
                 <td class="code">[field]</td>
                 <td>
-                    Fieldname with brackets define the Variable as optional.
+                    Fieldname with brackets define the variable as optional.
                 </td>
             </tr>
             <tr>
@@ -919,7 +922,7 @@ This is a comment.
             <tr>
                 <td class="code">=defaultValue<span class="label label-optional">optional</span></td>
                 <td>
-                    The parameters default value.
+                    The parameters' default value.
                 </td>
             </tr>
             <tr>
@@ -939,7 +942,7 @@ This is a comment.
  * @apiBody {String} country="DE"      Mandatory with default value "DE".
  * @apiBody {Number} [age=18]          Optional Age with default 18.
  *
- * @apiBody (Login) {String} pass      Only logged in users can post this.
+ * @apiBody (Login) {String} pass      Only logged-in users can post this.
  *                                     In generated documentation a separate
  *                                     "Login" Block will be generated.
  *
@@ -985,7 +988,7 @@ This is a comment.
             <tr>
                 <td class="code">description <span class="label label-optional">optional</span></td>
                 <td>
-                    Detailed Description start at the next line, multiple lines can be used. Only used for named functions like <code>@apiPermission</code>.
+                    Detailed description starts at the next line, multiple lines can be used. Only used for named functions like <code>@apiPermission</code>.
                 </td>
             </tr>
             </tbody>
@@ -1004,7 +1007,7 @@ This is a comment.
 
         <pre class="example"><code>/**
  * @apiDefine admin User access only
- * This optional description belong to to the group admin.
+ * This optional description belongs to the group admin.
  */
 
 /**
@@ -1111,7 +1114,7 @@ This is a comment.
             <tr>
                 <td class="code">{type}<span class="label label-optional">optional</span></td>
                 <td>
-                    Return type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    Return type, e.g., <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
                 </td>
             </tr>
             <tr>
@@ -1271,7 +1274,7 @@ This is a comment.
   <article id="param-api-header">
     <h2>@apiHeader</h2>
     <pre><code>@apiHeader [(group)] [{type}] [field=defaultValue] [description]</code></pre>
-    <p>Describe a parameter passed to you API-Header e.g. for Authorization.</p>
+    <p>Describe a parameter passed to you API-Header, e.g., for Authorization.</p>
     <p class="similar-operation">Similar operation as <a href="#param-api-param">@apiParam</a>, only the output is above the parameters.</p>
     <p>Usage: <code>@apiHeader (MyHeaderGroup) {String} authorization Authorization value.</code></p>
 
@@ -1294,7 +1297,7 @@ This is a comment.
       <tr>
         <td class="code">{type}<span class="label label-optional">optional</span></td>
         <td>
-          Parameter type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+          Parameter type, e.g., <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
         </td>
       </tr>
       <tr>
@@ -1385,8 +1388,8 @@ This is a comment.
         <h2>@apiIgnore</h2>
         <pre><code>@apiIgnore [hint]</code></pre>
         <p><strong>Place it on top of a block.</strong></p>
-        <p>A block with <code>@apiIgnore</code> will not be parsed. It is usefull, if you leave outdated or not finished Methods in your source code and you don't want to publish it into the documentation.</p>
-        <p>Usage: <code>@apiIgnore Not finished Method</code></p>
+        <p>A block with <code>@apiIgnore</code> will not be parsed. It is useful in case you leave outdated or not finished methods in your source code, and you don't want to publish them into the documentation.</p>
+        <p>Usage: <code>@apiIgnore Not finished method</code></p>
 
         <table>
             <thead>
@@ -1407,7 +1410,7 @@ This is a comment.
 
         <p>Example:</p>
         <pre class="example"><code>/**
- * @apiIgnore Not finished Method
+ * @apiIgnore Not finished method
  * @api {get} /user/:id
  */</code></pre>
     </article>
@@ -1418,8 +1421,8 @@ This is a comment.
         <h2>@apiName</h2>
         <pre><code>@apiName name</code></pre>
         <p><strong>Should always be used.</strong></p>
-        <p>Defines the name of the method documentation block. Names will be used for the Sub-Navigation in the
-        generated output. Structure definition not need <code>@apiName</code>.</p>
+        <p>Defines the name of the method documentation block. Names will be used for the sub-navigation in the
+        generated output. Structure definitions don't need <code>@apiName</code>.</p>
         <p>Usage: <code>@apiName GetUser</code></p>
 
         <table>
@@ -1434,7 +1437,7 @@ This is a comment.
                 <td class="code">name</td>
                 <td>
                     Unique name of the method. Same name with different <code>@apiVersion</code> can be defined.<br>
-                    Format: <i>method</i> + <i>path</i> (e.g. Get + User), only a proposal, you can name as you want.<br>
+                    Format: <i>method</i> + <i>path</i> (e.g., Get + User), only a proposal, you can name as you want.<br>
                     Also used as navigation title.<br>
                 </td>
             </tr>
@@ -1453,7 +1456,7 @@ This is a comment.
     <article id="param-api-param">
         <h2>@apiParam</h2>
         <pre><code>@apiParam [(group)] [{type}] [field=defaultValue] [description]</code></pre>
-        <p>Describe a parameter passed to you API-Method.</p>
+        <p>Describe a parameter passed to your API-Method.</p>
         <p>Usage: <code>@apiParam (MyGroup) {Number} id Users unique ID.</code></p>
 
         <p>For nested parameters, use square bracket notation (<code>[]</code>).</p>
@@ -1477,7 +1480,7 @@ This is a comment.
             <tr>
                 <td class="code">{type}<span class="label label-optional">optional</span></td>
                 <td>
-                    Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    Parameter type, e.g., <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
                 </td>
             </tr>
             <tr>
@@ -1547,7 +1550,7 @@ This is a comment.
  * @apiParam {String} country="DE"      Mandatory with default value "DE".
  * @apiParam {Number} [age=18]          Optional Age with default 18.
  *
- * @apiParam (Login) {String} pass      Only logged in users can post this.
+ * @apiParam (Login) {String} pass      Only logged-in users can post this.
  *                                      In generated documentation a separate
  *                                      "Login" Block will be generated.
  *
@@ -1673,7 +1676,7 @@ This is a comment.
                 <tr>
                     <td class="code">{type}<span class="label label-optional">optional</span></td>
                     <td>
-                        Parameter type, e.g. <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                        Parameter type, e.g., <code>{Boolean}</code>, <code>{Number}</code>, <code>{String}</code>, <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
                     </td>
                 </tr>
                 <tr>
@@ -1745,7 +1748,7 @@ This is a comment.
     <p>Use this parameter in conjunction with the apidoc.json configuration parameter <a href="#configuration-settings-sample-url">sampleUrl</a>.</p>
     <p>If <code>sampleUrl</code> is set, all methods will have the api test form (the endpoint from <a href="#param-api">@api</a> will be appended).<br>Without sampleUrl only methods with <code>@apiSampleRequest</code> will have a form.</p>
     <p>if <code>@apiSampleRequest url</code> is set in a method block, this url will be used for the request (it overrides sampleUrl when it starts with http).</p>
-    <p>If <code>sampleUrl</code> is set and you don't want a method with a test form, then add <code>@apiSampleRequest off</code> to the documentation block.
+    <p>If <code>sampleUrl</code> is set, and you don't want a method with a test form, then add <code>@apiSampleRequest off</code> to the documentation block.
     <p>Usage: <code>@apiSampleRequest http://test.github.com</code></p>
 
     <table>
@@ -1843,7 +1846,7 @@ This is a comment.
             <tr>
                 <td class="code">{type}<span class="label label-optional">optional</span></td>
                 <td>
-                    Return type, e.g. <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), ...
+                    Return type, e.g., <code>{Boolean}</code>,  <code>{Number}</code>,  <code>{String}</code>,  <code>{Object}</code>, <code>{String[]}</code> (array of strings), …
                 </td>
             </tr>
             <tr>
@@ -1986,7 +1989,7 @@ This is a comment.
     <article id="param-api-version">
         <h2>@apiVersion</h2>
         <pre><code>@apiVersion version</code></pre>
-        <p>Set the version of an documentation block. Version can also be used in <code>@apiDefine</code>.</p>
+        <p>Set the version of a documentation block. Version can also be used in <code>@apiDefine</code>.</p>
         <p>Blocks with same group and name, but different versions can be compared in the generated output, so you or a frontend developer can retrace what changes in the API since the last version.</p>
         <p>Usage: <code>@apiVersion 1.6.2</code></p>
 
